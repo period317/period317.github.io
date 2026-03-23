@@ -9,7 +9,7 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         :root {
-            --bg: #f7f7f5;
+            --bg: #ffffff;
             --surface: #ffffff;
             --border: rgba(0,0,0,0.07);
             --border-mid: rgba(0,0,0,0.12);
@@ -43,9 +43,7 @@
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(247,247,245,0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #ffffff;
             border-bottom: 1px solid var(--border);
             height: var(--header-h);
             display: flex;
@@ -71,10 +69,9 @@
             position: sticky;
             top: var(--header-h);
             z-index: 190;
-            background: rgba(247,247,245,0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.04);
             height: var(--nav-h);
             display: flex;
             overflow-x: auto;
@@ -97,7 +94,7 @@
             white-space: nowrap;
             position: relative;
             transition: color 0.2s;
-            letter-spacing: -0.2px;
+            letter-spacing: 0;
         }
 
         .nav-btn.active {
@@ -128,6 +125,7 @@
         /* ── SECTION ── */
         .section {
             padding: 2.5rem 1.25rem;
+            background: #ffffff;
         }
 
         .section + .section {
@@ -137,8 +135,8 @@
         .section-label {
             font-size: 0.6875rem;
             font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--text-3);
             margin-bottom: 1rem;
         }
@@ -153,17 +151,18 @@
 
         /* ── HERO ── */
         .hero {
-            padding: 3rem 1.25rem 2rem;
+            padding: 1.75rem 1.25rem 1.5rem;
+            background: #ffffff;
             border-bottom: 1px solid var(--border);
         }
 
         .hero-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--pink);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero h1 {
@@ -172,7 +171,7 @@
             line-height: 1.15;
             letter-spacing: -0.5px;
             color: var(--text);
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.875rem;
         }
 
         .hero h1 em {
@@ -184,7 +183,7 @@
             font-size: 0.9375rem;
             color: var(--text-2);
             line-height: 1.75;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
             max-width: 480px;
         }
 
@@ -243,7 +242,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            background: var(--surface);
+            background: #fdfdfd;
         }
 
         .stat-item {
@@ -263,7 +262,7 @@
         }
 
         .stat-label {
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             color: var(--text-3);
             margin-top: 0.25rem;
             line-height: 1.4;
@@ -273,7 +272,7 @@
         .quote-block {
             border-left: 3px solid var(--lavender);
             padding: 1rem 1.25rem;
-            background: var(--surface);
+            background: #fdfdfd;
             border-radius: 0 var(--radius) var(--radius) 0;
         }
 
@@ -293,7 +292,7 @@
 
         /* ── CARDS ── */
         .card {
-            background: var(--surface);
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
@@ -397,7 +396,7 @@
 
         /* ── PRICE TABLE ── */
         .price-table {
-            background: var(--surface);
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
@@ -414,7 +413,7 @@
         .price-row:last-child { border-bottom: none; }
 
         .price-row.highlight {
-            background: var(--bg);
+            background: #fdfdfd;
         }
 
         .price-name {
@@ -430,7 +429,7 @@
         }
 
         .price-badge {
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--mint);
             background: rgba(83,218,191,0.12);
@@ -441,13 +440,13 @@
 
         /* ── BLOG CARD ── */
         .blog-card {
-            background: var(--surface);
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.125rem 1.25rem;
+            padding: 0.875rem 1rem;
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.875rem;
             cursor: pointer;
             transition: all 0.2s;
             text-decoration: none;
@@ -465,8 +464,8 @@
         .blog-tag {
             font-size: 0.6875rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--mauve);
             margin-bottom: 0.375rem;
         }
@@ -495,7 +494,7 @@
 
         /* ── REVIEW ── */
         .review-item {
-            background: var(--surface);
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
@@ -513,8 +512,8 @@
         .review-school {
             font-size: 0.6875rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--blue);
             margin-bottom: 0.5rem;
         }
@@ -533,24 +532,26 @@
 
         /* ── CONSULT CARD ── */
         .consult-banner {
-            background: var(--text);
-            color: #fff;
+            background: #fdfdfd;
+            border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 2rem 1.5rem;
             margin-bottom: 1.5rem;
+            max-width: 640px;
         }
 
         .consult-banner h3 {
-            font-size: 1.375rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.4px;
             line-height: 1.4;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.625rem;
+            color: var(--text);
         }
 
         .consult-banner p {
             font-size: 0.875rem;
-            color: rgba(255,255,255,0.7);
+            color: var(--text-2);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
@@ -562,9 +563,9 @@
 
         .consult-check li {
             font-size: 0.875rem;
-            color: rgba(255,255,255,0.85);
+            color: var(--text-2);
             padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: flex-start;
             gap: 0.625rem;
@@ -577,7 +578,8 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background: rgba(83,218,191,0.3);
+            background: rgba(83,218,191,0.2);
+            border: 1px solid var(--mint);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -596,10 +598,11 @@
 
         /* ── WHY FREE ── */
         .why-free {
-            background: var(--surface);
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.5rem 1.25rem;
+            max-width: 640px;
         }
 
         .why-free h3 {
@@ -638,8 +641,8 @@
             display: flex;
             flex-direction: column;
             gap: 0.375rem;
-            padding: 1rem;
-            background: var(--surface);
+            padding: 0.875rem;
+            background: #fdfdfd;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             text-decoration: none;
@@ -654,8 +657,8 @@
         .media-link-label {
             font-size: 0.6875rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--text-3);
         }
 
@@ -671,7 +674,43 @@
             line-height: 1.5;
         }
 
-        /* ── MODAL ── */
+        /* ── STUDENTS TABLE ── */
+        .students-table {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .st-row {
+            display: grid;
+            grid-template-columns: 60px 60px 80px 1fr;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .st-row:last-child { border-bottom: none; }
+
+        .st-head {
+            background: var(--bg);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-3);
+        }
+
+        .st-row span {
+            font-size: 0.875rem;
+            color: var(--text-2);
+        }
+
+        .st-row span:last-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+                /* ── MODAL ── */
         .modal {
             display: none;
             position: fixed;
@@ -713,8 +752,8 @@
         .modal-school {
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            letter-spacing: 0;
+            text-transform: none;
             color: var(--blue);
             margin-bottom: 0.75rem;
         }
@@ -798,11 +837,9 @@
 
             /* 히어로: 좌우 여백 + 최대 너비 */
             .hero {
-                padding: 6rem 0 5rem;
+                padding: 4rem 4rem 3.5rem;
                 max-width: 1080px;
                 margin: 0 auto;
-                padding-left: 4rem;
-                padding-right: 4rem;
             }
 
             .hero h1 { font-size: 5rem; letter-spacing: -2px; }
@@ -820,8 +857,8 @@
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
                 gap: 4rem;
-                padding-top: 7rem;
-                padding-bottom: 6rem;
+                padding-top: 4rem;
+                padding-bottom: 3.5rem;
             }
 
             #home .hero > * { grid-column: 1; }
@@ -871,8 +908,8 @@
 
             .reviews-grid .review-item { margin-top: 0; }
 
-            /* 상담 배너 최대 너비 */
-            .consult-banner { max-width: 560px; }
+            /* 상담 배너 */
+            .consult-banner { max-width: 640px; }
 
             /* 미디어 링크: 이미 2컬럼이라 OK */
             .media-links { max-width: 480px; }
@@ -982,7 +1019,7 @@
                 <span class="media-link-name">네이버 블로그</span>
                 <span class="media-link-desc">입시 가이드, 에세이, 영화 리뷰</span>
             </a>
-            <a href="https://youtube.com" target="_blank" class="media-link">
+            <a href="https://www.youtube.com/channel/UC6LLKLW14n1foRQ-30JZ2Xg" target="_blank" class="media-link">
                 <span class="media-link-label">YouTube</span>
                 <span class="media-link-name">유튜브 채널</span>
                 <span class="media-link-desc">감독의 말, 영화입시 영상</span>
@@ -1236,8 +1273,20 @@
             <div class="card">
                 <p class="card-title">감독의 말 · 영화입시 영상</p>
                 <p>영화감독 인터뷰 속 명언, 입시 준비 팁, 영화 분석까지 — 유튜브에서 더 자세한 생각을 들어보세요.</p>
-                <a href="https://youtube.com" target="_blank" class="inline-link">유튜브 채널 →</a>
+                <a href="https://www.youtube.com/channel/UC6LLKLW14n1foRQ-30JZ2Xg" target="_blank" class="inline-link">유튜브 채널 →</a>
             </div>
+        </div>
+
+        <div class="content-section">
+            <h3>블로그 전체 보기</h3>
+            <a href="https://blog.naver.com/songtorytelling" target="_blank" class="blog-card">
+                <div class="blog-card-body">
+                    <p class="blog-tag">네이버 블로그</p>
+                    <p class="blog-card-title">피리어드 블로그 전체 보기</p>
+                    <p class="blog-card-desc">강사 소개, 입시 가이드, 영화 리뷰, 수업 관련 글 모두 모아보기</p>
+                </div>
+                <span class="blog-arrow">→</span>
+            </a>
         </div>
     </div>
 
@@ -1265,30 +1314,60 @@
             </div>
         </div>
 
-        <div class="content-section reviews-grid">
-            <div class="review-item" onclick="openModal('modal-r1')">
-                <p class="review-school">한예종 방송영상과 합격 · 2022년</p>
-                <p class="review-text">"처음으로 제가 왜 영화를 하고 싶은지 제대로 정리할 수 있었습니다. 면접장에서 뭘 물어봐도 자신있게 대답할 수 있었던 건 그 덕분이에요."</p>
-                <p class="review-meta">학생 4 · 현역 · 수업기간 6개월 &nbsp; 더 보기 →</p>
-            </div>
+        <div class="content-section">
+            <h3>지금까지의 학생들 (2019~2025)</h3>
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.25rem;line-height:1.7;">많은 경우 다른 학원·과외를 경험하고 소개받아 온 학생들이었습니다. 수업 기간이 짧았던 경우도 많았지만, 입시 종료 전에 그만둔 학생은 한 명도 없었습니다.</p>
 
-            <div class="review-item" onclick="openModal('modal-r2')">
-                <p class="review-school">서경대 · 서울예대 합격 · 2025년</p>
-                <p class="review-text">"재수생으로 5개월 수업을 했습니다. 수업 시간 외에도 늘 연락이 됐고, 덕분에 마음도 많이 안정됐어요."</p>
-                <p class="review-meta">학생 11 · 재수 · 수업기간 5개월 &nbsp; 더 보기 →</p>
-            </div>
-
-            <div class="review-item" onclick="openModal('modal-r3')">
-                <p class="review-school">숭실대 합격 · 2023년</p>
-                <p class="review-text">"피리어드 수업은 다른 학원과 달랐어요. 제 이야기를 정말 오래 들어주시고, 제가 어떤 사람인지 찾아가는 과정이 가장 인상 깊었습니다."</p>
-                <p class="review-meta">학생 9 · 현역 · 수업기간 5개월 &nbsp; 더 보기 →</p>
+            <div class="card" style="margin-top:0.5rem;">
+                <p style="font-size:0.875rem;color:var(--text-2);line-height:1.75;">한국예술종합학교, 중앙대, 서경대, 서울예대, 숭실대, 성균관대, 동아방송대, 백석예대 등에 합격했습니다. 각 학생의 자세한 이야기는 블로그에서 확인하세요.</p>
+                <a href="https://blog.naver.com/songtorytelling" target="_blank" class="inline-link">블로그에서 보기 →</a>
             </div>
         </div>
 
-        <div class="card">
-            <p class="card-title">학생별 상세 후기</p>
-            <p>각 학생의 자세한 이야기는 블로그에서 확인할 수 있습니다.</p>
-            <a href="https://blog.naver.com/songtorytelling" target="_blank" class="inline-link">블로그에서 보기 →</a>
+        <div class="content-section">
+            <h3>수업을 마친 학생들이 공통으로 말하는 것</h3>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h4>"면접 준비가 따로 필요 없었다"</h4>
+                        <p>자기 자신에 대해 정리가 잘 되면, 뭘 물어봐도 대답이 나옵니다. 외운 답이 아니라 자신의 이야기로 면접을 치릅니다.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h4>"기존 학원에서 얻지 못한 걸 얻었다"</h4>
+                        <p>대부분이 학원·과외를 거친 후 소개받아 왔습니다. 피리어드를 시작한 후 다른 곳으로 간 학생은 한 명도 없었습니다.</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <h4>"단순 합격 이상의 것을 얻었다"</h4>
+                        <p>영화가 무엇인지, 자신이 왜 영화를 하고 싶은지, 직업으로서 영화를 한다는 것이 무엇인지 — 입시 이후까지 함께 생각합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.625rem;margin-top:0.625rem;">
+            <a href="https://blog.naver.com/songtorytelling" target="_blank" class="blog-card">
+                <div class="blog-card-body">
+                    <p class="blog-tag">블로그</p>
+                    <p class="blog-card-title">학생별 상세 후기 · 합격 이야기</p>
+                    <p class="blog-card-desc">각 학생의 수업 과정과 합격까지의 이야기를 블로그에서 확인하세요</p>
+                </div>
+                <span class="blog-arrow">→</span>
+            </a>
+            <a href="https://open.kakao.com/me/film_period" target="_blank" class="blog-card">
+                <div class="blog-card-body">
+                    <p class="blog-tag">카카오톡</p>
+                    <p class="blog-card-title">카카오톡 오픈채팅으로 문의</p>
+                    <p class="blog-card-desc">궁금한 점은 부담 없이 채팅으로 먼저 물어보세요</p>
+                </div>
+                <span class="blog-arrow">→</span>
+            </a>
         </div>
     </div>
 
@@ -1321,8 +1400,9 @@
 
         <div class="card">
             <p class="card-title">직접 연락</p>
-            <p style="font-size:0.875rem;color:var(--text-2);">카카오톡 오픈채팅 또는 블로그 메시지로도 문의 가능합니다.</p>
-            <a href="https://blog.naver.com/songtorytelling" target="_blank" class="inline-link">블로그 문의 →</a>
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem;">카카오톡 오픈채팅 또는 블로그 메시지로 문의 가능합니다.</p>
+            <a href="https://open.kakao.com/me/film_period" target="_blank" class="inline-link" style="margin-top:0;">카카오톡 오픈채팅 →</a>
+            <a href="https://blog.naver.com/songtorytelling" target="_blank" class="inline-link" style="margin-top:0.375rem;">블로그 문의 →</a>
         </div>
     </div>
 
@@ -1340,32 +1420,6 @@
 </div>
 
 <!-- MODALS -->
-<div class="modal" id="modal-r1" onclick="closeModalOnBg(event,'modal-r1')">
-    <div class="modal-sheet">
-        <div class="modal-handle"></div>
-        <p class="modal-school">한예종 방송영상과 합격 · 2022년 · 현역 6개월</p>
-        <div class="modal-body">다른 학원에서는 얻지 못했던 것들을 피리어드에서 얻었어요. 단순히 글쓰기 피드백을 받는 게 아니라, 제가 왜 영화를 하고 싶은지, 어떤 사람인지를 처음으로 제대로 정리할 수 있었습니다. 면접장에서 뭘 물어봐도 자신있게 대답할 수 있었던 건 그 덕분이에요.</div>
-        <button class="modal-close-btn" onclick="closeModal('modal-r1')">닫기</button>
-    </div>
-</div>
-
-<div class="modal" id="modal-r2" onclick="closeModalOnBg(event,'modal-r2')">
-    <div class="modal-sheet">
-        <div class="modal-handle"></div>
-        <p class="modal-school">서경대 · 서울예대 합격 · 2025년 · 재수 5개월</p>
-        <div class="modal-body">재수생으로 5개월 수업을 했습니다. 서경대와 서울예대 두 곳 모두 합격했어요. 처음에는 시간이 너무 짧아 걱정했는데, 선생님이 제 상황에 맞게 수업을 설계해주셔서 빠르게 실력을 올릴 수 있었습니다. 수업 시간 외에도 늘 연락이 됐고, 덕분에 마음도 많이 안정됐어요.</div>
-        <button class="modal-close-btn" onclick="closeModal('modal-r2')">닫기</button>
-    </div>
-</div>
-
-<div class="modal" id="modal-r3" onclick="closeModalOnBg(event,'modal-r3')">
-    <div class="modal-sheet">
-        <div class="modal-handle"></div>
-        <p class="modal-school">숭실대 합격 · 2023년 · 현역 5개월</p>
-        <div class="modal-body">5개월 수업으로 숭실대에 합격했습니다. 피리어드 수업은 다른 학원과 달랐어요. 제 이야기를 정말 오래 들어주시고, 제가 어떤 사람인지 찾아가는 과정이 가장 인상 깊었습니다. 그 과정이 결국 면접에서 큰 힘이 됐어요.</div>
-        <button class="modal-close-btn" onclick="closeModal('modal-r3')">닫기</button>
-    </div>
-</div>
 
 <script>
     const pages = document.querySelectorAll('.page');
@@ -1388,19 +1442,7 @@
         btn.addEventListener('click', () => showPage(btn.dataset.page));
     });
 
-    function openModal(id) {
-        document.getElementById(id).classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
 
-    function closeModal(id) {
-        document.getElementById(id).classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function closeModalOnBg(e, id) {
-        if (e.target.classList.contains('modal')) closeModal(id);
-    }
 </script>
 </body>
 </html>
