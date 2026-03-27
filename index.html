@@ -927,6 +927,18 @@
             .section { max-width: 1200px; }
             .hero h1 { font-size: 6rem; }
         }
+        /* ── FORM ── */
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display:block; font-size:0.9375rem; font-weight:700; color:var(--text); margin-bottom:0.75rem; letter-spacing:-0.2px; }
+        .form-desc { font-size:0.8125rem; color:var(--text-3); margin-top:-0.5rem; margin-bottom:0.75rem; line-height:1.6; }
+        .required { color:var(--pink); }
+        .radio-group, .check-group { display:flex; flex-direction:column; gap:0.5rem; }
+        .radio-option, .check-option { display:flex; align-items:center; gap:0.625rem; font-size:0.875rem; color:var(--text-2); cursor:pointer; padding:0.625rem 0.875rem; border:1px solid var(--border); border-radius:8px; transition:all 0.15s; }
+        .radio-option:hover, .check-option:hover { border-color:var(--border-mid); background:#fafafa; }
+        .radio-option input, .check-option input { accent-color:var(--pink); flex-shrink:0; }
+        .form-input { width:100%; padding:0.75rem 1rem; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:0.875rem; color:var(--text); background:#fdfdfd; outline:none; transition:border-color 0.15s; resize:vertical; box-sizing:border-box; }
+        .form-input:focus { border-color:var(--border-mid); box-shadow:0 0 0 3px rgba(0,0,0,0.04); }
+        .form-divider { border:none; border-top:1px solid var(--border); margin:0.25rem 0 1.75rem; }
     </style>
 </head>
 <body>
@@ -1348,20 +1360,110 @@
             <p>학생과 학부모님이 충분히 신뢰를 갖고 결정할 수 있도록 상담과 진단을 무료로 제공합니다. 30분 상담이 입시 방향을 완전히 바꿀 수 있습니다.</p>
         </div>
 
-        <div class="consult-banner">
-            <h3>지금 어떤 도움이<br>필요하신가요?</h3>
-            <p>입시를 시작했는지 여부에 따라 필요한 것이 달라집니다. 어떤 경우든 먼저 신청해주세요.</p>
-            <ul class="consult-check">
-                <li><span class="check-mark"></span>이미 입시를 시작했다 → 현재 실력 진단</li>
-                <li><span class="check-mark"></span>입시 할지 말지 고민 중 → 방향 상담</li>
-                <li><span class="check-mark"></span>학원·과외 경험 있음 → 기존 작업물 평가</li>
-                <li><span class="check-mark"></span>영화과 vs 방송영상과 고민 → 진로 상담</li>
-                <li><span class="check-mark"></span>목표 학교 합격 가능성 확인</li>
-            </ul>
-            <a href="https://forms.gle/LjpJcbkbh3YR7Zev9" target="_blank" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">무료상담 신청하기</a>
+        <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.7;">영화 입시를 앞두고 실력이 어느 정도인지, 어떤 준비가 필요한지 궁금하신가요?<br>편하게 신청해 주시면 무료로 상담해 드릴게요 :)</p>
+
+        <div id="form-success" style="display:none;background:#f0fdf8;border:1px solid var(--mint);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;margin-bottom:1.5rem;">
+            <p style="font-size:1.125rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">신청해 주셔서 감사해요!</p>
+            <p style="font-size:0.875rem;color:var(--text-2);line-height:1.7;">빠른 시간 내에 연락드릴게요 :)</p>
         </div>
 
-        <div class="card">
+        <form id="consult-form">
+
+            <div class="form-group">
+                <label class="form-label">어떤 분이 신청하시나요? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="신청자" value="학생 본인" required> 학생 본인</label>
+                    <label class="radio-option"><input type="radio" name="신청자" value="학부모님"> 학부모님</label>
+                    <label class="radio-option"><input type="radio" name="신청자" value="기타"> 기타</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">연락처를 남겨주세요 <span class="required">*</span></label>
+                <p class="form-desc">카카오톡 아이디 또는 휴대폰 번호를 남겨주시면 연락드릴게요.</p>
+                <input type="text" name="연락처" class="form-input" placeholder="예) kakao_id 또는 010-0000-0000" required>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">희망 전공이 어떻게 되시나요? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="희망전공" value="영화" required> 영화</label>
+                    <label class="radio-option"><input type="radio" name="희망전공" value="방송·영상"> 방송·영상</label>
+                    <label class="radio-option"><input type="radio" name="희망전공" value="영화 + 방송·영상"> 영화 + 방송·영상</label>
+                    <label class="radio-option"><input type="radio" name="희망전공" value="아직 결정하지 못했어요"> 아직 결정하지 못했어요</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">현재 입시 상태를 알려주세요 <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="입시상태" value="현역 (일반고)" required> 현역 (일반고)</label>
+                    <label class="radio-option"><input type="radio" name="입시상태" value="현역 (예술고)"> 현역 (예술고)</label>
+                    <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 아직 합격한 적 없음"> 재수 이상 — 아직 합격한 적 없음</label>
+                    <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 합격했지만 다시 준비 중"> 재수 이상 — 합격했지만 다시 준비 중</label>
+                    <label class="radio-option"><input type="radio" name="입시상태" value="기타"> 기타</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">관련 경험이 있으시면 모두 선택해 주세요</label>
+                <div class="check-group">
+                    <label class="check-option"><input type="checkbox" name="경험" value="영화입시 학원"> 영화입시 학원</label>
+                    <label class="check-option"><input type="checkbox" name="경험" value="영화입시 과외"> 영화입시 과외</label>
+                    <label class="check-option"><input type="checkbox" name="경험" value="예술고 재학·졸업"> 예술고 재학·졸업</label>
+                    <label class="check-option"><input type="checkbox" name="경험" value="단편영화 제작 참여"> 단편영화 제작 참여</label>
+                    <label class="check-option"><input type="checkbox" name="경험" value="경험 없음"> 경험 없음</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">어떤 도움이 필요하신가요? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="도움유형" value="이야기 쓰기(실기) 진단" required> 이야기 쓰기(실기) 진단</label>
+                    <label class="radio-option"><input type="radio" name="도움유형" value="자기소개서·면접 준비 진단"> 자기소개서·면접 준비 진단</label>
+                    <label class="radio-option"><input type="radio" name="도움유형" value="입시 방향 상담"> 입시 방향 상담</label>
+                    <label class="radio-option"><input type="radio" name="도움유형" value="기타"> 기타</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">더 자세히 알려주세요</label>
+                <p class="form-desc">현재 상황이나 고민을 편하게 적어주세요. 많을수록 더 도움이 돼요 :)</p>
+                <textarea name="상세내용" class="form-input" rows="4" placeholder="자유롭게 작성해 주세요."></textarea>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">거주 지역이 어디신가요? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="지역" value="수도권" required> 수도권</label>
+                    <label class="radio-option"><input type="radio" name="지역" value="지방"> 지방 (전화·화상으로 진행해 드려요)</label>
+                    <label class="radio-option"><input type="radio" name="지역" value="기타"> 기타</label>
+                </div>
+            </div>
+            <hr class="form-divider">
+
+            <div class="form-group">
+                <label class="form-label">선호하시는 상담 시간대가 있으신가요?</label>
+                <div class="check-group">
+                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오전 (10-12시)"> 평일 오전 (10–12시)</label>
+                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오후 (13-17시)"> 평일 오후 (13–17시)</label>
+                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 저녁 (18-21시)"> 평일 저녁 (18–21시)</label>
+                    <label class="check-option"><input type="checkbox" name="상담시간" value="주말"> 주말</label>
+                    <label class="check-option"><input type="checkbox" name="상담시간" value="언제든 괜찮아요"> 언제든 괜찮아요</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;">상담 신청하기</button>
+        </form>
+
+        <div class="card" style="margin-top:1.5rem;">
             <p class="card-title">직접 연락</p>
             <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem;">카카오톡 오픈채팅 또는 블로그 메시지로 문의 가능합니다.</p>
             <a href="https://open.kakao.com/me/film_period" target="_blank" class="inline-link" style="margin-top:0;">카카오톡 오픈채팅 →</a>
@@ -1432,6 +1534,37 @@
     loadBlogPosts();
 
 
+
+    // 상담 폼 제출
+    const consultForm = document.getElementById('consult-form');
+    if (consultForm) {
+        consultForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.textContent = '제출 중...';
+            btn.disabled = true;
+            try {
+                const res = await fetch('https://formspree.io/f/xgopvzoe', {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    this.style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    btn.textContent = '상담 신청하기';
+                    btn.disabled = false;
+                    alert('오류가 발생했어요. 잠시 후 다시 시도해 주세요.');
+                }
+            } catch(err) {
+                btn.textContent = '상담 신청하기';
+                btn.disabled = false;
+                alert('오류가 발생했어요. 잠시 후 다시 시도해 주세요.');
+            }
+        });
+    }
 </script>
 </body>
 </html>
