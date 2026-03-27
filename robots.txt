@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://period317.github.io/period-site/sitemap.xml
