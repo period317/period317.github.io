@@ -1130,7 +1130,7 @@
     <button class="nav-btn" data-page="content">콘텐츠</button>
     <button class="nav-btn" data-page="reviews">후기</button>
     <button class="nav-btn" data-page="filmdb">공모·영화제</button>
-    <button class="nav-btn" data-page="consultation">무료상담</button>
+    <button class="nav-btn" data-page="consultation">상담·문의</button>
 </nav>
 
 <!-- ========== HOME ========== -->
@@ -1141,7 +1141,7 @@
         <h1>영화입시,<br><em>피리어드</em>로<br>끝.</h1>
         <p class="hero-desc">어드쌤·피리쌤 두 강사가 함께합니다.<br>학원·과외를 거쳐 온 학생들의 마지막 선택.</p>
         <div class="hero-actions">
-            <button class="btn btn-primary" onclick="showPage('consultation')">무료상담 신청</button>
+            <button class="btn btn-primary" onclick="showPage('consultation')">상담·문의</button>
             <button class="btn btn-ghost" onclick="showPage('teacher')">선생님 소개</button>
         </div>
     </div>
@@ -1517,7 +1517,7 @@
             </div>
 
             <div style="margin-top:2rem;text-align:center;">
-                <button class="btn btn-primary" onclick="showPage('consultation')">단편제작 수업 문의하기</button>
+                <button class="btn btn-primary" onclick="showPage('consultation'); setTimeout(()=>{ const btn = document.querySelector('#consultation .class-tab:nth-child(2)'); if(btn) switchConsultTab('production', btn); }, 100); ">단편제작 문의하기</button>
             </div>
         </div>
 
@@ -1561,7 +1561,7 @@
             </div>
 
             <div style="margin-top:2rem;text-align:center;">
-                <button class="btn btn-primary" onclick="showPage('consultation')">피드백 신청 문의하기</button>
+                <button class="btn btn-primary" onclick="showPage('consultation'); setTimeout(()=>{ const btn = document.querySelector('#consultation .class-tab:nth-child(3)'); if(btn) switchConsultTab('feedback', btn); }, 100); ">피드백 신청하기</button>
             </div>
         </div>
 
@@ -1693,120 +1693,217 @@
 <div class="page" id="consultation">
 
     <div class="section">
-        <p class="section-label">Consultation</p>
-        <h2 class="section-title">무료상담</h2>
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">상담·문의</h2>
 
-        <div class="why-free" style="margin-bottom:1.5rem;">
-            <h3>왜 무료로 제공하나요?</h3>
-            <p>학생과 학부모님이 충분히 신뢰를 갖고 결정할 수 있도록 상담과 진단을 무료로 제공합니다. 30분 상담이 입시 방향을 완전히 바꿀 수 있습니다.</p>
+        <div class="class-tabs" style="margin-bottom:1.25rem;">
+            <button class="class-tab active" onclick="switchConsultTab('tutoring', this)">입시상담</button>
+            <button class="class-tab" onclick="switchConsultTab('production', this)">단편제작</button>
+            <button class="class-tab" onclick="switchConsultTab('feedback', this)">피드백</button>
         </div>
 
-        <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.7;">영화 입시를 앞두고 실력이 어느 정도인지, 어떤 준비가 필요한지 궁금하신가요?<br>편하게 신청해 주시면 무료로 상담해 드릴게요 :) <a href="https://open.kakao.com/me/film_period" target="_blank" style="display:inline-flex;align-items:center;gap:0.25rem;background:#FEE500;color:#3C1E1E;font-size:0.72rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:50px;text-decoration:none;vertical-align:middle;margin-left:0.25rem;">💬 카톡 문의</a></p>
+        <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1.5rem;line-height:1.7;">간단한 질문은 카카오톡으로 먼저 물어봐도 돼요. <a href="https://open.kakao.com/me/film_period" target="_blank" style="display:inline-flex;align-items:center;gap:0.25rem;background:#FEE500;color:#3C1E1E;font-size:0.72rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:50px;text-decoration:none;vertical-align:middle;margin-left:0.25rem;">💬 카톡 문의</a></p>
 
         <div id="form-success" style="display:none;background:#f0fdf8;border:1px solid var(--mint);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;margin-bottom:1.5rem;">
             <p style="font-size:1.125rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;">신청해 주셔서 감사해요!</p>
             <p style="font-size:0.875rem;color:var(--text-2);line-height:1.7;">빠른 시간 내에 연락드릴게요 :)</p>
         </div>
 
-        <form id="consult-form">
+        <!-- ── 입시상담 폼 ── -->
+        <div class="consult-panel" id="consult-tutoring">
 
-            <div class="form-group">
-                <label class="form-label">어떤 분이 신청하시나요? <span class="required">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="신청자" value="학생 본인" required> 학생 본인</label>
-                    <label class="radio-option"><input type="radio" name="신청자" value="학부모님"> 학부모님</label>
-                    <label class="radio-option"><input type="radio" name="신청자" value="기타"> 기타</label>
+            <div class="why-free" style="margin-bottom:1.5rem;">
+                <h3>왜 무료로 제공하나요?</h3>
+                <p>학생과 학부모님이 충분히 신뢰를 갖고 결정할 수 있도록 상담과 진단을 무료로 제공합니다. 30분 상담이 입시 방향을 완전히 바꿀 수 있습니다.</p>
+            </div>
+
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.7;">영화 입시를 앞두고 실력이 어느 정도인지, 어떤 준비가 필요한지 궁금하신가요?<br>편하게 신청해 주시면 무료로 상담해 드릴게요 :)</p>
+
+            <form class="consult-form" data-type="입시상담">
+                <input type="hidden" name="문의유형" value="입시상담">
+
+                <div class="form-group">
+                    <label class="form-label">어떤 분이 신청하시나요? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="신청자" value="학생 본인" required> 학생 본인</label>
+                        <label class="radio-option"><input type="radio" name="신청자" value="학부모님"> 학부모님</label>
+                        <label class="radio-option"><input type="radio" name="신청자" value="기타"> 기타</label>
+                    </div>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">연락처를 남겨주세요 <span class="required">*</span></label>
-                <p class="form-desc">카카오톡 아이디 또는 휴대폰 번호를 남겨주시면 연락드릴게요.</p>
-                <input type="text" name="연락처" class="form-input" placeholder="예) kakao_id 또는 010-0000-0000" required>
-            </div>
-            <hr class="form-divider">
-
-            <div class="form-group">
-                <label class="form-label">희망 전공이 어떻게 되시나요? <span class="required">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="희망전공" value="영화" required> 영화</label>
-                    <label class="radio-option"><input type="radio" name="희망전공" value="방송·영상"> 방송·영상</label>
-                    <label class="radio-option"><input type="radio" name="희망전공" value="영화 + 방송·영상"> 영화 + 방송·영상</label>
-                    <label class="radio-option"><input type="radio" name="희망전공" value="아직 결정하지 못했어요"> 아직 결정하지 못했어요</label>
+                <div class="form-group">
+                    <label class="form-label">연락처를 남겨주세요 <span class="required">*</span></label>
+                    <p class="form-desc">카카오톡 아이디 또는 휴대폰 번호를 남겨주시면 연락드릴게요.</p>
+                    <input type="text" name="연락처" class="form-input" placeholder="예) kakao_id 또는 010-0000-0000" required>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">현재 입시 상태를 알려주세요 <span class="required">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="입시상태" value="현역 (일반고)" required> 현역 (일반고)</label>
-                    <label class="radio-option"><input type="radio" name="입시상태" value="현역 (예술고)"> 현역 (예술고)</label>
-                    <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 아직 합격한 적 없음"> 재수 이상 — 아직 합격한 적 없음</label>
-                    <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 합격했지만 다시 준비 중"> 재수 이상 — 합격했지만 다시 준비 중</label>
-                    <label class="radio-option"><input type="radio" name="입시상태" value="기타"> 기타</label>
+                <div class="form-group">
+                    <label class="form-label">희망 전공이 어떻게 되시나요? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="희망전공" value="영화" required> 영화</label>
+                        <label class="radio-option"><input type="radio" name="희망전공" value="방송·영상"> 방송·영상</label>
+                        <label class="radio-option"><input type="radio" name="희망전공" value="영화 + 방송·영상"> 영화 + 방송·영상</label>
+                        <label class="radio-option"><input type="radio" name="희망전공" value="아직 결정하지 못했어요"> 아직 결정하지 못했어요</label>
+                    </div>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">관련 경험이 있으시면 모두 선택해 주세요</label>
-                <div class="check-group">
-                    <label class="check-option"><input type="checkbox" name="경험" value="영화입시 학원"> 영화입시 학원</label>
-                    <label class="check-option"><input type="checkbox" name="경험" value="영화입시 과외"> 영화입시 과외</label>
-                    <label class="check-option"><input type="checkbox" name="경험" value="예술고 재학·졸업"> 예술고 재학·졸업</label>
-                    <label class="check-option"><input type="checkbox" name="경험" value="단편영화 제작 참여"> 단편영화 제작 참여</label>
-                    <label class="check-option"><input type="checkbox" name="경험" value="경험 없음"> 경험 없음</label>
+                <div class="form-group">
+                    <label class="form-label">현재 입시 상태를 알려주세요 <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="입시상태" value="현역 (일반고)" required> 현역 (일반고)</label>
+                        <label class="radio-option"><input type="radio" name="입시상태" value="현역 (예술고)"> 현역 (예술고)</label>
+                        <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 아직 합격한 적 없음"> 재수 이상 — 아직 합격한 적 없음</label>
+                        <label class="radio-option"><input type="radio" name="입시상태" value="재수 이상 - 합격했지만 다시 준비 중"> 재수 이상 — 합격했지만 다시 준비 중</label>
+                        <label class="radio-option"><input type="radio" name="입시상태" value="기타"> 기타</label>
+                    </div>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">어떤 도움이 필요하신가요? <span class="required">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="도움유형" value="이야기 쓰기(실기) 진단" required> 이야기 쓰기(실기) 진단</label>
-                    <label class="radio-option"><input type="radio" name="도움유형" value="자기소개서·면접 준비 진단"> 자기소개서·면접 준비 진단</label>
-                    <label class="radio-option"><input type="radio" name="도움유형" value="입시 방향 상담"> 입시 방향 상담</label>
-                    <label class="radio-option"><input type="radio" name="도움유형" value="기타"> 기타</label>
+                <div class="form-group">
+                    <label class="form-label">관련 경험이 있으시면 모두 선택해 주세요</label>
+                    <div class="check-group">
+                        <label class="check-option"><input type="checkbox" name="경험" value="영화입시 학원"> 영화입시 학원</label>
+                        <label class="check-option"><input type="checkbox" name="경험" value="영화입시 과외"> 영화입시 과외</label>
+                        <label class="check-option"><input type="checkbox" name="경험" value="예술고 재학·졸업"> 예술고 재학·졸업</label>
+                        <label class="check-option"><input type="checkbox" name="경험" value="단편영화 제작 참여"> 단편영화 제작 참여</label>
+                        <label class="check-option"><input type="checkbox" name="경험" value="경험 없음"> 경험 없음</label>
+                    </div>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">더 자세히 알려주세요</label>
-                <p class="form-desc">현재 상황이나 고민을 편하게 적어주세요. 많을수록 더 도움이 돼요 :)</p>
-                <textarea name="상세내용" class="form-input" rows="4" placeholder="자유롭게 작성해 주세요."></textarea>
-            </div>
-            <hr class="form-divider">
-
-            <div class="form-group">
-                <label class="form-label">거주 지역이 어디신가요? <span class="required">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="지역" value="수도권" required> 수도권</label>
-                    <label class="radio-option"><input type="radio" name="지역" value="지방"> 지방 (전화·화상으로 진행해 드려요)</label>
-                    <label class="radio-option"><input type="radio" name="지역" value="기타"> 기타</label>
+                <div class="form-group">
+                    <label class="form-label">어떤 도움이 필요하신가요? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="도움유형" value="이야기 쓰기(실기) 진단" required> 이야기 쓰기(실기) 진단</label>
+                        <label class="radio-option"><input type="radio" name="도움유형" value="자기소개서·면접 준비 진단"> 자기소개서·면접 준비 진단</label>
+                        <label class="radio-option"><input type="radio" name="도움유형" value="입시 방향 상담"> 입시 방향 상담</label>
+                        <label class="radio-option"><input type="radio" name="도움유형" value="기타"> 기타</label>
+                    </div>
                 </div>
-            </div>
-            <hr class="form-divider">
+                <hr class="form-divider">
 
-            <div class="form-group">
-                <label class="form-label">선호하시는 상담 시간대가 있으신가요?</label>
-                <div class="check-group">
-                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오전 (10-12시)"> 평일 오전 (10–12시)</label>
-                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오후 (13-17시)"> 평일 오후 (13–17시)</label>
-                    <label class="check-option"><input type="checkbox" name="상담시간" value="평일 저녁 (18-21시)"> 평일 저녁 (18–21시)</label>
-                    <label class="check-option"><input type="checkbox" name="상담시간" value="주말"> 주말</label>
-                    <label class="check-option"><input type="checkbox" name="상담시간" value="언제든 괜찮아요"> 언제든 괜찮아요</label>
+                <div class="form-group">
+                    <label class="form-label">더 자세히 알려주세요</label>
+                    <p class="form-desc">현재 상황이나 고민을 편하게 적어주세요. 많을수록 더 도움이 돼요 :)</p>
+                    <textarea name="상세내용" class="form-input" rows="4" placeholder="자유롭게 작성해 주세요."></textarea>
                 </div>
-            </div>
+                <hr class="form-divider">
 
-            <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;">상담 신청하기</button>
-        </form>
+                <div class="form-group">
+                    <label class="form-label">거주 지역이 어디신가요? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="지역" value="수도권" required> 수도권</label>
+                        <label class="radio-option"><input type="radio" name="지역" value="지방"> 지방 (전화·화상으로 진행해 드려요)</label>
+                        <label class="radio-option"><input type="radio" name="지역" value="기타"> 기타</label>
+                    </div>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">선호하시는 상담 시간대가 있으신가요?</label>
+                    <div class="check-group">
+                        <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오전 (10-12시)"> 평일 오전 (10–12시)</label>
+                        <label class="check-option"><input type="checkbox" name="상담시간" value="평일 오후 (13-17시)"> 평일 오후 (13–17시)</label>
+                        <label class="check-option"><input type="checkbox" name="상담시간" value="평일 저녁 (18-21시)"> 평일 저녁 (18–21시)</label>
+                        <label class="check-option"><input type="checkbox" name="상담시간" value="주말"> 주말</label>
+                        <label class="check-option"><input type="checkbox" name="상담시간" value="언제든 괜찮아요"> 언제든 괜찮아요</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;">입시상담 신청하기</button>
+            </form>
+        </div>
+
+        <!-- ── 단편제작 문의 폼 ── -->
+        <div class="consult-panel" id="consult-production" style="display:none;">
+
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.7;">단편영화 제작에 관심이 있거나, 특정 단계에서 도움이 필요하신가요?<br>예산과 상황에 맞춰 진행 방식을 협의합니다.</p>
+
+            <form class="consult-form" data-type="단편제작">
+                <input type="hidden" name="문의유형" value="단편제작">
+
+                <div class="form-group">
+                    <label class="form-label">연락처를 남겨주세요 <span class="required">*</span></label>
+                    <p class="form-desc">카카오톡 아이디 또는 휴대폰 번호를 남겨주시면 연락드릴게요.</p>
+                    <input type="text" name="연락처" class="form-input" placeholder="예) kakao_id 또는 010-0000-0000" required>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">현재 상황을 알려주세요 <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="제작상황" value="아직 아이디어만 있음" required> 아직 아이디어만 있음</label>
+                        <label class="radio-option"><input type="radio" name="제작상황" value="시나리오 작업 중"> 시나리오 작업 중</label>
+                        <label class="radio-option"><input type="radio" name="제작상황" value="프리프로덕션 단계"> 프리프로덕션 단계 (스탭·캐스팅·로케이션 등)</label>
+                        <label class="radio-option"><input type="radio" name="제작상황" value="촬영·후반작업 단계"> 촬영·후반작업 단계</label>
+                        <label class="radio-option"><input type="radio" name="제작상황" value="전체 과정 함께 하고 싶음"> 처음부터 끝까지 함께 하고 싶어요</label>
+                    </div>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">영화 제작 경험이 있으신가요?</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="제작경험" value="없음"> 없음 — 처음입니다</label>
+                        <label class="radio-option"><input type="radio" name="제작경험" value="참여 경험 있음"> 스탭·배우 등으로 참여한 적 있음</label>
+                        <label class="radio-option"><input type="radio" name="제작경험" value="연출 경험 있음"> 직접 연출해 본 적 있음</label>
+                    </div>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">자유롭게 알려주세요</label>
+                    <p class="form-desc">만들고 싶은 영화, 예산 범위, 일정 등 편하게 적어주세요.</p>
+                    <textarea name="상세내용" class="form-input" rows="4" placeholder="예) 10분 내외 단편, 올해 안에 완성하고 싶어요."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;">단편제작 문의하기</button>
+            </form>
+        </div>
+
+        <!-- ── 피드백 신청 폼 ── -->
+        <div class="consult-panel" id="consult-feedback" style="display:none;">
+
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.7;">시나리오, 기획의도, 논술, 자소서 등 — 영화와 글쓰기 관련 문서에 대한 단기 피드백을 신청할 수 있습니다.</p>
+
+            <form class="consult-form" data-type="피드백">
+                <input type="hidden" name="문의유형" value="피드백">
+
+                <div class="form-group">
+                    <label class="form-label">연락처를 남겨주세요 <span class="required">*</span></label>
+                    <p class="form-desc">카카오톡 아이디 또는 휴대폰 번호를 남겨주시면 연락드릴게요.</p>
+                    <input type="text" name="연락처" class="form-input" placeholder="예) kakao_id 또는 010-0000-0000" required>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">어떤 피드백이 필요하신가요? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="피드백유형" value="단편영화 시나리오 (3만원)" required> 단편영화 시나리오 (3만원)</label>
+                        <label class="radio-option"><input type="radio" name="피드백유형" value="장편영화 시나리오 (5만원)"> 장편영화 시나리오 (5만원)</label>
+                        <label class="radio-option"><input type="radio" name="피드백유형" value="기획의도·영화 관련 문서 (3만원)"> 기획의도·영화 관련 문서 (3만원)</label>
+                        <label class="radio-option"><input type="radio" name="피드백유형" value="논술·글쓰기 등 실기 과제 (3만원)"> 논술·글쓰기 등 실기 과제 (3만원)</label>
+                        <label class="radio-option"><input type="radio" name="피드백유형" value="자소서·면접지 등 (3~10만원)"> 자소서·면접지 등 (3~10만원)</label>
+                    </div>
+                </div>
+                <hr class="form-divider">
+
+                <div class="form-group">
+                    <label class="form-label">자유롭게 알려주세요</label>
+                    <p class="form-desc">분량, 마감 기한, 중점적으로 봐줬으면 하는 부분 등을 적어주세요.</p>
+                    <textarea name="상세내용" class="form-input" rows="4" placeholder="예) 단편 시나리오 15페이지, 구조와 결말에 대한 의견이 필요해요."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;margin-top:0.5rem;">피드백 신청하기</button>
+            </form>
+        </div>
 
         <div class="card" style="margin-top:1.5rem;">
             <p class="card-title">직접 연락</p>
-            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem;">카카오톡 오픈채팅 또는 블로그 메시지로 문의 가능합니다.</p>
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:0.75rem;">카카오톡 오픈채팅 또는 블로그 메시지로도 문의 가능합니다.</p>
             <a href="https://open.kakao.com/me/film_period" target="_blank" class="inline-link" style="margin-top:0;">카카오톡 오픈채팅 →</a>
             <a href="https://blog.naver.com/songtorytelling" target="_blank" class="inline-link" style="margin-top:0.375rem;">블로그 문의 →</a>
         </div>
@@ -1847,7 +1944,7 @@
 <div class="fab" id="fab">
     <div class="fab-options">
         <a href="https://open.kakao.com/me/film_period" target="_blank" class="fab-option kakao">💬 카카오톡 문의</a>
-        <button class="fab-option consult" onclick="closeFab(); showPage('consultation');">📝 상담 신청</button>
+        <button class="fab-option consult" onclick="closeFab(); showPage('consultation');">📝 상담·문의</button>
     </div>
     <button class="fab-btn" onclick="toggleFab()" aria-label="문의하기">✦</button>
 </div>
@@ -2081,12 +2178,23 @@
         document.getElementById('fab').classList.remove('open');
     }
 
-    // 상담 폼 제출
-    const consultForm = document.getElementById('consult-form');
-    if (consultForm) {
-        consultForm.addEventListener('submit', async function(e) {
+    // 상담·문의 탭 전환
+    function switchConsultTab(tab, btn) {
+        document.querySelectorAll('.consult-panel').forEach(p => p.style.display = 'none');
+        document.querySelector('#consultation .class-tabs').querySelectorAll('.class-tab').forEach(b => b.classList.remove('active'));
+        document.getElementById('consult-' + tab).style.display = 'block';
+        btn.classList.add('active');
+        // 폼 성공 메시지 숨기고 폼 다시 표시
+        document.getElementById('form-success').style.display = 'none';
+        document.querySelectorAll('.consult-form').forEach(f => f.style.display = 'block');
+    }
+
+    // 상담 폼 제출 (모든 폼 공통)
+    document.querySelectorAll('.consult-form').forEach(form => {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = this.querySelector('button[type="submit"]');
+            const origText = btn.textContent;
             btn.textContent = '제출 중...';
             btn.disabled = true;
             try {
@@ -2100,17 +2208,17 @@
                     document.getElementById('form-success').style.display = 'block';
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    btn.textContent = '상담 신청하기';
+                    btn.textContent = origText;
                     btn.disabled = false;
                     alert('오류가 발생했어요. 잠시 후 다시 시도해 주세요.');
                 }
             } catch(err) {
-                btn.textContent = '상담 신청하기';
+                btn.textContent = origText;
                 btn.disabled = false;
                 alert('오류가 발생했어요. 잠시 후 다시 시도해 주세요.');
             }
         });
-    }
+    });
 </script>
 </body>
 </html>
