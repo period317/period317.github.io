@@ -594,6 +594,17 @@
         .db-table .link-btn { font-size: 0.75rem; font-weight: 600; color: var(--pink); text-decoration: none; white-space: nowrap; }
         .db-table .link-btn:hover { opacity: 0.75; }
         .db-org { font-size: 0.72rem; color: var(--text-3); display: block; margin-top: 0.1rem; }
+        /* 모바일 카드 레이아웃 */
+        .db-card-list { display: flex; flex-direction: column; gap: 0.625rem; margin-top: 0.5rem; }
+        .db-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.875rem 1rem; background: #fff; }
+        .db-card-title { font-size: 0.875rem; font-weight: 700; line-height: 1.4; }
+        .db-card-org { font-size: 0.72rem; color: var(--text-3); margin-top: 0.2rem; }
+        .db-card-date { font-size: 0.75rem; color: var(--text-2); margin-top: 0.5rem; }
+        .db-card-eligibility { font-size: 0.72rem; color: var(--text-2); margin-top: 0.2rem; }
+        .db-card-footer { display: flex; justify-content: flex-end; margin-top: 0.625rem; }
+        .db-card .link-btn { font-size: 0.8rem; font-weight: 600; color: var(--pink); text-decoration: none; }
+        @media (max-width: 767px) { .db-table-wrap { display: none; } }
+        @media (min-width: 768px) { .db-card-list { display: none; } }
         .tier-badge { font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; margin-top: 0.2rem; margin-right: 0.2rem; vertical-align: middle; }
         .tier-s { background: #FFE0EC; color: #C0004A; }
         .tier-a { background: #FFF0D6; color: #B06000; }
@@ -1770,8 +1781,11 @@
             : ['타이틀','접수시작','접수마감','자격','링크'];
 
         let rows = '';
+        let cards = '';
+        const emptyMsg = '해당 항목이 없습니다.';
         if (show.length === 0) {
-            rows = '<tr><td colspan="5" style="text-align:center;color:var(--text-3);padding:1.5rem 0;">해당 항목이 없습니다.</td></tr>';
+            rows = '<tr><td colspan="5" style="text-align:center;color:var(--text-3);padding:1.5rem 0;">' + emptyMsg + '</td></tr>';
+            cards = `<p style="text-align:center;color:var(--text-3);padding:1.5rem 0;font-size:0.875rem;">${emptyMsg}</p>`;
         } else {
             show.forEach(item => {
                 const dday = getDday(item.end);
@@ -1786,6 +1800,12 @@
                         <td>${item.location}</td>
                         <td><a href="${item.url}" target="_blank" class="link-btn">보기 →</a></td>
                     </tr>`;
+                    cards += `<div class="db-card">
+                        <div class="db-card-title">${item.name}${tierBadge}</div>
+                        <div class="db-card-org">${item.location}</div>
+                        <div class="db-card-date">📅 ${fmtDate(item.start)} ~ ${fmtDate(item.end)} ${badge}</div>
+                        <div class="db-card-footer"><a href="${item.url}" target="_blank" class="link-btn">공식 사이트 →</a></div>
+                    </div>`;
                 } else {
                     rows += `<tr>
                         <td><strong>${item.name}</strong>${tierBadge}<span class="db-org">${item.org}</span></td>
@@ -1794,11 +1814,20 @@
                         <td>${item.eligibility}</td>
                         <td><a href="${item.url}" target="_blank" class="link-btn">보기 →</a></td>
                     </tr>`;
+                    cards += `<div class="db-card">
+                        <div class="db-card-title">${item.name}${tierBadge}</div>
+                        <div class="db-card-org">${item.org}</div>
+                        <div class="db-card-date">📅 ${fmtDate(item.start)} ~ ${fmtDate(item.end)} ${badge}</div>
+                        <div class="db-card-eligibility">대상: ${item.eligibility}</div>
+                        <div class="db-card-footer"><a href="${item.url}" target="_blank" class="link-btn">공식 사이트 →</a></div>
+                    </div>`;
                 }
             });
         }
 
-        container.innerHTML = '<div class="db-table-wrap"><table class="db-table"><thead><tr>' + headers.map(h=>`<th>${h}</th>`).join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+        container.innerHTML =
+            '<div class="db-card-list">' + cards + '</div>' +
+            '<div class="db-table-wrap"><table class="db-table"><thead><tr>' + headers.map(h=>`<th>${h}</th>`).join('') + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
     }
 
     function switchFilmdbTab(tab, btn) {
