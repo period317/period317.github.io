@@ -553,6 +553,10 @@
         }
 
         /* ── FILMDB ── */
+        /* 수업 서브탭 */
+        .class-tabs { display: flex; gap: 0.375rem; margin-bottom: 1.75rem; }
+        .class-tab { padding: 0.45rem 1rem; border: 1px solid var(--border-mid); border-radius: 50px; font-size: 0.8125rem; font-weight: 600; background: none; cursor: pointer; color: var(--text-3); transition: all 0.2s; }
+        .class-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
         .filmdb-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
         .filmdb-tab { padding: 0.45rem 1.1rem; border: 1px solid var(--border-mid); border-radius: 50px; font-size: 0.8125rem; font-weight: 600; background: none; cursor: pointer; color: var(--text-3); transition: all 0.2s; }
         .filmdb-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
@@ -1125,7 +1129,6 @@
     <button class="nav-btn" data-page="class">수업</button>
     <button class="nav-btn" data-page="content">콘텐츠</button>
     <button class="nav-btn" data-page="reviews">후기</button>
-    <button class="nav-btn" data-page="production">영화제작</button>
     <button class="nav-btn" data-page="filmdb">공모·영화제</button>
     <button class="nav-btn" data-page="consultation">무료상담</button>
 </nav>
@@ -1314,98 +1317,254 @@
         <p class="section-label">Class</p>
         <h2 class="section-title">수업 안내</h2>
 
-        <div class="content-section">
-            <h3>수업 방식</h3>
-            <div class="timeline">
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>대면 1:1 · 기본 2시간</h4>
-                        <p>스터디 카페 (강사 부담). 주로 영등포·동작 근처, 협의 가능.</p>
+        <div class="class-tabs">
+            <button class="class-tab active" onclick="switchClassTab('tutoring', this)">입시과외</button>
+            <button class="class-tab" onclick="switchClassTab('production', this)">단편제작</button>
+            <button class="class-tab" onclick="switchClassTab('feedback', this)">피드백</button>
+        </div>
+
+        <!-- ── 입시과외 탭 ── -->
+        <div class="class-panel" id="class-tutoring">
+
+            <div class="content-section">
+                <h3>수업 방식</h3>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>대면 1:1 · 기본 2시간</h4>
+                            <p>스터디 카페 (강사 부담). 주로 영등포·동작 근처, 협의 가능.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>시간을 칼같이 끊지 않음</h4>
-                        <p>수업 외 질의응답 상시 가능. 사전 과제 피드백 중심 운영.</p>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>시간을 칼같이 끊지 않음</h4>
+                            <p>수업 외 질의응답 상시 가능. 사전 과제 피드백 중심 운영.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>고정 커리큘럼 없음</h4>
-                        <p>목표 학교와 현재 실력에 따라 수업을 개별 설계합니다. 그래서 상담·진단이 중요합니다.</p>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>고정 커리큘럼 없음</h4>
+                            <p>목표 학교와 현재 실력에 따라 수업을 개별 설계합니다. 그래서 상담·진단이 중요합니다.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h3>주요 수업 내용</h3>
-            <div class="timeline">
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>이야기 글쓰기 (스토리텔링)</h4>
-                        <p>플롯 구조 vs 감정·장면 표현, 두 재능을 구별해 장점을 강화합니다. 쓰고 피드백의 단순 반복이 아닌, 제대로 잘 쓰는 것이 목표입니다.</p>
+            <div class="content-section">
+                <h3>주요 수업 내용</h3>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>이야기 글쓰기 (스토리텔링)</h4>
+                            <p>플롯 구조 vs 감정·장면 표현, 두 재능을 구별해 장점을 강화합니다. 쓰고 피드백의 단순 반복이 아닌, 제대로 잘 쓰는 것이 목표입니다.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>구술 · 면접</h4>
-                        <p>최소 2~3회, 총 수 시간의 인생 전반 대화에서 시작합니다. 수업을 마친 학생들은 "따로 면접 준비가 필요 없었다"고 말합니다.</p>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>구술 · 면접</h4>
+                            <p>최소 2~3회, 총 수 시간의 인생 전반 대화에서 시작합니다. 수업을 마친 학생들은 "따로 면접 준비가 필요 없었다"고 말합니다.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>그 외</h4>
-                        <p>이미지·시나리오 분석, 논술 작문법, 영화 이론, 영화사·감독 연출론, 미디어·방송 전공 대비 등.</p>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>그 외</h4>
+                            <p>이미지·시나리오 분석, 논술 작문법, 영화 이론, 영화사·감독 연출론, 미디어·방송 전공 대비 등.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="content-section">
+                <h3>수업료</h3>
+                <div class="price-table">
+                    <div class="price-row">
+                        <span class="price-name">1회 (2시간)</span>
+                        <span class="price-amount">30만원</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-name">월 정기 (주 1회)</span>
+                        <span class="price-amount">100만원</span>
+                    </div>
+                    <div class="price-row highlight">
+                        <span class="price-name">6개월 이상</span>
+                        <span class="price-amount">85만원 <span class="price-badge">15% 할인</span></span>
+                    </div>
+                </div>
+                <p style="margin-top:0.875rem;font-size:0.8125rem;color:var(--text-3);line-height:1.7;">4인 1팀 학원이 월 55~80만원입니다. 피리어드는 1:1 + 수업 준비 + 평소 관리 + 질의응답이 포함됩니다.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>수업 관련 글</h3>
+                <a href="https://blog.naver.com/songtorytelling/224217604919" target="_blank" class="blog-card">
+                    <div class="blog-card-body">
+                        <p class="blog-tag">수업소개</p>
+                        <p class="blog-card-title">피리어드 수업소개 전체 보기</p>
+                        <p class="blog-card-desc">수업 방식, 수업료, 커리큘럼 설계 방식 상세 안내</p>
+                    </div>
+                    <span class="blog-arrow">→</span>
+                </a>
+                <a href="https://blog.naver.com/songtorytelling/224217644667" target="_blank" class="blog-card">
+                    <div class="blog-card-body">
+                        <p class="blog-tag">학원 vs 과외</p>
+                        <p class="blog-card-title">영화입시학원의 문제 시리즈</p>
+                        <p class="blog-card-desc">강사 복불복, 다대일 수업의 함정 — 6년 경험에서 나온 솔직한 이야기</p>
+                    </div>
+                    <span class="blog-arrow">→</span>
+                </a>
+            </div>
         </div>
 
-        <div class="content-section">
-            <h3>수업료</h3>
-            <div class="price-table">
-                <div class="price-row">
-                    <span class="price-name">1회 (2시간)</span>
-                    <span class="price-amount">30만원</span>
-                </div>
-                <div class="price-row">
-                    <span class="price-name">월 정기 (주 1회)</span>
-                    <span class="price-amount">100만원</span>
-                </div>
-                <div class="price-row highlight">
-                    <span class="price-name">6개월 이상</span>
-                    <span class="price-amount">85만원 <span class="price-badge">15% 할인</span></span>
+        <!-- ── 단편제작 탭 ── -->
+        <div class="class-panel" id="class-production" style="display:none;">
+
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.8;">영화를 만들어 본 사람과 그렇지 않은 사람의 차이는 생각보다 훨씬 큽니다.<br>머릿속에서 완벽하던 장면이 실제로는 전혀 다르게 나오는 경험, 시나리오의 한 줄이 현장에서 얼마나 많은 결정을 요구하는지 — 직접 만들어 봐야만 알 수 있는 것들이 있습니다.</p>
+
+            <div class="card" style="margin-bottom:1.75rem;border-left:3px solid var(--pink);padding-left:1.25rem;">
+                <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;"><strong>단순히 수상을 목표로 하는 수업이 아닙니다.</strong><br>영화를 만들기 위해 고민하고, 내 생각과 실제가 얼마나 다른지 직접 경험하는 것. 그 과정 자체가 입시에서도, 이후 영화를 계속 하는 데에도 가장 강력한 자산이 됩니다.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>제작 과정 — 필요한 단계부터 지원</h3>
+                <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1rem;line-height:1.7;">전체 과정을 함께할 수도 있고, 특정 단계만 도움받을 수도 있습니다.</p>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>1. 기획</h4>
+                            <p>어떤 영화를 만들 것인지, 왜 이 이야기인지. 방향과 스케일을 잡는 단계.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>2. 시나리오</h4>
+                            <p>이야기 구조부터 대사, 씬 구성까지. 피드백을 반복하며 완성도를 높입니다.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>3. 스탭 모집 · 캐스팅</h4>
+                            <p>촬영 감독, 조명, 녹음, 배우 등. 직접 구할 수도, 도움을 받을 수도 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>4. 콘티 · 로케이션</h4>
+                            <p>장면별 구도와 동선을 설계하고, 촬영 장소를 헌팅합니다.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>5. 제작 준비</h4>
+                            <p>장비, 소품, 의상, 스케줄, 식사 등. 현장이 돌아가기 위한 모든 준비.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>6. 촬영</h4>
+                            <p>현장 연출과 촬영 진행. 계획대로 되지 않는 상황에서의 판단이 핵심입니다.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>7. 후반 작업</h4>
+                            <p>편집, 색보정, 사운드 믹싱, 음악. 촬영 소스를 영화로 만드는 과정.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <h4>8. 출품 · 배급</h4>
+                            <p>완성된 작품을 영화제에 출품하거나, 상영 기회를 만듭니다.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p style="margin-top:0.875rem;font-size:0.8125rem;color:var(--text-3);line-height:1.7;">4인 1팀 학원이 월 55~80만원입니다. 피리어드는 1:1 + 수업 준비 + 평소 관리 + 질의응답이 포함됩니다.</p>
+
+            <div class="content-section">
+                <h3>제작 경험 학생</h3>
+                <div class="card" style="margin-bottom:0.75rem;">
+                    <p class="card-title">현재까지 2명의 학생이 직접 단편영화를 제작했습니다.</p>
+                    <p>기획부터 출품까지 전 과정을 함께 진행하며, 감독으로서 자기 이야기를 영상으로 완성하는 경험을 했습니다.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>비용 안내</h3>
+                <div class="card">
+                    <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;">영화 제작은 프로젝트마다 규모와 범위가 다르기 때문에 <strong>비용을 단순 책정하기 어렵습니다.</strong><br><br>직접 캐스팅하고 스탭을 구하면 비용을 줄일 수 있고, 모든 과정을 맡기는 것도 가능합니다. <strong>예산에 맞춰 협의 후 진행합니다.</strong></p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>촬영 장비</h3>
+                <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1rem;line-height:1.7;">스마트폰으로도 충분히 찍을 수 있지만, 제대로 된 장비로 경험해 보면 이해의 깊이가 달라집니다.</p>
+                <div class="card">
+                    <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;">카메라 대여만 필요한 경우, 아래 제휴 업체를 이용할 수 있습니다.</p>
+                    <a href="https://www.camline.co.kr/product/list.html?cate_no=25" target="_blank" class="inline-link" style="margin-top:0.5rem;">캠라인 — 촬영 장비 대여 →</a>
+                </div>
+            </div>
+
+            <div style="margin-top:2rem;text-align:center;">
+                <button class="btn btn-primary" onclick="showPage('consultation')">단편제작 수업 문의하기</button>
+            </div>
         </div>
 
-        <div class="content-section">
-            <h3>수업 관련 글</h3>
-            <a href="https://blog.naver.com/songtorytelling/224217604919" target="_blank" class="blog-card">
-                <div class="blog-card-body">
-                    <p class="blog-tag">수업소개</p>
-                    <p class="blog-card-title">피리어드 수업소개 전체 보기</p>
-                    <p class="blog-card-desc">수업 방식, 수업료, 커리큘럼 설계 방식 상세 안내</p>
+        <!-- ── 피드백 탭 ── -->
+        <div class="class-panel" id="class-feedback" style="display:none;">
+
+            <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.8;">단편·장편 시나리오, 기획의도, 논술, 자소서, 면접지 등 — 영화와 글쓰기에 관련된 다양한 문서에 대해 <strong>단기 피드백</strong>을 제공합니다.</p>
+
+            <div class="content-section">
+                <h3>시나리오 피드백</h3>
+                <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1rem;line-height:1.7;">이야기 구조, 개연성, 캐릭터, 대사뿐 아니라 장면화에 대한 것까지 구체적으로 피드백합니다. 좋은 점도 짚지만, 주로 비판적인 내용 중심으로 솔직하게 드립니다.</p>
+                <div class="price-table">
+                    <div class="price-row">
+                        <span class="price-name">단편영화 시나리오</span>
+                        <span class="price-amount">3만원</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-name">장편영화 시나리오</span>
+                        <span class="price-amount">5만원</span>
+                    </div>
                 </div>
-                <span class="blog-arrow">→</span>
-            </a>
-            <a href="https://blog.naver.com/songtorytelling/224217644667" target="_blank" class="blog-card">
-                <div class="blog-card-body">
-                    <p class="blog-tag">학원 vs 과외</p>
-                    <p class="blog-card-title">영화입시학원의 문제 시리즈</p>
-                    <p class="blog-card-desc">강사 복불복, 다대일 수업의 함정 — 6년 경험에서 나온 솔직한 이야기</p>
+            </div>
+
+            <div class="content-section">
+                <h3>기타 피드백</h3>
+                <div class="price-table">
+                    <div class="price-row">
+                        <span class="price-name">기획의도 · 영화 관련 문서</span>
+                        <span class="price-amount">3만원</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-name">논술 · 글쓰기 등 실기 과제</span>
+                        <span class="price-amount">3만원</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-name">자소서 · 면접지 등</span>
+                        <span class="price-amount">3~10만원</span>
+                    </div>
                 </div>
-                <span class="blog-arrow">→</span>
-            </a>
+                <p style="margin-top:0.875rem;font-size:0.8125rem;color:var(--text-3);line-height:1.7;">자소서·면접지는 분량에 따라 가격이 달라집니다.</p>
+            </div>
+
+            <div style="margin-top:2rem;text-align:center;">
+                <button class="btn btn-primary" onclick="showPage('consultation')">피드백 신청 문의하기</button>
+            </div>
         </div>
+
     </div>
 
 </div>
@@ -1655,113 +1814,6 @@
 
 </div>
 
-<!-- ========== PRODUCTION ========== -->
-<div class="page" id="production">
-
-    <div class="section">
-        <p class="section-label">Film Production</p>
-        <h2 class="section-title">영화제작 수업</h2>
-
-        <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1.75rem;line-height:1.8;">영화를 만들어 본 사람과 그렇지 않은 사람의 차이는 생각보다 훨씬 큽니다.<br>머릿속에서 완벽하던 장면이 실제로는 전혀 다르게 나오는 경험, 시나리오의 한 줄이 현장에서 얼마나 많은 결정을 요구하는지 — 직접 만들어 봐야만 알 수 있는 것들이 있습니다.</p>
-
-        <div class="card" style="margin-bottom:1.75rem;border-left:3px solid var(--pink);padding-left:1.25rem;">
-            <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;"><strong>단순히 수상을 목표로 하는 수업이 아닙니다.</strong><br>영화를 만들기 위해 고민하고, 내 생각과 실제가 얼마나 다른지 직접 경험하는 것. 그 과정 자체가 입시에서도, 이후 영화를 계속 하는 데에도 가장 강력한 자산이 됩니다.</p>
-        </div>
-
-        <div class="content-section">
-            <h3>제작 과정 — 필요한 단계부터 지원</h3>
-            <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1rem;line-height:1.7;">전체 과정을 함께할 수도 있고, 특정 단계만 도움받을 수도 있습니다.</p>
-            <div class="timeline">
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>1. 기획</h4>
-                        <p>어떤 영화를 만들 것인지, 왜 이 이야기인지. 방향과 스케일을 잡는 단계.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>2. 시나리오</h4>
-                        <p>이야기 구조부터 대사, 씬 구성까지. 피드백을 반복하며 완성도를 높입니다.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>3. 스탭 모집 · 캐스팅</h4>
-                        <p>촬영 감독, 조명, 녹음, 배우 등. 직접 구할 수도, 도움을 받을 수도 있습니다.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>4. 콘티 · 로케이션</h4>
-                        <p>장면별 구도와 동선을 설계하고, 촬영 장소를 헌팅합니다.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>5. 제작 준비</h4>
-                        <p>장비, 소품, 의상, 스케줄, 식사 등. 현장이 돌아가기 위한 모든 준비.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>6. 촬영</h4>
-                        <p>현장 연출과 촬영 진행. 계획대로 되지 않는 상황에서의 판단이 핵심입니다.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>7. 후반 작업</h4>
-                        <p>편집, 색보정, 사운드 믹싱, 음악. 촬영 소스를 영화로 만드는 과정.</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <h4>8. 출품 · 배급</h4>
-                        <p>완성된 작품을 영화제에 출품하거나, 상영 기회를 만듭니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h3>제작 경험 학생</h3>
-            <div class="card" style="margin-bottom:0.75rem;">
-                <p class="card-title">현재까지 2명의 학생이 직접 단편영화를 제작했습니다.</p>
-                <p>기획부터 출품까지 전 과정을 함께 진행하며, 감독으로서 자기 이야기를 영상으로 완성하는 경험을 했습니다.</p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h3>비용 안내</h3>
-            <div class="card">
-                <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;">영화 제작은 프로젝트마다 규모와 범위가 다르기 때문에 <strong>비용을 단순 책정하기 어렵습니다.</strong><br><br>직접 캐스팅하고 스탭을 구하면 비용을 줄일 수 있고, 모든 과정을 맡기는 것도 가능합니다. <strong>예산에 맞춰 협의 후 진행합니다.</strong></p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h3>촬영 장비</h3>
-            <p style="font-size:0.8125rem;color:var(--text-2);margin-bottom:1rem;line-height:1.7;">스마트폰으로도 충분히 찍을 수 있지만, 제대로 된 장비로 경험해 보면 이해의 깊이가 달라집니다.</p>
-            <div class="card">
-                <p style="font-size:0.875rem;color:var(--text);line-height:1.8;margin:0;">카메라 대여만 필요한 경우, 아래 제휴 업체를 이용할 수 있습니다.</p>
-                <a href="https://www.camline.co.kr/product/list.html?cate_no=25" target="_blank" class="inline-link" style="margin-top:0.5rem;">캠라인 — 촬영 장비 대여 →</a>
-            </div>
-        </div>
-
-        <div style="margin-top:2rem;text-align:center;">
-            <button class="btn btn-primary" onclick="showPage('consultation')">영화제작 수업 문의하기</button>
-        </div>
-    </div>
-
-</div>
-
 <!-- ========== FILMDB (숨김 페이지 — URL: #filmdb) ========== -->
 <div class="page" id="filmdb">
     <div class="section">
@@ -1826,7 +1878,7 @@
     });
 
     // 초기 로드 및 뒤로가기 처리
-    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb', 'production'];
+    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb'];
     const initHash = location.hash.replace('#', '');
     if (initHash && validPages.includes(initHash)) showPage(initHash, false);
 
@@ -2011,6 +2063,15 @@
 
 
 
+
+    // 수업 서브탭
+    function switchClassTab(tab, btn) {
+        document.querySelectorAll('.class-panel').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.class-tab').forEach(b => b.classList.remove('active'));
+        document.getElementById('class-' + tab).style.display = 'block';
+        btn.classList.add('active');
+        window.scrollTo({ top: document.getElementById('class').offsetTop, behavior: 'smooth' });
+    }
 
     // FAB speed dial
     function toggleFab() {
