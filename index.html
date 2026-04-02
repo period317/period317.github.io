@@ -1210,14 +1210,15 @@
             </div>
         </div>
         <div style="text-align:center;flex-shrink:0;min-width:140px;">
-            <p style="font-size:0.6875rem;color:var(--text-3);margin-bottom:0.25rem;">수시 실기시험까지</p>
-            <p style="font-size:2.25rem;font-weight:800;color:var(--pink);line-height:1;letter-spacing:-1px;" id="weekend-count">25</p>
-            <p style="font-size:0.75rem;color:var(--text-3);margin-top:0.15rem;">번의 주말이 남았어요</p>
+            <p style="font-size:0.6875rem;color:var(--text-3);margin-bottom:0.25rem;">수시 실기</p>
+            <p style="font-size:2.25rem;font-weight:800;color:var(--pink);line-height:1;letter-spacing:-1px;">약 <span id="weekend-count">25</span>주</p>
+            <p style="font-size:0.75rem;color:var(--text-3);margin-top:0.15rem;">남았어요</p>
+            <p style="font-size:0.625rem;color:var(--text-3);margin-top:0.1rem;" id="weekend-date">(9월 26일 토요일 기준)</p>
         </div>
     </div>
 
     <!-- 왜 빠른 시작이 중요할까요? -->
-    <div class="section" style="padding-top:0.5rem;">
+    <div class="section" style="padding-top:1.5rem;">
         <h2 class="section-title">왜 빠른 시작이 중요할까요?</h2>
 
         <div class="quote-block" style="margin-bottom:1.5rem;">
@@ -2259,12 +2260,18 @@
     // ── 주말 카운트다운 (2026년 9월 마지막 주 토요일 = 9/26 기준) ──
     (function() {
         const el = document.getElementById('weekend-count');
+        const elDate = document.getElementById('weekend-date');
         if (!el) return;
         const today = new Date(); today.setHours(0,0,0,0);
-        const silgiWeekend = new Date(2026, 8, 26); // 2026-09-26 (토)
-        const diffMs = silgiWeekend - today;
-        const weekends = Math.max(0, Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000)));
-        el.textContent = weekends;
+        const silgi = new Date(2026, 8, 26); // 2026-09-26 (토)
+        const weeks = Math.max(0, Math.floor((silgi - today) / (7 * 24 * 60 * 60 * 1000)));
+        el.textContent = weeks;
+        if (elDate) {
+            const m = silgi.getMonth() + 1;
+            const d = silgi.getDate();
+            const days = ['일','월','화','수','목','금','토'];
+            elDate.textContent = '(' + m + '월 ' + d + '일 ' + days[silgi.getDay()] + '요일 기준)';
+        }
     })();
 
     // ── FILMDB ──
