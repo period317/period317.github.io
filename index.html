@@ -1200,29 +1200,25 @@
 <!-- ========== HOME ========== -->
 <div class="page active" id="home">
 
-    <div class="hero">
-        <p class="hero-eyebrow">영화입시 전문 1:1 과외</p>
-        <h1>시작이 빠를수록, 합격률도 높아져요.</h1>
-        <p class="hero-desc">영화 입시는 벼락치기가 안 돼요.<br>자기 자신을 깊이 알아가는 시간이 필요하거든요.</p>
-        <div class="hero-actions">
-            <button class="btn btn-primary" onclick="showPage('consultation')">무료 상담 신청</button>
-            <button class="btn btn-ghost" onclick="showPage('class')">수업 알아보기</button>
+    <div class="hero" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:0;">
+            <p class="hero-eyebrow">영화입시 전문 1:1 과외</p>
+            <h1>가고 싶은 대학을 위해선,<br>하루라도 빠른 시작이 중요합니다.</h1>
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="showPage('consultation')">무료 상담 신청</button>
+                <button class="btn btn-ghost" onclick="showPage('class')">수업 알아보기</button>
+            </div>
+        </div>
+        <div style="text-align:center;flex-shrink:0;min-width:140px;">
+            <p style="font-size:0.6875rem;color:var(--text-3);margin-bottom:0.25rem;">수시 실기시험까지</p>
+            <p style="font-size:2.25rem;font-weight:800;color:var(--pink);line-height:1;letter-spacing:-1px;" id="weekend-count">25</p>
+            <p style="font-size:0.75rem;color:var(--text-3);margin-top:0.15rem;">번의 주말이 남았어요</p>
         </div>
     </div>
 
-    <!-- 카운트다운 -->
-    <div class="section" style="padding-top:0;">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;text-align:center;">
-            <p style="font-size:0.8125rem;color:var(--text-3);margin-bottom:0.5rem;">2027학년도 수시 실기시험 시작(9월 말)까지</p>
-            <p style="font-size:2rem;font-weight:800;color:var(--pink);margin-bottom:0.25rem;letter-spacing:-1px;" id="weekend-count">약 25번의 주말</p>
-            <p style="font-size:0.8125rem;color:var(--text-3);">이 남아 있어요. 지금 시작해도 결코 이른 게 아니에요.</p>
-        </div>
-    </div>
-
-    <!-- 왜 일찍 시작해야 하는지 -->
-    <div class="section">
-        <p class="section-label">Why Early?</p>
-        <h2 class="section-title">왜 빨리 시작해야 할까요?</h2>
+    <!-- 왜 빠른 시작이 중요할까요? -->
+    <div class="section" style="padding-top:0.5rem;">
+        <h2 class="section-title">왜 빠른 시작이 중요할까요?</h2>
 
         <div class="quote-block" style="margin-bottom:1.5rem;">
             <p>입시를 끝낸 학생들이 가장 많이 하는 말이 있어요.<br><strong>"좀만 더 시간이 있었으면..."</strong></p>
@@ -2260,21 +2256,15 @@
     }
     loadBlogPosts();
 
-    // ── 주말 카운트다운 (2027학년도 수시 실기 9/26 기준) ──
+    // ── 주말 카운트다운 (2026년 9월 마지막 주 토요일 = 9/26 기준) ──
     (function() {
         const el = document.getElementById('weekend-count');
         if (!el) return;
         const today = new Date(); today.setHours(0,0,0,0);
-        const silgiStart = new Date(2027, 8, 25); // 2027-09-25 (토) — 실기 시작 예상
-        let weekends = 0;
-        const d = new Date(today);
-        while (d <= silgiStart) {
-            if (d.getDay() === 6) weekends++;
-            d.setDate(d.getDate() + 1);
-        }
-        if (weekends > 0) {
-            el.textContent = '약 ' + weekends + '번의 주말';
-        }
+        const silgiWeekend = new Date(2026, 8, 26); // 2026-09-26 (토)
+        const diffMs = silgiWeekend - today;
+        const weekends = Math.max(0, Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000)));
+        el.textContent = weekends;
     })();
 
     // ── FILMDB ──
