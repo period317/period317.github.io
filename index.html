@@ -1087,21 +1087,15 @@
                 margin: 0 auto;
             }
 
-            /* 홈: 2컬럼 레이아웃 */
+            /* 홈 히어로: flex 가로 배치 유지 */
             #home .hero {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+                display: flex;
                 align-items: center;
-                gap: 4rem;
+                justify-content: space-between;
+                gap: 3rem;
                 padding-top: 4rem;
                 padding-bottom: 3.5rem;
             }
-
-            #home .hero > * { grid-column: 1; }
-            #home .hero h1 { grid-column: 1; grid-row: 2; }
-            #home .hero .hero-eyebrow { grid-column: 1; grid-row: 1; }
-            #home .hero .hero-desc { grid-column: 1; grid-row: 3; }
-            #home .hero .hero-actions { grid-column: 1; grid-row: 4; }
 
             /* About 섹션: stats + quote 나란히 */
             #home .stats-row {
@@ -1164,7 +1158,7 @@
         @media (min-width: 1200px) {
             .hero { max-width: 1200px; }
             .section { max-width: 1200px; }
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
         /* ── FORM ── */
         .form-group { margin-bottom: 1.5rem; }
@@ -1205,7 +1199,7 @@
         <div style="flex:1;min-width:0;">
             <p class="hero-eyebrow">영화입시 전문 1:1 과외</p>
             <h1><em>빠른 시작</em>이 원하는 대학으로.<br>고민보단 <em>무료상담</em>.</h1>
-            <div class="hero-actions">
+            <div class="hero-actions" style="margin-top:1rem;">
                 <button class="btn btn-primary" onclick="showPage('consultation')">무료 상담 신청</button>
                 <button class="btn btn-ghost" onclick="showPage('class')">수업 알아보기</button>
             </div>
@@ -1255,9 +1249,6 @@
             </div>
         </div>
 
-        <div style="text-align:center;margin-top:1.5rem;">
-            <button class="btn btn-primary" onclick="showPage('consultation')">무료 상담으로 확인해 보기</button>
-        </div>
     </div>
 
     <!-- 피리어드 소개 -->
