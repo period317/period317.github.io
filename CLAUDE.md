@@ -273,6 +273,12 @@ period317.github.io/
 | 2026-04-04 | Claude bypassPermissions 설정 | ~/.claude/settings.json |
 | 2026-04-05 | Google Workspace MCP 윈도우 설치 (uv, google_workspace_mcp 클론, OAuth 앱 생성) | `claude mcp add -s user` 등록 완료 |
 | 2026-04-05 | Google Workspace MCP 연결 확인 | `mcp__google_workspace__*` 툴 정상 로드 |
+| 2026-04-05 | Gmail 마케팅 메일 17개 trash 이동 | `batch_modify_gmail_message_labels` 사용 |
+| 2026-04-05 | Google Calendar 2개 생성 | 📋 Period. 작업로그, 📅 Period. 일정 (Python API 직접 호출) |
+| 2026-04-05 | 2026학년도 영화·영상과 수시 입시 조사 | 19개교 (실기전형 16 + 학생부종합 3) |
+| 2026-04-05 | Notion 영화·영상과 수시 입시 DB 생성 | 피리어드 내부 관리 하위, collection://79331095 |
+| 2026-04-05 | 홈페이지 입시 일정 테이블 추가 | 입시과외 탭 (2025년 기준·26학번), commit: e33f3e8 |
+| 2026-04-05 | Google Calendar 입시 이벤트 9개 등록 | 📅 Period. 일정 캘린더, 9월~12월 |
 
 ---
 
