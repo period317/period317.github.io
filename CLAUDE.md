@@ -7,7 +7,23 @@
 
 ---
 
-## 레포지토리 구조
+## 전체 시스템 구조
+
+```
+[홈페이지] period317.github.io
+    └─ 상담 폼 (3종) → Formspree (xgopvzoe) → Telegram (Formspree Bot)
+
+[네이버 블로그] blog.naver.com/songtorytelling
+    └─ RSS 피드 → Make.com → Notion 블로그 글 마스터 DB
+
+[Notion 워크스페이스]
+    ├─ 블로그 글 마스터 DB  (32cd5f8aa11b8164bdeae69f1d0cd969)
+    └─ 학생 후기 DB         (331d5f8aa11b808b98a5f24749e316df)
+```
+
+---
+
+## 레포지토리
 
 **작업 레포 (이것만 사용):**
 - GitHub: https://github.com/period317/period317.github.io
@@ -24,7 +40,7 @@
 
 ```
 period317.github.io/
-├── index.html        ← 전체 사이트 (HTML/CSS/JS 단일 파일, 2514줄, 123KB)
+├── index.html        ← 전체 사이트 (HTML/CSS/JS 단일 파일)
 ├── posts.json        ← 블로그 포스트 목록 (콘텐츠 탭에서 동적 로드)
 ├── CLAUDE.md         ← 이 파일
 ├── profile-ad.png    ← 어드쌤 프로필 사진
@@ -45,7 +61,69 @@ period317.github.io/
 | 수업 | `class` | 수업방식·내용·수업료 + 영화입시 DB (학교별 실기 정보, 서브탭) |
 | 콘텐츠 | `content` | posts.json 기반 블로그 카드, 유튜브 링크 |
 | 후기 | `reviews` | 수강생 후기 (모달 형태) |
-| 무료상담 | `consultation` | Google Forms 연결 |
+| 무료상담 | `consultation` | 직접 입력 폼 3종 (Formspree 연동) |
+
+---
+
+## 상담 폼 (Formspree → Telegram)
+
+- **폼 종류**: 입시상담 / 단편제작 / 피드백 (`class="consult-form"`)
+- **Formspree endpoint**: `https://formspree.io/f/xgopvzoe`
+- **전송 방식**: JS fetch (FormData) → Formspree → Telegram (Formspree Bot)
+- **성공 처리**: 폼 숨기고 `#form-success` 표시
+- **주요 필드**: 문의유형(hidden), 신청자, 연락처, 희망전공, 입시상태, 경험, 도움유형, 상세내용, 지역, 상담시간
+
+---
+
+## RSS → Notion 자동화
+
+- **툴**: Make.com
+- **소스**: 네이버 블로그 RSS (`blog.naver.com/songtorytelling`)
+- **대상 DB**: 피리어드 블로그 글 마스터 DB
+- **동작**: 새 블로그 글 발행 시 자동으로 Notion DB에 행 추가
+
+---
+
+## Notion DB
+
+### 블로그 글 마스터 DB
+- **Notion URL**: https://www.notion.so/32cd5f8aa11b8164bdeae69f1d0cd969
+- **상위 페이지**: 블로그 글 관리
+
+| 필드 | 타입 | 값 |
+|------|------|----|
+| 제목 | title | |
+| 대분류 | select | 피리어드 / 피리어드 에세이 / 입시분석 / 실기 강의 / 자료실 |
+| 소분류 | select | 강사소개 / 수업소개 / 학생 후기 / 무료진단/상담 / 입시/영화/미래 / 영화 리뷰 / 책 리뷰 / 공통 분석 / 학교별 분석 / 글쓰기 / 분석 / 구술 / 논술 / 영화심층분석 / 연도별 모집요강 |
+| 상태 | select | 초안 / 작성완료 / 발행완료 |
+| 발행일 | date | |
+| 원문링크 | url | |
+| 본문 | text | |
+| 태그 | multi_select | 영화 / 입시 / 실기 / 에세이 / 리뷰 / 분석 / 자료 |
+| 플랫폼 | multi_select | 네이버블로그 / 유튜브 / 웹사이트 |
+| 메모 | text | |
+
+### 학생 후기 DB
+- **Notion URL**: https://www.notion.so/331d5f8aa11b808b98a5f24749e316df
+- **상위 페이지**: 피리어드 내부 관리
+
+| 필드 | 타입 | 값 |
+|------|------|----|
+| 이름 | title | |
+| 성별 | select | 여 / 남 |
+| 시작 시기 | select | 중3 / 고1 / 고2 / 고3 / 재수 / 삼수 |
+| 기간 | text | |
+| 수업 내용 | multi_select | 단편영화제작 / 논술 / 영화이론 / 영화/방송/미디어 상식 / 이미지 분석 / 시나리오 분석 / 영화 분석 기초 / 구술/면접지 작성 / 이야기 글쓰기 |
+| 담당 강사 | select | 피리+어드 / 어드 / 피리 |
+| 후기 원문 | text | |
+| 후기 최종 | text | |
+| 후기 제목 | text | |
+| 과외 전 경험 | multi_select | 아무 경험 없음 / 영상관련 고등학교 / 대학전공(재수 이상) / 학원 / 과외 / 단편영화제작참여 / 단편영화연출 |
+| 목표학교 | multi_select | |
+| 합격학교 | multi_select | 대진대 / 성균관대 / 서경대 / 수원대 / 청주대 / 숙실대 / 숭실대 / 서울예대 |
+| 합격증 | file | |
+| 과외유입경로 | select | 학부모추천 / 검색 / 지인추천 / 과외학생추천 |
+| 입학년도 | number | |
 
 ---
 
@@ -92,7 +170,7 @@ period317.github.io/
 | 네이버 블로그 | https://blog.naver.com/songtorytelling |
 | 유튜브 채널 | https://www.youtube.com/channel/UC6LLKLW14n1foRQ-30JZ2Xg |
 | 카카오톡 오픈채팅 | https://open.kakao.com/me/film_period |
-| 무료상담 Google Forms | https://forms.gle/LjpJcbkbh3YR7Zev9 |
+| 무료상담 Google Forms (구버전) | https://forms.gle/LjpJcbkbh3YR7Zev9 |
 
 ---
 
@@ -137,7 +215,7 @@ period317.github.io/
 
 ## posts.json 구조
 
-블로그 포스트를 동적으로 로드하는 데이터 파일. 현재 4개 항목.
+블로그 포스트를 동적으로 로드하는 데이터 파일.
 
 ```json
 {
