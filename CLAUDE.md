@@ -276,6 +276,81 @@ period317.github.io/
 
 ---
 
+## 개선 과제 백로그 (GitHub Issues 연동)
+
+> 상세 내용은 GitHub Issues에서 관리. 여기선 빠른 참조용으로만 유지.
+
+```xml
+<backlog updated="2026-04-05">
+
+  <!-- ── 홈페이지 ── -->
+  <issue id="13" label="홈페이지" priority="high" github="#13">
+    <title>피리쌤 자소서·면접 전담 차별점 강조</title>
+    <why>경쟁사 4곳 전부 자소서/면접 전담 없음. 현재 선생님 탭에만 묻혀 있음.</why>
+    <what>홈 히어로 또는 수업 탭 상단에 2인 분업 구조 1줄 명시</what>
+  </issue>
+
+  <issue id="15" label="홈페이지" priority="high" github="#15">
+    <title>수강생 후기 추가 — 노션 후기 DB 반영</title>
+    <why>우디쌤 69개 vs 피리어드 4개. 공개 동의 케이스 확인 후 추가 가능.</why>
+    <what>노션 후기 DB에서 공개 가능 케이스 확인 필요 (직접 판단 필요)</what>
+    <notion>331d5f8a-a11b-808b-98a5-f24749e316df</notion>
+  </issue>
+
+  <!-- ── 콘텐츠 ── -->
+  <issue id="14" label="콘텐츠" priority="high" github="#14">
+    <title>posts.json 업데이트 — 블로그 발행완료 글 반영</title>
+    <why>노션 블로그 DB ~20개 중 사이트엔 4개만 표시. 발행완료 글 누락.</why>
+    <what>노션 DB 상태=발행완료 목록 확인 후 posts.json 추가</what>
+    <notion>collection://32cd5f8a-a11b-8157-a974-000be1b8bc37</notion>
+  </issue>
+
+  <issue id="16" label="콘텐츠" priority="medium" github="#16">
+    <title>블로그 글 발행 — SWOT 기반 4편 우선 작성</title>
+    <why>자소서/면접·예고입시 콘텐츠 공백 시장. SEO 유입 + 차별점 소구.</why>
+    <what>
+      1. 영화과 입시, 자소서가 당락을 가른다 (피리쌤 전문성)
+      2. 1:1 과외 vs 학원 비교
+      3. 예고 입시 준비법 (한림·안양)
+      4. 합격생 스토리 시리즈 (익명)
+    </what>
+  </issue>
+
+  <!-- ── 경쟁사/전략 ── -->
+  <issue id="17" label="경쟁사" priority="low" github="#17">
+    <title>경쟁사 DB 보완 — 개인 과외 강사·온라인 플랫폼 추가</title>
+    <why>현재 4곳(레슨포·우디쌤·포커스·필름스테이션)만 정리됨. 개인 강사 미조사.</why>
+    <what>네이버 블로그 개인 강사, 클래스101·탈잉 플랫폼 조사</what>
+    <notion>f1f53d3a-8ae7-480e-8a87-86115aa74f92</notion>
+  </issue>
+
+  <issue id="18" label="전략" priority="medium" github="#18">
+    <title>인스타그램 개설 및 SNS/온라인 수업 방향 결정</title>
+    <why>경쟁사 3곳 인스타 운영 중. 온라인 수업은 SWOT 약점으로 명시됨.</why>
+    <what>인스타 개설 여부, 온라인 수업 여부 — 직접 결정 필요</what>
+  </issue>
+
+</backlog>
+```
+
+---
+
+## 경쟁사 인사이트 요약
+
+```xml
+<competitors updated="2026-04-05">
+  <key-finding>경쟁사 4곳 전부 자소서/면접 전담 강사 없음 — 피리어드 최강 차별점</key-finding>
+  <key-finding>우디쌤이 콘텐츠(유튜브+틱톡+블로그+인스타) 전략으로 검색 상위 점령 중</key-finding>
+  <key-finding>레슨포 수업료 월 45만원(그룹) — 피리어드 1:1 프리미엄 포지셔닝 유지 가능</key-finding>
+  <key-finding>필름스테이션: 동작구 인근, 평점 3.7 — 지역 경쟁에서 피리어드 우위 가능</key-finding>
+  <swot-gap>SWOT 강점에 '수업료 투명 공개' 기재되어 있으나 현재 사이트는 비공개 운영 — 전략 방향 통일 필요</swot-gap>
+  <notion-db>f1f53d3a-8ae7-480e-8a87-86115aa74f92</notion-db>
+  <notion-swot>338d5f8a-a11b-81bf-828d-ecc5aac49206</notion-swot>
+</competitors>
+```
+
+---
+
 ## TODO (미완료)
 
 ### 🟡 Google 캘린더 2개 생성
