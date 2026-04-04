@@ -233,7 +233,7 @@ period317.github.io/
 
 ---
 
-## Claude 로컬 환경 세팅 (2026-04-04 완료)
+## Claude 로컬 환경 세팅
 
 ### GitHub 인증
 - **계정**: period317
@@ -246,12 +246,16 @@ period317.github.io/
 - `"defaultMode": "bypassPermissions"` 설정 완료
 - 매번 허용 팝업 없이 자동 실행
 
-### Google Workspace MCP (미완료 → TODO 참고)
-- **파일**: `~/.claude/mcp.json`
-- taylorwilsdon/google_workspace_mcp 설치 위치: `/Users/user/google-workspace-mcp`
-- uv 설치 완료 (`~/.local/bin/uv`)
-- OAuth 키만 입력하면 Gmail 삭제 + 캘린더 생성 권한 사용 가능
-- **차단 이유**: 회사 맥북 보안 정책으로 cloud.google.com 접근 불가 → 집에서 개인 기기로 진행 필요
+### Google Workspace MCP (2026-04-05 완료 — 윈도우 집 PC)
+- **패키지**: taylorwilsdon/google_workspace_mcp
+- **설치 위치**: `C:/Users/user/google_workspace_mcp` (`~/google_workspace_mcp`)
+- **uv 설치**: `pip install uv` (Python 3.14 환경)
+- **OAuth 앱**: Google Cloud Console 프로젝트명 `period`, 데스크탑 앱 타입
+- **Client ID**: `733934180874-jnsl47jpt73d70qfmobvnlces9jbuvr3.apps.googleusercontent.com`
+- **자격증명 저장**: `~/.google_workspace_mcp/credentials/`
+- **등록 명령**: `claude mcp add -s user google_workspace` (stdio, user 스코프)
+- **활성 툴**: gmail, calendar (`--single-user --tools gmail calendar`)
+- **상태**: 연결 완료 (`mcp__google_workspace__*` 툴 사용 가능)
 
 ---
 
@@ -267,34 +271,24 @@ period317.github.io/
 | 2026-04-04 | Formspree → Telegram 연동 확인 | 정상 (endpoint: xgopvzoe) |
 | 2026-04-04 | GitHub 토큰 영구 저장 | ~/.git-credentials |
 | 2026-04-04 | Claude bypassPermissions 설정 | ~/.claude/settings.json |
-| 2026-04-04 | Google Workspace MCP 설치 | OAuth 키 입력 대기 중 |
+| 2026-04-05 | Google Workspace MCP 윈도우 설치 (uv, google_workspace_mcp 클론, OAuth 앱 생성) | `claude mcp add -s user` 등록 완료 |
+| 2026-04-05 | Google Workspace MCP 연결 확인 | `mcp__google_workspace__*` 툴 정상 로드 |
 
 ---
 
 ## TODO (미완료)
 
-### 🔴 최우선: Google Workspace MCP OAuth 키 발급
-집에서 개인 기기로 진행:
-1. https://console.cloud.google.com 접속
-2. 프로젝트 `period-claude` 생성
-3. Gmail API + Google Calendar API 활성화
-4. OAuth 동의 화면 구성 (외부, 테스트 모드)
-5. 사용자 인증 정보 → OAuth 클라이언트 ID 생성 (데스크탑 앱 타입)
-6. Client ID + Client Secret 복사
-7. `~/.claude/mcp.json` 에서 아래 값 교체:
-   - `"여기에_클라이언트_ID_입력"` → 실제 Client ID
-   - `"여기에_클라이언트_시크릿_입력"` → 실제 Client Secret
-8. Claude 재시작 → OAuth 인증 팝업 승인
-
-### 🟡 Google 캘린더 2개 생성 (Workspace MCP 완료 후)
+### 🟡 Google 캘린더 2개 생성
 - `📋 피리어드 작업로그` — Claude 세션/작업 기록용
 - `📅 피리어드 일정` — 수업·사업 일정 관리용
+- MCP 연결 완료, 새 대화에서 `mcp__google_workspace__manage_event` 사용
 
-### 🟡 Gmail 정리 (Workspace MCP 완료 후)
+### 🟡 Gmail 정리
 삭제 대상 (Formspree 상담 신청 2개는 유지):
 - Make.com 마케팅 메일 7개
 - Tally 메일 1개
 - Google Analytics 안내 메일 1개
+- MCP 연결 완료, `mcp__google_workspace__batch_modify_gmail_message_labels` 사용
 
 ### 🟢 period-site 레포 삭제
 - https://github.com/period317/period-site (배포 안 되는 중복 레포)
