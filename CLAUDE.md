@@ -230,3 +230,72 @@ period317.github.io/
 ```
 
 새 블로그 글 추가 시 posts.json에 항목 추가하면 콘텐츠 탭에 자동 반영.
+
+---
+
+## Claude 로컬 환경 세팅 (2026-04-04 완료)
+
+### GitHub 인증
+- **계정**: period317
+- **인증방식**: git credential store (영구 저장)
+- **파일**: `~/.git-credentials`
+- push 시 토큰 입력 불필요
+
+### Claude Code 자동 승인
+- **파일**: `~/.claude/settings.json`
+- `"defaultMode": "bypassPermissions"` 설정 완료
+- 매번 허용 팝업 없이 자동 실행
+
+### Google Workspace MCP (미완료 → TODO 참고)
+- **파일**: `~/.claude/mcp.json`
+- taylorwilsdon/google_workspace_mcp 설치 위치: `/Users/user/google-workspace-mcp`
+- uv 설치 완료 (`~/.local/bin/uv`)
+- OAuth 키만 입력하면 Gmail 삭제 + 캘린더 생성 권한 사용 가능
+- **차단 이유**: 회사 맥북 보안 정책으로 cloud.google.com 접근 불가 → 집에서 개인 기기로 진행 필요
+
+---
+
+## 완료된 작업 이력
+
+| 날짜 | 작업 | 결과 |
+|------|------|------|
+| 2026-04-04 | CLAUDE.md 전면 작성 (34줄→233줄) | GitHub push (commit: 6192e99) |
+| 2026-04-04 | sitemap 링크 버그 수정 (`/period-site/sitemap.xml` → `/sitemap.xml`) | GitHub push (commit: d0f41f9) |
+| 2026-04-04 | Make.com JSON 에러 수정 (title 특수문자로 인한 JSON 파싱 오류) | replace()로 따옴표/줄바꿈 이스케이프 |
+| 2026-04-04 | Google Analytics (G-P0ZT2K5V2F) 세팅 확인 | 정상 |
+| 2026-04-04 | 네이버 사이트 인증 확인 | 정상 |
+| 2026-04-04 | Formspree → Telegram 연동 확인 | 정상 (endpoint: xgopvzoe) |
+| 2026-04-04 | GitHub 토큰 영구 저장 | ~/.git-credentials |
+| 2026-04-04 | Claude bypassPermissions 설정 | ~/.claude/settings.json |
+| 2026-04-04 | Google Workspace MCP 설치 | OAuth 키 입력 대기 중 |
+
+---
+
+## TODO (미완료)
+
+### 🔴 최우선: Google Workspace MCP OAuth 키 발급
+집에서 개인 기기로 진행:
+1. https://console.cloud.google.com 접속
+2. 프로젝트 `period-claude` 생성
+3. Gmail API + Google Calendar API 활성화
+4. OAuth 동의 화면 구성 (외부, 테스트 모드)
+5. 사용자 인증 정보 → OAuth 클라이언트 ID 생성 (데스크탑 앱 타입)
+6. Client ID + Client Secret 복사
+7. `~/.claude/mcp.json` 에서 아래 값 교체:
+   - `"여기에_클라이언트_ID_입력"` → 실제 Client ID
+   - `"여기에_클라이언트_시크릿_입력"` → 실제 Client Secret
+8. Claude 재시작 → OAuth 인증 팝업 승인
+
+### 🟡 Google 캘린더 2개 생성 (Workspace MCP 완료 후)
+- `📋 피리어드 작업로그` — Claude 세션/작업 기록용
+- `📅 피리어드 일정` — 수업·사업 일정 관리용
+
+### 🟡 Gmail 정리 (Workspace MCP 완료 후)
+삭제 대상 (Formspree 상담 신청 2개는 유지):
+- Make.com 마케팅 메일 7개
+- Tally 메일 1개
+- Google Analytics 안내 메일 1개
+
+### 🟢 period-site 레포 삭제
+- https://github.com/period317/period-site (배포 안 되는 중복 레포)
+- GitHub 웹에서 직접 삭제 (Settings → Delete repository)
