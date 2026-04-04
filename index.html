@@ -43,11 +43,11 @@
         :root {
             --bg: #ffffff;
             --surface: #ffffff;
-            --border: rgba(0,0,0,0.07);
-            --border-mid: rgba(0,0,0,0.12);
-            --text: #1a1a1a;
-            --text-2: #555;
-            --text-3: #999;
+            --border: rgba(0,0,0,0.09);
+            --border-mid: rgba(0,0,0,0.15);
+            --text: #111111;
+            --text-2: #4a4a4a;
+            --text-3: #767676;
             --accent: #3B3B3B;
             --pink: #F1296C;
             --lavender: #DDCEDD;
@@ -180,9 +180,9 @@
 
         h2.section-title {
             font-size: 1.625rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.3;
+            font-weight: 800;
+            letter-spacing: -0.75px;
+            line-height: 1.25;
             margin-bottom: 1.5rem;
         }
 
@@ -237,9 +237,10 @@
 
         .hero h1 {
             font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-            font-size: 1.75rem;
-            line-height: 1.25;
-            letter-spacing: -0.5px;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
             color: var(--text);
             margin-bottom: 1.25rem;
         }
@@ -312,7 +313,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            background: #fdfdfd;
+            background: #f7f8f9;
         }
 
         .stat-item {
@@ -324,9 +325,9 @@
         .stat-item:last-child { border-right: none; }
 
         .stat-num {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.875rem;
+            font-weight: 800;
+            letter-spacing: -1px;
             color: var(--text);
             display: block;
         }
@@ -340,9 +341,9 @@
 
         /* ── QUOTE BLOCK ── */
         .quote-block {
-            border-left: 3px solid var(--lavender);
+            border-left: 3px solid var(--border-mid);
             padding: 1rem 1.25rem;
-            background: #fdfdfd;
+            background: #f7f8f9;
             border-radius: 0 var(--radius) var(--radius) 0;
         }
 
@@ -362,7 +363,7 @@
 
         /* ── CARDS ── */
         .card {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
@@ -461,7 +462,7 @@
             text-indent: -1em;
             margin-bottom: 0.2rem;
         }
-        .review-summary li::before { content: "• "; color: var(--mint); font-weight: 700; }
+        .review-summary li::before { content: "• "; color: var(--text-3); font-weight: 400; }
         .review-excerpt {
             font-size: 0.8125rem;
             color: var(--text-3);
@@ -543,7 +544,7 @@
 
         /* ── PRICE TABLE ── */
         .price-table {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
@@ -560,7 +561,7 @@
         .price-row:last-child { border-bottom: none; }
 
         .price-row.highlight {
-            background: #fdfdfd;
+            background: #f7f8f9;
         }
 
         .price-name {
@@ -587,7 +588,7 @@
 
         /* ── BLOG CARD ── */
         .blog-card {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 0.875rem 1rem;
@@ -618,7 +619,7 @@
         }
 
         .blog-card-title {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             font-weight: 700;
             color: var(--text);
             letter-spacing: -0.2px;
@@ -658,15 +659,15 @@
         .db-section-title { font-size: 0.75rem; font-weight: 700; color: var(--text-3); margin: 1.5rem 0 0.75rem; letter-spacing: 0; }
         .db-section-title:first-child { margin-top: 0; }
 
-        .db-card { background: #fdfdfd; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.125rem; margin-bottom: 0.5rem; text-decoration: none; display: block; transition: all 0.2s; }
+        .db-card { background: #f7f8f9; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.125rem; margin-bottom: 0.5rem; text-decoration: none; display: block; transition: all 0.2s; }
         .db-card:hover { border-color: var(--border-mid); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
         .db-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; }
-        .db-card-name { font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: -0.2px; line-height: 1.4; }
+        .db-card-name { font-size: 0.875rem; font-weight: 700; color: var(--text); letter-spacing: -0.2px; line-height: 1.4; }
         .db-badge { font-size: 0.6875rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 50px; white-space: nowrap; flex-shrink: 0; }
         .badge-youth { background: rgba(68,151,233,0.12); color: var(--blue); }
         .badge-general { background: rgba(83,218,191,0.12); color: #2a8a74; }
         .badge-support { background: rgba(145,121,145,0.12); color: var(--mauve); }
-        .db-card-meta { display: flex; flex-wrap: wrap; gap: 0.375rem 1rem; font-size: 0.78rem; color: var(--text-3); line-height: 1.5; }
+        .db-card-meta { display: flex; flex-wrap: wrap; gap: 0.375rem 1rem; font-size: 0.8125rem; color: var(--text-3); line-height: 1.5; }
 
         /* DB Table */
         .db-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); margin-top: 0.5rem; }
@@ -675,7 +676,7 @@
         .db-table td { padding: 0.625rem 0.875rem; border-bottom: 1px solid var(--border); vertical-align: middle; line-height: 1.45; }
         .db-table tr:last-child td { border-bottom: none; }
         .db-table tr:hover td { background: #fafafa; }
-        .db-table td:nth-child(2), .db-table td:nth-child(3) { white-space: nowrap; font-size: 0.78rem; color: var(--text-2); }
+        .db-table td:nth-child(2), .db-table td:nth-child(3) { white-space: nowrap; font-size: 0.8125rem; color: var(--text-2); }
         .db-table td:nth-child(4) { font-size: 0.75rem; color: var(--text-2); min-width: 120px; }
         .dday-badge { font-size: 0.6875rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 50px; white-space: nowrap; display: inline-block; margin-left: 0.375rem; vertical-align: middle; }
         .dday-urgent { background: rgba(241,41,108,0.1); color: var(--pink); }
@@ -684,14 +685,14 @@
         .past-label { background: rgba(0,0,0,0.05); color: var(--text-3); }
         .db-table .link-btn { font-size: 0.75rem; font-weight: 600; color: var(--pink); text-decoration: none; white-space: nowrap; }
         .db-table .link-btn:hover { opacity: 0.75; }
-        .db-org { font-size: 0.72rem; color: var(--text-3); display: block; margin-top: 0.1rem; }
+        .db-org { font-size: 0.75rem; color: var(--text-3); display: block; margin-top: 0.1rem; }
         /* 모바일 카드 레이아웃 */
         .db-card-list { display: flex; flex-direction: column; gap: 0.625rem; margin-top: 0.5rem; }
         .db-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.875rem 1rem; background: #fff; }
         .db-card-title { font-size: 0.875rem; font-weight: 700; line-height: 1.4; }
-        .db-card-org { font-size: 0.72rem; color: var(--text-3); margin-top: 0.2rem; }
+        .db-card-org { font-size: 0.75rem; color: var(--text-3); margin-top: 0.2rem; }
         .db-card-date { font-size: 0.75rem; color: var(--text-2); margin-top: 0.5rem; }
-        .db-card-eligibility { font-size: 0.72rem; color: var(--text-2); margin-top: 0.2rem; }
+        .db-card-eligibility { font-size: 0.75rem; color: var(--text-2); margin-top: 0.2rem; }
         .db-card-footer { display: flex; justify-content: flex-end; margin-top: 0.625rem; }
         .db-card .link-btn { font-size: 0.8rem; font-weight: 600; color: var(--pink); text-decoration: none; }
         @media (max-width: 767px) { .db-table-wrap { display: none; } }
@@ -705,7 +706,7 @@
 
         /* ── REVIEW ── */
         .review-item {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
@@ -743,7 +744,7 @@
 
         /* ── CONSULT CARD ── */
         .consult-banner {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 2rem 1.5rem;
@@ -809,7 +810,7 @@
 
         /* ── WHY FREE ── */
         .why-free {
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.5rem 1.25rem;
@@ -835,21 +836,15 @@
 
         .content-section > h3 {
             font-size: 1.0625rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text);
             letter-spacing: -0.3px;
             margin-bottom: 1rem;
             padding-top: 1.5rem;
-            display: inline-block;
+            display: block;
         }
         .content-section > h3::after {
-            content: '';
-            display: block;
-            width: 2rem;
-            height: 2.5px;
-            background: var(--pink);
-            margin-top: 0.35rem;
-            border-radius: 2px;
+            content: none;
         }
 
         /* ── MEDIA SECTION ── */
@@ -864,7 +859,7 @@
             flex-direction: column;
             gap: 0.375rem;
             padding: 0.875rem;
-            background: #fdfdfd;
+            background: #f7f8f9;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             text-decoration: none;
@@ -1111,7 +1106,7 @@
                 margin: 0 auto;
             }
 
-            .hero h1 { font-size: 2.5rem; letter-spacing: -1px; }
+            .hero h1 { font-size: 2.75rem; letter-spacing: -1.5px; }
 
             /* 섹션 공통: 중앙 정렬 + 좌우 패딩 */
             .section {
@@ -1208,8 +1203,8 @@
         .radio-option, .check-option { display:flex; align-items:center; gap:0.625rem; font-size:0.875rem; color:var(--text-2); cursor:pointer; padding:0.625rem 0.875rem; border:1px solid var(--border); border-radius:8px; transition:all 0.15s; }
         .radio-option:hover, .check-option:hover { border-color:var(--border-mid); background:#fafafa; }
         .radio-option input, .check-option input { accent-color:var(--pink); flex-shrink:0; }
-        .form-input { width:100%; padding:0.75rem 1rem; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:0.875rem; color:var(--text); background:#fdfdfd; outline:none; transition:border-color 0.15s; resize:vertical; box-sizing:border-box; }
-        .form-input:focus { border-color:var(--border-mid); box-shadow:0 0 0 3px rgba(0,0,0,0.04); }
+        .form-input { width:100%; padding:0.75rem 1rem; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:0.875rem; color:var(--text); background:#f7f8f9; outline:none; transition:border-color 0.15s; resize:vertical; box-sizing:border-box; }
+        .form-input:focus { border-color:var(--pink); box-shadow:0 0 0 3px rgba(241,41,108,0.10); }
         .form-divider { border:none; border-top:1px solid var(--border); margin:0.25rem 0 1.75rem; }
     </style>
 </head>
