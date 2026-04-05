@@ -1216,6 +1216,27 @@
         .form-input { width:100%; padding:0.75rem 1rem; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:0.875rem; color:var(--text); background:#f7f8f9; outline:none; transition:border-color 0.15s; resize:vertical; box-sizing:border-box; }
         .form-input:focus { border-color:var(--pink); box-shadow:0 0 0 3px rgba(241,41,108,0.10); }
         .form-divider { border:none; border-top:1px solid var(--border); margin:0.25rem 0 1.75rem; }
+
+        /* ── SCHEDULE TAB ── */
+        .sch-month-header { font-size:17px; font-weight:700; margin:28px 0 12px; padding-bottom:8px; border-bottom:2px solid var(--text); }
+        .sch-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:10px; }
+        .sch-card.실기전형 { border-left:4px solid #3182F6; }
+        .sch-card.학생부종합 { border-left:4px solid #34a853; }
+        .sch-card.면접전형 { border-left:4px solid #ea8600; }
+        .sch-card.sch-hidden { display:none !important; }
+        .sch-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+        .sch-name { font-size:16px; font-weight:700; }
+        .sch-badge { font-size:11px; padding:2px 8px; border-radius:10px; white-space:nowrap; flex-shrink:0; margin-left:8px; }
+        .sch-badge.실기 { background:#e8f0fe; color:#1967d2; }
+        .sch-badge.학종 { background:#e6f4ea; color:#137333; }
+        .sch-badge.면접 { background:#fef7e0; color:#b06000; }
+        .sch-detail { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:6px; font-size:13px; color:var(--text-2); }
+        .sch-detail dt { color:var(--text-3); font-size:11px; }
+        .sch-detail dd { margin-bottom:2px; }
+        .sch-meta { font-size:12px; color:var(--text-3); margin-top:8px; }
+        .sch-link-soon { font-size:13px; color:#bbb; text-decoration:none; display:inline-block; margin-top:8px; cursor:default; }
+        .sch-filter-btn { padding:6px 14px; border:1px solid var(--border-mid); background:#fff; border-radius:20px; font-size:13px; cursor:pointer; font-family:inherit; transition:all 0.15s; }
+        .sch-filter-btn.sch-active { background:var(--text); color:#fff; border-color:var(--text); }
     </style>
 </head>
 <body>
@@ -1234,6 +1255,7 @@
     <button class="nav-btn" data-page="consultation">상담·문의</button>
     <button class="nav-btn" data-page="content">강의·콘텐츠</button>
     <button class="nav-btn" data-page="filmdb">단편영화 DB</button>
+    <button class="nav-btn" data-page="schedule">입시 스케줄</button>
 </nav>
 
 <!-- ========== HOME ========== -->
@@ -2248,6 +2270,217 @@
     </div>
 </div>
 
+<!-- ========== SCHEDULE ========== -->
+<div class="page" id="schedule">
+    <div class="section">
+        <p class="section-label">2025년 기준 · 26학번</p>
+        <h2 class="section-title">영화·영상과 수시 입시 스케줄</h2>
+        <p style="color:var(--text-2); font-size:14px; margin-bottom:1.5rem;">학교 이름을 클릭하면 해당 학교의 입시 분석 블로그로 이동합니다. (준비 중인 학교는 회색 표시)</p>
+
+        <!-- 요약 카드 -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:28px;">
+            <div style="background:#f8f9fa; border-radius:12px; padding:16px; text-align:center;">
+                <div style="font-size:28px; font-weight:800;">19</div>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px;">지원 가능 학교</div>
+            </div>
+            <div style="background:#f8f9fa; border-radius:12px; padding:16px; text-align:center;">
+                <div style="font-size:28px; font-weight:800;">421</div>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px;">총 모집정원</div>
+            </div>
+            <div style="background:#f8f9fa; border-radius:12px; padding:16px; text-align:center;">
+                <div style="font-size:28px; font-weight:800;">16</div>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px;">실기전형 학교</div>
+            </div>
+            <div style="background:#f8f9fa; border-radius:12px; padding:16px; text-align:center;">
+                <div style="font-size:28px; font-weight:800;">6+α</div>
+                <div style="font-size:12px; color:var(--text-3); margin-top:4px;">수시 지원 가능 수</div>
+            </div>
+        </div>
+
+        <!-- 필터 -->
+        <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+            <button onclick="scheduleFilter('')" class="sch-filter-btn sch-active" id="sch-all">전체</button>
+            <button onclick="scheduleFilter('실기전형')" class="sch-filter-btn" id="sch-실기">실기전형 16</button>
+            <button onclick="scheduleFilter('학생부종합')" class="sch-filter-btn" id="sch-학종">학생부종합 2</button>
+            <button onclick="scheduleFilter('면접전형')" class="sch-filter-btn" id="sch-면접">면접전형 1</button>
+        </div>
+
+        <!-- 범례 -->
+        <div style="display:flex; gap:16px; margin-bottom:16px; font-size:12px; color:var(--text-3);">
+            <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#3182F6;display:inline-block;"></span>실기전형</span>
+            <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#34a853;display:inline-block;"></span>학생부종합</span>
+            <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:50%;background:#ea8600;display:inline-block;"></span>면접전형</span>
+        </div>
+
+        <p style="font-size:12px; color:var(--text-3); margin-bottom:20px;">* 서울예대·백석예대(전문대), 한예종(특수대학)은 <strong>수시 6개 제한에 포함되지 않습니다.</strong></p>
+
+        <!-- 9월 -->
+        <div class="sch-month-header" id="sch-9월">9월 — 원서접수</div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">추계예대 영화학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.1 ~ 9.5</dd></div><div><dt>실기</dt><dd>9월 말 ~ 10월 초</dd></div><div><dt>정원</dt><dd>25명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">서울예대 영화과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9월 초 (별도일정)</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>40명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <div class="sch-meta">* 전문대 — 수시 6개 제한 미포함</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">백석예대 방송연예학부 (영화)</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9월 별도</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>30명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <div class="sch-meta">* 전문대 — 수시 6개 제한 미포함</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <p style="font-size:13px; color:var(--text-3); margin:16px 0 8px; padding-left:4px;">9.8 ~ 9.12 일괄 원서접수</p>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">한예종 영화과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기1차</dt><dd>10.11 ~ 10.12</dd></div><div><dt>실기2차</dt><dd>10.25 ~ 10.26</dd></div><div><dt>정원</dt><dd>21명</dd></div><div><dt>합격발표</dt><dd>11.28</dd></div></div>
+            <div class="sch-meta">포트폴리오+면접 | 논술 180분 | * 특수대학 — 수시 6개 제한 미포함</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중 →</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">한예종 방송영상과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월 초 / 10월 말</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11월 말</dd></div></div>
+            <div class="sch-meta">포트폴리오+면접 | * 특수대학 — 수시 6개 제한 미포함</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">중앙대 영화학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기1차</dt><dd>10.11 ~ 10.19</dd></div><div><dt>실기2차</dt><dd>10.25 ~ 11.2</dd></div><div><dt>정원</dt><dd>30명</dd></div><div><dt>합격발표</dt><dd>12.12</dd></div></div>
+            <div class="sch-meta">스토리창작 실기 | 경쟁률 130:1+</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중 →</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">건국대 영화학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월 중순</dd></div><div><dt>정원</dt><dd>25명</dd></div><div><dt>합격발표</dt><dd>11월 말</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">세종대 영화예술학과 (연출제작)</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10.18</dd></div><div><dt>정원</dt><dd>15명</dd></div><div><dt>합격발표</dt><dd>11.28</dd></div></div>
+            <div class="sch-meta">스토리텔링 3시간 + 5분 발표</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중 →</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">한양대 연극영화학과 (영화전공)</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10.18 ~ 10.19</dd></div><div><dt>정원</dt><dd>15명</dd></div><div><dt>합격발표</dt><dd>11.28</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">단국대 영화콘텐츠전공 (죽전)</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10.11</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11.28</dd></div></div>
+            <div class="sch-meta">스토리텔링 작성 | 면접 준비 20분+답변 6분</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">상명대 영화전공</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">서경대 영화영상학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">단국대 공연영화학부 (천안)</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11월 말</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">대진대 영화방송학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <div class="sch-meta">심층면접 5분 (3문항 중 2개)</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">청주대 영화학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월 중순</dd></div><div><dt>정원</dt><dd>25명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 실기전형" data-stype="실기전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">수원대 영화영상학과</a></span><span class="sch-badge 실기">실기전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>10월</dd></div><div><dt>정원</dt><dd>15명</dd></div><div><dt>합격발표</dt><dd>11월</dd></div></div>
+            <div class="sch-meta">ZOOM 화상 블라인드 인성면접</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 학생부종합" data-stype="학생부종합">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">동국대 영화영상학과</a></span><span class="sch-badge 학종">학생부종합</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>없음 (서류+면접)</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>12.12</dd></div></div>
+            <div class="sch-meta">Do Dream 전형 | 서류 70% + 면접 30%</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중 →</a>
+        </div>
+
+        <div class="sch-card 학생부종합" data-stype="학생부종합">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">명지대 영화학과</a></span><span class="sch-badge 학종">학생부종합</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>없음 (서류+면접)</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>12월</dd></div></div>
+            <div class="sch-meta">명지인재 전형 | 면접 10분</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <div class="sch-card 면접전형" data-stype="면접전형">
+            <div class="sch-card-top"><span class="sch-name"><a href="#" class="sch-link-soon">성균관대 영상학과</a></span><span class="sch-badge 면접">면접전형</span></div>
+            <div class="sch-detail"><div><dt>원서접수</dt><dd>9.8 ~ 9.12</dd></div><div><dt>실기</dt><dd>없음 (서류평가 100%)</dd></div><div><dt>정원</dt><dd>20명</dd></div><div><dt>합격발표</dt><dd>12.12</dd></div></div>
+            <div class="sch-meta">탐구형 전형 | 면접 없음 · 서류 100%</div>
+            <a href="#" class="sch-link-soon">분석글 준비 중</a>
+        </div>
+
+        <!-- 10월 -->
+        <div class="sch-month-header" id="sch-10월">10월 — 실기고사</div>
+        <div style="background:#f8f9fa; border-radius:12px; padding:20px; margin-bottom:12px; font-size:14px; line-height:1.8;">
+            <strong>주요 실기 일정</strong>
+            <table style="width:100%; margin-top:10px; font-size:13px; border-collapse:collapse;">
+                <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0; color:var(--text-3); width:100px;">9월 말</td><td style="padding:6px 0;">추계예대 실기 (가장 빠른 실기)</td></tr>
+                <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0; color:var(--text-3);">10.11</td><td style="padding:6px 0;">한예종 영화과 1차 / 단국대(죽전) 실기</td></tr>
+                <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0; color:var(--text-3);">10.11~19</td><td style="padding:6px 0;">중앙대 실기 1단계</td></tr>
+                <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0; color:var(--text-3);">10.18</td><td style="padding:6px 0;">세종대 / 한양대 실기</td></tr>
+                <tr style="border-bottom:1px solid var(--border);"><td style="padding:6px 0; color:var(--text-3);">10월 중순</td><td style="padding:6px 0;">건국대 / 청주대 실기</td></tr>
+                <tr><td style="padding:6px 0; color:var(--text-3);">10.25~11.2</td><td style="padding:6px 0;">중앙대 실기 2단계 / 한예종 방송영상과 2차</td></tr>
+            </table>
+        </div>
+
+        <!-- 11월 -->
+        <div class="sch-month-header" id="sch-11월">11월 — 합격자 발표 (1차)</div>
+        <div style="background:#f8f9fa; border-radius:12px; padding:20px; margin-bottom:12px; font-size:14px; line-height:1.8;">
+            <strong>11.28 합격발표</strong>: 한예종 영화과 · 세종대 · 한양대 · 단국대(죽전)<br>
+            <strong>11월 말</strong>: 한예종 방송영상과 · 건국대 · 단국대(천안)<br>
+            <strong>11월 중</strong>: 추계예대 · 서울예대 · 백석예대 · 대진대 · 상명대 · 서경대 · 청주대 · 수원대
+        </div>
+
+        <!-- 12월 -->
+        <div class="sch-month-header" id="sch-12월">12월 — 합격자 발표 (2차)</div>
+        <div style="background:#f8f9fa; border-radius:12px; padding:20px; margin-bottom:12px; font-size:14px; line-height:1.8;">
+            <strong>12.12 합격발표</strong>: 중앙대 · 동국대 · 성균관대<br>
+            <strong>12월 중</strong>: 명지대
+        </div>
+
+        <p style="margin-top:32px; font-size:12px; color:var(--text-3); line-height:1.8;">
+            * 2025년 기준(26학번) 일정입니다. 2026년(27학번) 일정은 각 학교 모집요강 발표 후 업데이트됩니다.<br>
+            * 학교별 분석 블로그는 순차 오픈 예정입니다.
+        </p>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     <p>© 2025 피리어드 영화입시 과외<br>
@@ -2289,7 +2522,7 @@
     });
 
     // 초기 로드 및 뒤로가기 처리
-    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb'];
+    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb', 'schedule'];
     const initHash = location.hash.replace('#', '');
     if (initHash && validPages.includes(initHash)) showPage(initHash, false);
 
@@ -2547,6 +2780,15 @@
             }
         });
     });
+
+    function scheduleFilter(type) {
+        document.querySelectorAll('.sch-card').forEach(card => {
+            card.classList.toggle('sch-hidden', !!(type && card.dataset.stype !== type));
+        });
+        ['all','실기','학종','면접'].forEach(id => document.getElementById('sch-' + id)?.classList.remove('sch-active'));
+        const map = {'':'all','실기전형':'실기','학생부종합':'학종','면접전형':'면접'};
+        document.getElementById('sch-' + (map[type] ?? 'all'))?.classList.add('sch-active');
+    }
 </script>
 </body>
 </html>
