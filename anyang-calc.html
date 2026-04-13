@@ -15,39 +15,42 @@ body {
   min-height: 100vh;
 }
 
-/* ── Page-level top tab nav ── */
-.page-nav {
-  background: white;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 200;
-}
-
-.page-nav-inner {
-  max-width: 680px;
-  margin: 0 auto;
+/* ── 계산기 진입 버튼 ── */
+.calc-entry-btn {
   display: flex;
-  padding: 0 16px;
-}
-
-.page-tab {
-  flex: 1;
-  padding: 14px 8px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1120px;
+  margin: 32px auto 0;
+  padding: 18px 24px;
+  background: #1a6cf5;
+  color: white;
   border: none;
-  background: transparent;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.calc-entry-btn:hover { background: #1558cc; }
+.calc-entry-btn-sub { font-size: 12px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
+
+/* ── 뒤로가기 버튼 ── */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
   font-size: 14px;
   font-weight: 600;
-  color: #aaa;
-  cursor: pointer;
-  border-bottom: 2.5px solid transparent;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-.page-tab.active {
   color: #1a6cf5;
-  border-bottom-color: #1a6cf5;
+  cursor: pointer;
+  padding: 16px 16px 0;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 /* ── Page content ── */
@@ -944,18 +947,11 @@ header p {
 </head>
 <body>
 
-<!-- ── Top page navigation ── -->
-<nav class="page-nav">
-  <div class="page-nav-inner">
-    <button class="page-tab active" onclick="switchPage(0, this)">내신 계산기</button>
-    <button class="page-tab" onclick="switchPage(1, this)">학교 정보 비교</button>
-  </div>
-</nav>
-
 <!-- ════════════════════════════════════
      PAGE 0 · 내신 계산기
      ════════════════════════════════════ -->
-<div id="page-0" class="page-content active">
+<div id="page-0" class="page-content">
+<button class="back-btn" onclick="showInfo()">← 학교 정보로 돌아가기</button>
 <div class="container">
 
   <header>
@@ -1127,7 +1123,7 @@ header p {
 <!-- ════════════════════════════════════
      PAGE 1 · 학교 정보 비교
      ════════════════════════════════════ -->
-<div id="page-1" class="page-content">
+<div id="page-1" class="page-content active">
 <div class="container-wide">
 
   <header style="text-align:left;margin-bottom:28px">
@@ -1312,6 +1308,15 @@ header p {
     </table>
   </div>
 
+  <!-- 계산기 진입 버튼 -->
+  <button class="calc-entry-btn" onclick="showCalc()">
+    <div style="text-align:left;">
+      <div>안양예고 내신 계산기</div>
+      <div class="calc-entry-btn-sub">교과·출결·봉사 점수를 입력하면 내신 합계를 자동 계산</div>
+    </div>
+    <div style="font-size:20px;">→</div>
+  </button>
+
 </div><!-- /container-wide -->
 </div><!-- /page-1 -->
 
@@ -1345,19 +1350,22 @@ header p {
 </div>
 
 <script>
-// ─── 페이지 탭 ────────────────────────────────────────────
-let currentPage = 0;
+// ─── 페이지 전환 ────────────────────────────────────────────
+let currentPage = 1;
 
-function switchPage(idx, btn) {
-  document.querySelectorAll('.page-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
-  document.querySelectorAll('.page-content').forEach((c, i) => c.classList.toggle('active', i === idx));
-  currentPage = idx;
-  const bar = document.getElementById('sticky-bar');
-  if (idx !== 0) {
-    bar.classList.remove('visible');
-  } else {
-    calculate();
-  }
+function showCalc() {
+  document.getElementById('page-0').classList.add('active');
+  document.getElementById('page-1').classList.remove('active');
+  currentPage = 0;
+  window.scrollTo(0, 0);
+  calculate();
+}
+
+function showInfo() {
+  document.getElementById('page-1').classList.add('active');
+  document.getElementById('page-0').classList.remove('active');
+  currentPage = 1;
+  document.getElementById('sticky-bar').classList.remove('visible');
   window.scrollTo(0, 0);
 }
 
