@@ -2598,7 +2598,7 @@
         const val = document.getElementById('admin-pw-input').value;
         if (val === ADMIN_PW) {
             closeAdminModal();
-            window.open(TUTORING_URL, '_blank');
+            window.open(TUTORING_URL + '?auth=' + val, '_blank');
         } else {
             document.getElementById('admin-pw-error').style.display = 'block';
             document.getElementById('admin-pw-input').select();
