@@ -1252,7 +1252,7 @@
 
 <!-- HEADER -->
 <header id="top-header">
-    <div class="logo" onclick="showPage('home')">Period<span>.</span></div>
+    <div class="logo" onclick="showPage('home')">Period<span onclick="event.stopPropagation(); openAdminModal()" style="cursor:default;">.</span></div>
 </header>
 
 <!-- NAV STRIP -->
@@ -1263,8 +1263,6 @@
     <button class="nav-btn" data-page="reviews">후기</button>
     <button class="nav-btn" data-page="consultation">상담·문의</button>
     <button class="nav-btn" data-page="content">강의·콘텐츠</button>
-    <button class="nav-btn" data-page="filmdb">단편영화 DB</button>
-    <button class="nav-btn" data-page="schedule">입시 스케줄</button>
 </nav>
 
 <!-- ========== HOME ========== -->
@@ -2477,6 +2475,56 @@
 </footer>
 
 <!-- FAB Speed Dial -->
+<!-- ========== STUDENT-MANAGE ========== -->
+<div class="page" id="student-manage">
+    <div class="section">
+        <p class="section-label">피리어드 전용</p>
+        <h2 class="section-title">학생 관리 시스템</h2>
+        <p style="color:var(--text-2);font-size:0.875rem;line-height:1.75;margin-bottom:2.5rem;">수업 일지, 과제, 피드백을 관리하고 학부모와 공유하는 전용 시스템입니다.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:520px;margin:0 auto;">
+            <!-- 선생님 -->
+            <div style="background:#f8f4ff;border:1.5px solid #e0d4f7;border-radius:16px;padding:2rem 1.5rem;text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.75rem;">🎬</div>
+                <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">선생님</h3>
+                <p style="font-size:0.8rem;color:var(--text-2);line-height:1.6;margin-bottom:1.25rem;">수업 일지 작성, 과제 등록,<br>피드백 관리</p>
+                <button onclick="window.open(TUTORING_URL, '_blank')"
+                    style="width:100%;background:#6d28d9;color:#fff;border:none;border-radius:10px;padding:0.65rem 0;font-size:0.875rem;font-weight:600;cursor:pointer;">
+                    선생님 로그인 →
+                </button>
+            </div>
+
+            <!-- 학생/학부모 -->
+            <div style="background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:16px;padding:2rem 1.5rem;text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.75rem;">📋</div>
+                <h3 style="font-size:1rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem;">학생 · 학부모</h3>
+                <p style="font-size:0.8rem;color:var(--text-2);line-height:1.6;margin-bottom:1.25rem;">수업 내용, 과제, 피드백<br>확인하기</p>
+                <button onclick="document.getElementById('share-link-input').style.display='block'"
+                    style="width:100%;background:#16a34a;color:#fff;border:none;border-radius:10px;padding:0.65rem 0;font-size:0.875rem;font-weight:600;cursor:pointer;">
+                    페이지 접속 →
+                </button>
+            </div>
+        </div>
+
+        <!-- 학생/학부모 링크 입력 -->
+        <div id="share-link-input" style="display:none;margin-top:1.5rem;max-width:520px;margin-left:auto;margin-right:auto;">
+            <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;">
+                <p style="font-size:0.8rem;color:var(--text-2);margin-bottom:0.75rem;">선생님께 받은 링크의 학생 코드를 입력하세요</p>
+                <div style="display:flex;gap:0.5rem;">
+                    <input id="student-id-input" type="text" placeholder="학생 코드 입력"
+                        style="flex:1;border:1px solid var(--border);border-radius:8px;padding:0.6rem 0.875rem;font-size:0.875rem;outline:none;"
+                        onkeydown="if(event.key==='Enter') goToSharePage()" />
+                    <button onclick="goToSharePage()"
+                        style="background:#16a34a;color:#fff;border:none;border-radius:8px;padding:0.6rem 1rem;font-size:0.875rem;font-weight:600;cursor:pointer;white-space:nowrap;">
+                        이동
+                    </button>
+                </div>
+                <p style="font-size:0.75rem;color:var(--text-3);margin-top:0.5rem;">링크 예시: …/share/<strong>학생코드</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="fab" id="fab">
     <div class="fab-options">
         <a href="https://open.kakao.com/me/film_period" target="_blank" class="fab-option kakao">💬 카카오톡 문의</a>
@@ -2485,6 +2533,23 @@
     <button class="fab-btn" onclick="toggleFab()" aria-label="문의하기">✦</button>
 </div>
 <div class="fab-overlay" onclick="closeFab()"></div>
+
+<!-- ADMIN MODAL -->
+<div id="admin-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:16px;padding:2rem;width:280px;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+        <p style="font-size:0.8rem;color:#999;margin-bottom:1rem;text-align:center;">관리자 접속</p>
+        <input id="admin-pw-input" type="password" placeholder="비밀번호"
+            style="width:100%;border:1.5px solid #e5e7eb;border-radius:10px;padding:0.65rem 0.875rem;font-size:0.9rem;outline:none;box-sizing:border-box;margin-bottom:0.75rem;"
+            onkeydown="if(event.key==='Enter') checkAdminPw()" />
+        <p id="admin-pw-error" style="display:none;color:#ef4444;font-size:0.78rem;margin-bottom:0.75rem;text-align:center;">비밀번호가 올바르지 않습니다</p>
+        <div style="display:flex;gap:0.5rem;">
+            <button onclick="closeAdminModal()"
+                style="flex:1;border:1.5px solid #e5e7eb;background:#fff;border-radius:10px;padding:0.6rem;font-size:0.875rem;cursor:pointer;">취소</button>
+            <button onclick="checkAdminPw()"
+                style="flex:1;background:#6d28d9;color:#fff;border:none;border-radius:10px;padding:0.6rem;font-size:0.875rem;font-weight:600;cursor:pointer;">접속</button>
+        </div>
+    </div>
+</div>
 
 <!-- MODALS -->
 
@@ -2511,7 +2576,44 @@
     });
 
     // 초기 로드 및 뒤로가기 처리
-    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb', 'schedule'];
+    const validPages = ['home', 'teacher', 'class', 'content', 'reviews', 'consultation', 'filmdb', 'schedule', 'student-manage'];
+    // 과외 관리 시스템 URL (Vercel 배포 후 업데이트)
+    const TUTORING_URL = 'http://localhost:5173';
+
+    const ADMIN_PW = '8621';
+
+    function openAdminModal() {
+        const modal = document.getElementById('admin-modal');
+        modal.style.display = 'flex';
+        document.getElementById('admin-pw-input').value = '';
+        document.getElementById('admin-pw-error').style.display = 'none';
+        setTimeout(() => document.getElementById('admin-pw-input').focus(), 50);
+    }
+
+    function closeAdminModal() {
+        document.getElementById('admin-modal').style.display = 'none';
+    }
+
+    function checkAdminPw() {
+        const val = document.getElementById('admin-pw-input').value;
+        if (val === ADMIN_PW) {
+            closeAdminModal();
+            window.open(TUTORING_URL, '_blank');
+        } else {
+            document.getElementById('admin-pw-error').style.display = 'block';
+            document.getElementById('admin-pw-input').select();
+        }
+    }
+
+    document.getElementById('admin-modal').addEventListener('click', function(e) {
+        if (e.target === this) closeAdminModal();
+    });
+
+    function goToSharePage() {
+        const id = document.getElementById('student-id-input').value.trim();
+        if (!id) return;
+        window.open(TUTORING_URL + '/share/' + id, '_blank');
+    }
     const initHash = location.hash.replace('#', '');
     if (initHash && validPages.includes(initHash)) showPage(initHash, false);
 
