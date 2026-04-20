@@ -37,7 +37,7 @@
   --text:#111111;
   --text-2:#4a4a4a;
   --text-3:#888888;
-  --pink:#F1296C;
+  --pink:#3182F6;
   --red:#D92D20;
   --radius:10px;
   --nav-h:52px;
@@ -68,10 +68,14 @@ button{font-family:inherit}
 .brand{
   height:var(--header-h);
   display:flex;align-items:center;justify-content:center;
-  font-weight:800;letter-spacing:-0.3px;font-size:1rem;
-  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  font-weight:800;letter-spacing:-0.5px;font-size:1.35rem;
+  color:var(--text);text-transform:lowercase;cursor:pointer;
 }
-.brand em{font-style:normal;color:var(--pink)}
+.brand em{
+  font-style:normal;color:var(--pink);
+  font-size:1.6rem;line-height:0;vertical-align:-0.1em;
+}
 .nav-strip{
   display:flex;
   border-top:1px solid var(--border);
@@ -217,7 +221,7 @@ button{font-family:inherit}
 }
 .review-school{
   display:inline-block;font-size:0.75rem;font-weight:700;
-  color:var(--pink);background:rgba(241,41,108,0.08);
+  color:var(--pink);background:rgba(49,130,246,0.08);
   padding:0.25rem 0.625rem;border-radius:50px;
   margin-bottom:0.75rem;letter-spacing:-0.2px;
 }
@@ -396,7 +400,7 @@ button{font-family:inherit}
 }
 .student-head .s-school{
   font-size:0.75rem;font-weight:700;color:var(--pink);
-  background:rgba(241,41,108,0.08);
+  background:rgba(49,130,246,0.08);
   padding:0.25rem 0.625rem;border-radius:50px;
   letter-spacing:-0.2px;
 }
@@ -541,7 +545,7 @@ button{font-family:inherit}
 <div class="preview-banner">🔍 Preview — 정식 배포 전 미리보기 페이지입니다</div>
 
 <header class="site-header">
-  <div class="brand"><em>피리어드.</em></div>
+  <div class="brand" onclick="showPage('home')">Period<em>.</em></div>
   <nav class="nav-strip">
     <button class="nav-btn active" data-page="home">피리어드</button>
     <button class="nav-btn" data-page="class">수업</button>
