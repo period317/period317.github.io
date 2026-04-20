@@ -75,11 +75,19 @@ button{font-family:inherit}
 }
 .brand{
   height:var(--header-h);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;letter-spacing:-0.5px;font-size:1.35rem;
-  color:var(--text);text-transform:lowercase;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:0.625rem;
+  color:var(--text);cursor:pointer;
 }
-.brand em{
+.brand-tag{
+  font-size:0.75rem;font-weight:600;
+  color:var(--text-3);letter-spacing:-0.2px;
+  padding-right:0.625rem;border-right:1px solid var(--border);
+}
+.brand-name{
+  font-weight:800;letter-spacing:-0.5px;font-size:1.35rem;
+  text-transform:lowercase;
+}
+.brand-name em{
   font-style:normal;color:var(--pink);
   font-size:1.6rem;line-height:0;vertical-align:-0.1em;
 }
@@ -561,7 +569,7 @@ button{font-family:inherit}
 
 <header class="site-header">
   <div class="site-header-inner">
-    <div class="brand" onclick="showPage('home')">Period<em>.</em></div>
+    <div class="brand" onclick="showPage('home')"><span class="brand-tag">영화입시 전문과외</span><span class="brand-name">Period<em>.</em></span></div>
     <nav class="nav-strip">
       <button class="nav-btn active" data-page="home">피리어드</button>
       <button class="nav-btn" data-page="class">수업</button>
