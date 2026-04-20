@@ -887,19 +887,20 @@ button{font-family:inherit}
     </div>
 
     <form class="simple-form" id="consultForm">
-      <input type="hidden" name="문의유형" value="상담">
+      <input type="hidden" name="type" value="상담 신청">
       <input type="hidden" name="email" value="hhp621@naver.com">
+      <input type="hidden" name="_subject" value="[피리어드] 홈페이지 상담 신청">
 
       <div class="form-group">
         <label>연락처 <span class="req">*</span></label>
         <p class="desc">휴대폰 번호</p>
-        <input type="text" name="연락처" placeholder="010-0000-0000" required>
+        <input type="text" name="phone" placeholder="010-0000-0000" required>
       </div>
 
       <div class="form-group">
         <label>더 남기고 싶은 말 (선택)</label>
         <p class="desc">지금 상황, 연락하기 좋은 시간대 등 — 편하게 적어주세요.</p>
-        <textarea name="상세내용" rows="5" placeholder="자유롭게 작성해 주세요."></textarea>
+        <textarea name="message" rows="5" placeholder="자유롭게 작성해 주세요."></textarea>
       </div>
 
       <button type="submit" class="btn btn-pink btn-lg btn-block" id="consultSubmit">상담 신청</button>
