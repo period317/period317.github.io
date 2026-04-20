@@ -283,6 +283,14 @@ period317.github.io/
 | 2026-04-05 | 19개교 입시 후기·기출·면접 질문 조사 | 로컬 저장: 영화과_입시_조사_19개교.txt |
 | 2026-04-05 | Notion 블로그 초안 4편 생성 | #8 실기유형해설, #9 비용·일정·FAQ, #10 면접기출, 별첨2 학교별 분석 |
 | 2026-04-05 | 홈페이지 입시 스케줄 탭 추가 | `#schedule` 탭, 19개교 카드+필터+타임라인, commit: 1c40c62 |
+| 2026-04-21 | 홈페이지 전면 리뉴얼 배포 | preview.html → index.html 승격, 기존 index는 index-legacy.html로 백업(noindex), commit: 1af622b |
+| 2026-04-21 | 신규 구성: 히어로 제거 · Intro 섹션 신설 | "영화입시 전문과외 피리어드입니다" + 3문단 소개, section-title 통일 |
+| 2026-04-21 | 로고 영역에 "영화입시 전문과외" 태그라인 추가 | Period. 로고 옆 구분선 + 서브카피 |
+| 2026-04-21 | SEO 메타 복원 | canonical/og:url `/` 로 교정, twitter card + og:image + sitemap 링크 + author 복원, naver-site-verification/gtag 유지 |
+| 2026-04-21 | sitemap.xml lastmod 갱신 | 2026-03-27 → 2026-04-21 |
+| 2026-04-21 | Google Search Console / 네이버 서치어드바이저 재제출 | 사이트맵 + 메인 URL 수집 요청 완료 (수동) |
+| 2026-04-21 | 상담 폼 Formspree 장애 해결 | 원인: 한글 필드명(`연락처`, `상세내용`) + `email` 필드 부재 → 400 Bad Request. 영어 필드명(`phone`, `message`, `type`) + hidden email 추가로 해결. Telegram 정상 수신 확인, commit: e38c45b |
+| 2026-04-21 | 푸터 이메일 통일 | `film317@naver.com` → `hhp621@naver.com`, commit: abf3e95 |
 
 ---
 
