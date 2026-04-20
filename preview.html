@@ -385,6 +385,9 @@ button{font-family:inherit}
   background:#fff;
 }
 .lesson-toc a:hover{border-color:var(--text);color:var(--text)}
+.lesson-toc a.active{
+  background:var(--pink);color:#fff;border-color:var(--pink);
+}
 .lesson-toc .toc-group{
   display:flex;align-items:center;
   font-size:0.6875rem;font-weight:700;
@@ -895,8 +898,57 @@ button{font-family:inherit}
 
   window.addEventListener('popstate', () => {
     const hash = location.hash.replace('#','');
+    if (hash && !validPages.includes(hash)) return;
     showPage(hash || 'home', false);
   });
+
+  // ===== 수업 TOC (앵커 + scrollspy) =====
+  (function(){
+    const toc = document.querySelector('.lesson-toc');
+    if (!toc) return;
+    const links = toc.querySelectorAll('a');
+    const linkMap = new Map();
+    links.forEach(a => linkMap.set(a.getAttribute('href').slice(1), a));
+
+    function setActive(id) {
+      links.forEach(a => a.classList.remove('active'));
+      const target = linkMap.get(id);
+      if (!target) return;
+      target.classList.add('active');
+      const pRect = toc.getBoundingClientRect();
+      const tRect = target.getBoundingClientRect();
+      if (tRect.left < pRect.left + 8 || tRect.right > pRect.right - 8) {
+        toc.scrollTo({left: target.offsetLeft - 16, behavior:'smooth'});
+      }
+    }
+
+    links.forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+          setActive(id);
+        }
+      });
+    });
+
+    const items = document.querySelectorAll('.lesson-item');
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting);
+      if (visible.length) {
+        visible.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        setActive(visible[0].target.id);
+      }
+    }, {
+      rootMargin: '-160px 0px -55% 0px',
+      threshold: 0
+    });
+    items.forEach(it => observer.observe(it));
+
+    setActive('lesson-r1');
+  })();
 
   // ===== 상담 폼 제출 (Formspree → Telegram) =====
   document.getElementById('consultForm').addEventListener('submit', async function(e){
