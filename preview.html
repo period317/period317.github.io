@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>피리어드 — 영화입시 전문 1:1 과외</title>
 
-<meta name="description" content="지금 받고 있는 수업, 잘못된 겁니다. 피리어드와 한 번 상담해보면 뭐가 다른지 압니다. 영화입시 전문 1:1 과외, 2019–2025 11명 전원 합격.">
+<meta name="description" content="피리어드 — 영화입시 전문 1:1 과외. 2019–2025, 11명 전원 합격. 실기·글쓰기·면접·자소서까지 한 세트로.">
 <meta name="keywords" content="영화과 입시, 영화과 과외, 영화 실기, 영화 면접, 피리어드, 자소서, 면접지">
 <link rel="canonical" href="https://period317.github.io/preview.html">
 <meta name="naver-site-verification" content="42d537c123cd7143c25bd5dc82e9fb244caa78d9" />
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://period317.github.io/preview.html">
 <meta property="og:title" content="피리어드 — 영화입시 전문 1:1 과외">
-<meta property="og:description" content="지금 받고 있는 수업, 잘못된 겁니다. 피리어드와 한 번 상담해보면 뭐가 다른지 압니다.">
+<meta property="og:description" content="영화입시 전문 1:1 과외. 2019–2025, 11명 전원 합격.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="피리어드">
 
@@ -98,8 +98,8 @@ button{font-family:inherit}
 }
 .nav-btn.active{color:var(--text);font-weight:800}
 .nav-btn.active::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;
-  height:2px;background:var(--text);
+  content:"";position:absolute;left:1.25rem;right:1.25rem;bottom:0;
+  height:2px;background:var(--pink);border-radius:2px;
 }
 
 /* ===== Page switching ===== */
@@ -137,7 +137,7 @@ button{font-family:inherit}
 .btn-primary{background:var(--text);color:#fff}
 .btn-primary:hover{background:#000}
 .btn-pink{background:var(--pink);color:#fff}
-.btn-pink:hover{background:#d81659}
+.btn-pink:hover{background:#1d6fdb}
 .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-mid)}
 .btn-ghost:hover{border-color:var(--text)}
 .btn-block{width:100%}
@@ -166,22 +166,25 @@ button{font-family:inherit}
 
 /* ===== 3 Core blocks (항상 펼침) ===== */
 .core-list{
-  border-top:1px solid var(--border);
   max-width:var(--max);margin:0 auto;
 }
 .core-block{
   border-bottom:1px solid var(--border);
-  padding:2.5rem 1.25rem;
+  padding:3rem 1.25rem;
+}
+.core-block:first-child{padding-top:3.5rem}
+.core-head{
+  display:flex;align-items:baseline;gap:0.625rem;
+  margin-bottom:1.25rem;
 }
 .core-index{
-  display:inline-block;font-size:0.75rem;font-weight:800;
-  color:var(--text-3);letter-spacing:1.5px;
-  margin-bottom:0.25rem;
+  font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;
+  font-size:1.125rem;font-weight:800;font-variant-numeric:tabular-nums;
+  color:var(--pink);letter-spacing:-0.5px;
 }
 .core-tag{
-  display:inline-block;font-size:0.75rem;font-weight:700;
-  color:var(--pink);letter-spacing:0.5px;
-  margin-bottom:0.625rem;margin-left:0.5rem;
+  font-size:0.75rem;font-weight:700;
+  color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;
 }
 .core-block h3{
   font-size:1.625rem;font-weight:800;line-height:1.3;
@@ -265,22 +268,26 @@ button{font-family:inherit}
 
 /* ===== Final CTA ===== */
 .final-cta{
-  padding:3.5rem 1.25rem;text-align:center;
-  background:#fafafa;border-top:1px solid var(--border);
+  padding:3rem 1.25rem 3.5rem;text-align:center;
+  border-top:1px solid var(--border);
+}
+.final-cta .cta-eyebrow{
+  font-size:0.6875rem;font-weight:800;letter-spacing:2px;
+  color:var(--pink);text-transform:uppercase;
+  margin-bottom:0.875rem;
 }
 .final-cta h2{
-  font-size:1.375rem;font-weight:800;
-  letter-spacing:-0.5px;line-height:1.45;
-  margin-bottom:1.5rem;color:var(--text);
+  font-size:1.5rem;font-weight:800;
+  letter-spacing:-0.6px;line-height:1.4;
+  margin-bottom:0.5rem;color:var(--text);
+}
+.final-cta .cta-sub{
+  font-size:0.9375rem;color:var(--text-2);
+  line-height:1.7;margin-bottom:1.5rem;
 }
 .final-cta .big-cta{
   width:100%;max-width:320px;
 }
-.final-cta .sub-link{
-  display:block;margin-top:1rem;
-  font-size:0.875rem;color:var(--text-2);
-}
-.final-cta .sub-link a{color:var(--pink);font-weight:700}
 
 /* ===== Teachers page (수업·선생님) ===== */
 .teacher-full{
@@ -341,22 +348,33 @@ button{font-family:inherit}
 
 /* ===== Lesson page (수업) ===== */
 .lesson-group-title{
+  display:flex;align-items:center;gap:0.75rem;
   font-size:0.75rem;font-weight:800;letter-spacing:2px;
-  color:var(--pink);text-transform:uppercase;
-  margin:2.5rem 0 0.75rem;padding-bottom:0.5rem;
-  border-bottom:2px solid var(--pink);
+  color:var(--text-3);text-transform:uppercase;
+  margin:3rem 0 1.25rem;
+}
+.lesson-group-title::before,
+.lesson-group-title::after{
+  content:"";flex:1;height:1px;background:var(--border);
+}
+.lesson-group-title .lg-badge{
+  color:var(--pink);padding:0.1875rem 0.5rem;
+  background:rgba(49,130,246,0.08);border-radius:4px;
+  letter-spacing:1.5px;font-size:0.6875rem;
 }
 .lesson-item{
-  padding:1.75rem 0;border-bottom:1px solid var(--border);
+  padding:2rem 0;border-bottom:1px solid var(--border);
 }
 .lesson-item:last-child{border-bottom:0}
 .lesson-num{
-  display:inline-block;font-size:0.75rem;font-weight:800;
-  color:var(--text-3);letter-spacing:1.5px;margin-bottom:0.375rem;
+  font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;
+  display:block;font-size:1rem;font-weight:800;
+  color:var(--pink);letter-spacing:-0.3px;margin-bottom:0.5rem;
+  font-variant-numeric:tabular-nums;
 }
 .lesson-item > h3{
-  font-size:1.25rem;font-weight:800;line-height:1.35;
-  letter-spacing:-0.5px;margin:0 0 1rem;color:var(--text);
+  font-size:1.3125rem;font-weight:800;line-height:1.35;
+  letter-spacing:-0.6px;margin:0 0 1rem;color:var(--text);
 }
 .lesson-body p{
   font-size:0.9375rem;line-height:1.85;
@@ -413,7 +431,7 @@ button{font-family:inherit}
   padding:0.1875rem 0.5rem;background:var(--muted);
   border-radius:4px;margin-bottom:0.5rem;
 }
-.review-row .r-label.period{background:#fff0f5;color:var(--pink)}
+.review-row .r-label.period{background:rgba(49,130,246,0.1);color:var(--pink)}
 .review-row .r-title{
   font-size:0.9375rem;font-weight:700;color:var(--text);
   line-height:1.5;margin-bottom:0.5rem;
@@ -479,7 +497,8 @@ button{font-family:inherit}
 }
 .simple-form input[type=text]:focus,
 .simple-form textarea:focus{
-  outline:0;border-color:var(--text);
+  outline:0;border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(49,130,246,0.12);
 }
 .simple-form textarea{resize:vertical;min-height:100px;line-height:1.65}
 
@@ -535,8 +554,8 @@ button{font-family:inherit}
   .section-title{font-size:1.875rem}
   .teacher-mini-grid{grid-template-columns:1fr 1fr}
   .reviews-grid{grid-template-columns:1fr 1fr 1fr}
-  .final-cta{padding:5rem 2rem}
-  .final-cta h2{font-size:1.75rem}
+  .final-cta{padding:4.5rem 2rem 5rem}
+  .final-cta h2{font-size:2rem}
 }
 </style>
 </head>
@@ -561,7 +580,7 @@ button{font-family:inherit}
   <section class="core-list">
 
     <div class="core-block">
-      <span class="core-index">01</span><span class="core-tag">피드백</span>
+      <div class="core-head"><span class="core-index">01</span><span class="core-tag">피드백</span></div>
       <h3>추상적인 피드백, 누구나 할 수 있는 피드백?<br><em>잘못된 겁니다.</em></h3>
       <div class="core-body">
         <p>"개연성이 약하다", "더 구체적으로 써라" — 나도 할 수 있는 말입니다. 그건 피드백이 아닙니다.</p>
@@ -581,7 +600,7 @@ button{font-family:inherit}
     </div>
 
     <div class="core-block">
-      <span class="core-index">02</span><span class="core-tag">면접·구술</span>
+      <div class="core-head"><span class="core-index">02</span><span class="core-tag">면접·구술</span></div>
       <h3>면접 준비가 재미없으면,<br><em>잘못된 겁니다.</em></h3>
       <div class="core-body">
         <p>채워야 할 칸을 채우고 있다는 느낌이 들거나, 뭘 써야 할지 모른 채 일단 쓰기 시작했다면 — 멈춰야 합니다.</p>
@@ -592,7 +611,7 @@ button{font-family:inherit}
     </div>
 
     <div class="core-block">
-      <span class="core-index">03</span><span class="core-tag">시야</span>
+      <div class="core-head"><span class="core-index">03</span><span class="core-tag">시야</span></div>
       <h3>입시 전략보다<br><em>나를 제대로 아는 게 이깁니다.</em></h3>
       <div class="core-body">
         <p>내가 뭘 좋아하는지, 왜 영화인지, 어떤 사람인지 — 이게 정리되면 전략은 따라옵니다.</p>
@@ -672,8 +691,10 @@ button{font-family:inherit}
 
   <!-- 5. 최종 CTA -->
   <section class="final-cta">
-    <h2>피리어드와 한 번 상담해보면,<br>뭐가 다른지 압니다.</h2>
-    <button class="btn btn-pink btn-lg big-cta" onclick="showPage('consultation')">무료 상담 신청</button>
+    <p class="cta-eyebrow">Free Consultation</p>
+    <h2>무료 상담</h2>
+    <p class="cta-sub">편하게 연락주세요. 늦은 새벽도 괜찮습니다.</p>
+    <button class="btn btn-pink btn-lg big-cta" onclick="showPage('consultation')">상담 신청</button>
   </section>
 
 </main>
@@ -691,7 +712,7 @@ button{font-family:inherit}
       <p>수시전형 실기를 기본으로 한 필수 수업 위주로 말씀드리지만, 필요하면 논술 글쓰기, 콘텐츠 및 미디어에 대한 토론과 상식도 수업합니다. 영화과가 아닌 방송영상이나 다큐 전공이 필요하면 그에 맞게 진행합니다.</p>
     </div>
 
-    <p class="lesson-group-title">필수 수업</p>
+    <p class="lesson-group-title"><span class="lg-badge">필수 수업</span></p>
 
     <article class="lesson-item">
       <span class="lesson-num">01</span>
@@ -742,7 +763,7 @@ button{font-family:inherit}
       </div>
     </article>
 
-    <p class="lesson-group-title">선택 수업</p>
+    <p class="lesson-group-title"><span class="lg-badge">선택 수업</span></p>
 
     <article class="lesson-item">
       <span class="lesson-num">01</span>
