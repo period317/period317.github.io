@@ -23,22 +23,25 @@
 
   /* ===== Layout ===== */
   .app{
-    display:grid;grid-template-columns:220px 1fr;
-    min-height:100vh;max-width:1240px;margin:0 auto;
+    display:grid;grid-template-columns:240px 1fr;
+    min-height:100vh;
   }
   @media (max-width:760px){
     .app{grid-template-columns:1fr}
   }
 
-  /* ===== Sidebar ===== */
+  /* ===== Sidebar — pinned to left edge ===== */
   aside.sidebar{
     background:var(--soft);border-right:1px solid var(--border);
-    padding:1.5rem 1.125rem;
+    padding:1.75rem 1.25rem;
+    position:sticky;top:0;align-self:start;
+    height:100vh;overflow-y:auto;
   }
   @media (max-width:760px){
     aside.sidebar{
       border-right:0;border-bottom:1px solid var(--border);
-      padding:1rem 1.125rem;position:sticky;top:0;background:var(--soft);z-index:10;
+      padding:1rem 1.125rem;position:sticky;top:0;background:var(--soft);
+      z-index:10;height:auto;overflow:visible;
     }
   }
   .brand{
@@ -77,7 +80,8 @@
   .side-item .count{font-size:.6875rem;color:var(--text-3);margin-left:auto;font-weight:500}
 
   /* ===== Main ===== */
-  main.main{padding:1.75rem 1.5rem 4rem;min-width:0}
+  main.main{padding:2rem 2rem 4rem;min-width:0}
+  .main-inner{max-width:960px;margin:0 auto}
   @media (max-width:760px){
     main.main{padding:1.25rem 1rem 3rem}
   }
@@ -198,6 +202,7 @@
 
   <!-- ===== Main ===== -->
   <main class="main">
+    <div class="main-inner">
 
     <!-- ========== Overview ========== -->
     <section class="panel active" id="panel-overview">
@@ -598,6 +603,7 @@
       © Period. · 영화입시 전문과외 · 상담 내부 자료
     </p>
 
+    </div>
   </main>
 </div>
 
