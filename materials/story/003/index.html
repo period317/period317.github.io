@@ -84,10 +84,55 @@
   .fb-body p:last-child{margin-bottom:0}
 
   .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+
+  /* ===== Layout with sidebar ===== */
+  .app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+  @media (max-width:760px){.app{grid-template-columns:1fr}}
+  aside.sidebar{
+    background:var(--soft);border-right:1px solid var(--border);
+    padding:1.75rem 1.25rem;position:sticky;top:0;align-self:start;
+    height:100vh;overflow-y:auto;
+  }
+  @media (max-width:760px){
+    aside.sidebar{
+      border-right:0;border-bottom:1px solid var(--border);
+      padding:1rem 1.125rem;position:sticky;top:0;background:var(--soft);
+      z-index:10;height:auto;overflow:visible;
+    }
+  }
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
+  .sb-title{font-size:1rem;font-weight:800;color:var(--text);margin:0 0 1.25rem;letter-spacing:-.02em}
+  @media (max-width:760px){.sb-title{display:none}}
+  .sb-list{display:flex;flex-direction:column;gap:.25rem}
+  @media (max-width:760px){.sb-list{flex-direction:row;gap:.375rem;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+  .sb-item{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.625rem .75rem;border-radius:10px;
+    font-size:.875rem;color:var(--text-2);text-decoration:none;
+    transition:all .15s ease;white-space:nowrap;
+  }
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0}
+  .sb-item.active .sb-num{color:var(--pink)}
+  .sb-name{letter-spacing:-.01em}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-brand">Period. · 자료실</div>
+    <h2 class="sb-title">이야기 구성</h2>
+    <nav class="sb-list">
+      <a class="sb-item" href="../001/"><span class="sb-num">001</span><span class="sb-name">포항 지진</span></a>
+      <a class="sb-item" href="../002/"><span class="sb-num">002</span><span class="sb-name">12년 전 거리</span></a>
+      <a class="sb-item active" href="../003/"><span class="sb-num">003</span><span class="sb-name">402호</span></a>
+      <a class="sb-item" href="../004/"><span class="sb-num">004</span><span class="sb-name">가정의 비밀</span></a>
+      <a class="sb-item" href="../005/"><span class="sb-num">005</span><span class="sb-name">이삿짐</span></a>
+    </nav>
+  </aside>
+  <main class="page-main">
+  <div class="wrap">
 
   <div class="brand">Period. · 자료실</div>
   <div class="crumb"><a href="../">이야기 구성</a> <span class="crumb-sep">›</span> 003</div>
@@ -376,6 +421,8 @@
     © Period. · 영화입시 전문과외 · 수업 자료
   </div>
 
+</div>
+  </main>
 </div>
 </body>
 </html>
