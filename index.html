@@ -260,6 +260,27 @@ button{font-family:inherit}
   font-weight:700;letter-spacing:-0.3px;
 }
 
+/* ===== Feedback principles ===== */
+.feedback-principles{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.feedback-principles .fp-title{
+  font-size:1.0625rem;font-weight:800;color:var(--text);
+  margin-bottom:1rem;letter-spacing:-0.3px;
+}
+.feedback-principles .fp-sub{
+  font-size:0.9375rem;font-weight:700;color:var(--text);
+  margin-top:1rem;margin-bottom:0.4rem;
+}
+.feedback-principles .fp-list{
+  margin:0 0 0.5rem;padding-left:1.1rem;
+}
+.feedback-principles .fp-list li{
+  font-size:0.875rem;color:var(--text-2);line-height:1.7;margin:0.25rem 0;
+}
+.feedback-principles .fp-note{
+  margin-top:1rem;font-size:0.8125rem;color:var(--text-3);
+  line-height:1.7;font-style:italic;
+}
+
 /* ===== Reviews ===== */
 .reviews-grid{display:grid;gap:1rem}
 .review-item{
@@ -647,6 +668,27 @@ button{font-family:inherit}
         </div>
         <p>해줘야 할 말이 많기 때문에, 학생이 써온 것보다 피드백이 길어지는 경우가 많습니다.</p>
         <p>숙제처럼 글 하나를 내주고 피드백만 하는 게 아닙니다. 잘 할 수 있게 — 기본기든, 반복 훈련이든, 그 학생에게 필요한 수업을 합니다.</p>
+
+        <div class="feedback-principles">
+          <p class="fp-title">실제로 어떻게 하는지.</p>
+
+          <p class="fp-sub">이런 피드백은 하지 않습니다.</p>
+          <ul class="fp-list">
+            <li>글이나 면접지가 어떻다는 평가만 하는 피드백.</li>
+            <li>학생이 써온 글보다 짧게 끝나는 피드백.</li>
+            <li>단순 첨삭 위주의 피드백.</li>
+          </ul>
+
+          <p class="fp-sub">이렇게 합니다.</p>
+          <ul class="fp-list">
+            <li>피드백을 받고도 어떻게 고쳐야 할지 막막한 경우가 많습니다. 그래서 구체적으로 어떻게 써야 했는지, 예시까지 같이 드립니다.</li>
+            <li>이야기 구조만 보지 않습니다. 어떻게 해야 — 보이고 들리는 — 영화적 글쓰기가 되는지까지 짚습니다.</li>
+            <li>기초가 안 잡혀 있다면 무작정 글부터 쓰지 않습니다. 기초 강의부터 시작합니다.</li>
+          </ul>
+
+          <p class="fp-note">예전엔 학생이 미리 써서 가져오는 글들이 많아서, 피드백이 실제 글보다 더 길게 나오는 때도 있었습니다. 그 정도가 정상이라고 생각합니다.</p>
+        </div>
+
         <div class="core-cta">
           <p>써놓은 글이나 면접지가 있다면, 가져오세요. 무료로 한 번 봐드립니다.</p>
           <button onclick="showPage('consultation')">무료 상담 신청</button>
