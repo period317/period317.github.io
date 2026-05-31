@@ -4,22 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>이야기 구성 · 자료실 · Period.</title>
+<title>이야기 글쓰기 · 자료실 · Period.</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>body{font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif}
   /* ===== Layout with sidebar ===== */
-  .app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
-  @media (max-width:760px){.app{grid-template-columns:1fr}}
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
   aside.sidebar{
+    position:fixed;top:0;left:0;
+    width:240px;height:100vh;overflow-y:auto;z-index:5;
     background:var(--soft);border-right:1px solid var(--border);
-    padding:1.75rem 1.25rem;position:sticky;top:0;align-self:start;
-    height:100vh;overflow-y:auto;
+    padding:1.75rem 1.25rem;
   }
   @media (max-width:760px){
     aside.sidebar{
+      position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;
       border-right:0;border-bottom:1px solid var(--border);
-      padding:1rem 1.125rem;position:sticky;top:0;background:var(--soft);
-      z-index:10;height:auto;overflow:visible;
+      padding:1rem 1.125rem;background:var(--soft);z-index:10;
     }
   }
   .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
@@ -98,7 +99,7 @@
 <div class="app">
   <aside class="sidebar">
     <div class="sb-brand">Period. · 자료실</div>
-    <h2 class="sb-title">이야기 구성</h2>
+    <h2 class="sb-title">이야기 글쓰기</h2>
     <nav class="sb-list">
       <a class="sb-item" href="./001/"><span class="sb-num">001</span><span class="sb-name">포항 지진</span></a>
       <a class="sb-item" href="./002/"><span class="sb-num">002</span><span class="sb-name">12년 전 거리</span></a>
@@ -112,9 +113,9 @@
 
   <div class="brand">Period. · 자료실</div>
   <div class="crumb">
-    자료실 <span class="crumb-sep">›</span> 이야기 구성
+    자료실 <span class="crumb-sep">›</span> 이야기 글쓰기
   </div>
-  <h1>이야기 구성 과제</h1>
+  <h1>이야기 글쓰기 과제</h1>
   <p class="lead">과제를 클릭하면 제시문·조건·예시 답안을 볼 수 있습니다.</p>
 
   <div class="list">
@@ -124,7 +125,7 @@
         <span class="item-num">001</span>
         <span class="item-title">포항 지진</span>
       </div>
-      <p class="item-desc">3인칭 화자 '그(녀)'를 주인공으로, 지진 때문에 중요한 일을 취소할 수밖에 없는 이야기 구성 (800~1200자)</p>
+      <p class="item-desc">3인칭 화자 '그(녀)'를 주인공으로, 지진 때문에 중요한 일을 취소할 수밖에 없는 이야기 글쓰기 (800~1200자)</p>
     </a>
 
     <a class="item" href="./002/">
@@ -132,7 +133,7 @@
         <span class="item-num">002</span>
         <span class="item-title">12년 전 거리</span>
       </div>
-      <p class="item-desc">제시문(결혼식 초대장, 기차)과 키워드 3개(기차·누나·영화관)를 활용해 이후의 이야기 구성 (2000자 내외)</p>
+      <p class="item-desc">제시문(결혼식 초대장, 기차)과 키워드 3개(기차·누나·영화관)를 활용해 이후의 이야기 글쓰기 (2000자 내외)</p>
     </a>
 
     <a class="item" href="./003/">
@@ -140,7 +141,7 @@
         <span class="item-num">003</span>
         <span class="item-title">402호</span>
       </div>
-      <p class="item-desc">우리집 비밀번호를 누르는 낯선 여자. 제시어(가방·경비·계단)를 활용해 이후의 이야기 구성 (2000자 내외, 2시간)</p>
+      <p class="item-desc">우리집 비밀번호를 누르는 낯선 여자. 제시어(가방·경비·계단)를 활용해 이후의 이야기 글쓰기 (2000자 내외, 2시간)</p>
     </a>
 
     <a class="item" href="./004/">
@@ -148,7 +149,7 @@
         <span class="item-num">004</span>
         <span class="item-title">가정의 비밀</span>
       </div>
-      <p class="item-desc">'대다수 가정엔 비밀이 있다'를 소재로 이야기 구성. 출생의 비밀은 감점 (1000~1600자)</p>
+      <p class="item-desc">'대다수 가정엔 비밀이 있다'를 소재로 이야기 글쓰기. 출생의 비밀은 감점 (1000~1600자)</p>
     </a>
 
     <a class="item" href="./005/">
@@ -156,7 +157,7 @@
         <span class="item-num">005</span>
         <span class="item-title">이삿짐</span>
       </div>
-      <p class="item-desc">이삿짐과 관련된 상황을 소재로 이야기 구성</p>
+      <p class="item-desc">이삿짐과 관련된 상황을 소재로 이야기 글쓰기</p>
     </a>
 
   </div>
