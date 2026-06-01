@@ -955,8 +955,19 @@ button{font-family:inherit}
 <footer class="site-footer">
   © 2025 피리어드 영화입시 과외<br>
   사업자등록번호 245-94-02309<br>
-  film317@naver.com · 010-2781-8621
+  film317@naver.com · 010-2781-8621<br>
+  <a href="#" onclick="openMaterials(event)" style="color:var(--text-3);text-decoration:underline;text-underline-offset:3px;font-size:0.6875rem;letter-spacing:.5px;margin-top:.5rem;display:inline-block">수강생 자료실</a>
 </footer>
+
+<script>
+function openMaterials(e){
+  e.preventDefault();
+  var pw = prompt('비밀번호를 입력하세요');
+  if(pw === null) return;
+  if(pw === '8621'){ location.href = '/materials/story/'; }
+  else { alert('비밀번호가 올바르지 않습니다.'); }
+}
+</script>
 
 <script>
   // ===== 페이지 전환 =====
