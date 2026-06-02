@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>실기 유형 요약 · 자료실 · Period.</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --bg:#fff; --soft:#fafafa; --pink:#3182F6; --tint:#E8F2FE;
+    --text:#191F28; --text-2:#4E5968; --text-3:#8B95A1;
+    --border:#F2F4F6; --border-strong:#E5E8EB;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
+  aside.sidebar{position:fixed;top:0;left:0;width:240px;height:100vh;overflow-y:auto;z-index:5;background:var(--soft);border-right:1px solid var(--border);padding:1.75rem 1.25rem}
+  @media (max-width:760px){aside.sidebar{position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;border-right:0;border-bottom:1px solid var(--border);padding:1rem 1.125rem;background:var(--soft);z-index:10}}
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{font-size:.6875rem;font-weight:800;color:var(--text-3);letter-spacing:.6px;text-transform:uppercase;margin:0 0 .5rem;padding:0 .75rem}
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
+  .sb-item{display:flex;align-items:baseline;gap:.5rem;padding:.5rem .75rem;border-radius:10px;font-size:.875rem;color:var(--text-2);text-decoration:none;transition:all .15s ease}
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem;text-align:center}
+  .sb-item.active .sb-num{color:var(--pink)}
+
+  .wrap{max-width:780px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+  .crumb{font-size:.8125rem;color:var(--text-3);margin-bottom:.5rem}
+  .crumb a:hover{color:var(--text-2)}
+  .crumb-sep{margin:0 .375rem;color:var(--border-strong)}
+  h1{font-size:1.75rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.025em;line-height:1.3}
+  .lead{font-size:.9375rem;color:var(--text-2);margin:0 0 2rem;line-height:1.7}
+
+  /* 카드 메뉴 (목록 페이지) */
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem}
+  @media (max-width:640px){.menu-grid{grid-template-columns:1fr}}
+  .menu-card{display:block;padding:1.25rem 1.375rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:all .15s ease}
+  .menu-card:hover{border-color:var(--border-strong);background:var(--soft)}
+  .menu-card .mc-icon{font-size:1.5rem;margin-bottom:.5rem}
+  .menu-card h3{font-size:1rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.015em}
+  .menu-card p{font-size:.8125rem;color:var(--text-2);line-height:1.6;margin:0}
+
+  /* 학교별 그룹 (summary) */
+  .group{margin-bottom:1.5rem;border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.375rem;background:var(--bg)}
+  .group-head{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.625rem}
+  .group-key{font-size:.75rem;font-weight:800;color:var(--pink);background:var(--tint);padding:.125rem .5rem;border-radius:6px;letter-spacing:.5px}
+  .group h3{font-size:1.0625rem;font-weight:800;margin:0;letter-spacing:-.02em}
+  .group-desc{font-size:.8125rem;color:var(--text-2);line-height:1.7;margin:0 0 1rem}
+  .group-list{display:flex;flex-direction:column;gap:.375rem}
+  .group-school{display:flex;gap:.625rem;align-items:baseline;padding:.5rem .75rem;border-radius:8px;background:var(--soft);font-size:.875rem;text-decoration:none;transition:all .15s ease}
+  .group-school:hover{background:var(--tint);text-decoration:none}
+  .gs-num{font-size:.6875rem;font-weight:800;color:var(--text-3);font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.5rem}
+  .gs-name{font-weight:700;color:var(--text);flex-shrink:0}
+  .gs-method{color:var(--text-2);font-size:.8125rem;letter-spacing:-.01em}
+
+  /* 학교 목록 (schools) */
+  .list{display:flex;flex-direction:column;gap:.5rem}
+  .item{display:block;padding:1rem 1.125rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:all .15s ease}
+  .item:hover{border-color:var(--border-strong);background:var(--soft)}
+  .item-top{display:flex;align-items:baseline;gap:.625rem;margin-bottom:.25rem}
+  .item-num{font-size:.75rem;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums}
+  .item-title{font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-.015em}
+  .item-desc{font-size:.8125rem;color:var(--text-2);line-height:1.6;margin:0}
+
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-brand">Period. · 자료실</div>
+
+    <div class="sb-section">
+      <p class="sb-section-title">이야기 글쓰기</p>
+      <nav class="sb-list">
+        <a class="sb-item" href="../../story/"><span class="sb-num">⌂</span>목록</a>
+        <a class="sb-item" href="../../story/001/"><span class="sb-num">001</span>포항 지진</a>
+        <a class="sb-item" href="../../story/002/"><span class="sb-num">002</span>12년 전 거리</a>
+        <a class="sb-item" href="../../story/003/"><span class="sb-num">003</span>402호</a>
+        <a class="sb-item" href="../../story/004/"><span class="sb-num">004</span>가정의 비밀</a>
+        <a class="sb-item" href="../../story/005/"><span class="sb-num">005</span>이삿짐</a>
+      </nav>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-section-title">입시요강 분석</p>
+      <nav class="sb-list">
+        <a class="sb-item" href="../"><span class="sb-num">⌂</span>목록</a>
+        <a class="sb-item active" href="../summary/"><span class="sb-num">◐</span>실기 유형 요약</a>
+        <a class="sb-item" href="../schools/"><span class="sb-num">▤</span>학교별 상세 (19)</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="page-main">
+    <div class="wrap">
+      <div class="crumb"><a href="../">입시요강 분석</a> <span class="crumb-sep">›</span> 실기 유형 요약</div>
+      <h1>실기 유형 요약</h1>
+      <p class="lead">19개교를 5가지 실기 유형으로 묶었습니다. 학교명을 클릭하면 상세로 이동합니다.</p>
+
+  <div class="group">
+    <div class="group-head">
+      <span class="group-key">STORY</span>
+      <h3>스토리·작문형</h3>
+    </div>
+    <p class="group-desc">제시어/상황을 받아 이야기를 구성하거나 에세이를 씀. 글쓰기 능력이 핵심.</p>
+    <div class="group-list">
+      <a class="group-school" href="../01/">
+        <span class="gs-num">01</span>
+        <span class="gs-name">한예종 영화과</span>
+        <span class="gs-method">— 논술형 (180분) + 구술면접 + 포트폴리오 USB</span>
+      </a>
+      <a class="group-school" href="../03/">
+        <span class="gs-num">03</span>
+        <span class="gs-name">중앙대 영화학과</span>
+        <span class="gs-method">— 스토리창작 실기 — 상황 확장 / 중간 연결 / 후속 전개</span>
+      </a>
+      <a class="group-school" href="../04/">
+        <span class="gs-num">04</span>
+        <span class="gs-name">세종대 영화예술</span>
+        <span class="gs-method">— 스토리 구성 작문 3시간 → 5분 발표</span>
+      </a>
+      <a class="group-school" href="../09/">
+        <span class="gs-num">09</span>
+        <span class="gs-name">서울예대 영화과</span>
+        <span class="gs-method">— 작문 50분 + 이미지 분석 10분 + 2차 구두문답</span>
+      </a>
+      <a class="group-school" href="../10/">
+        <span class="gs-num">10</span>
+        <span class="gs-name">추계예대 영화학과</span>
+        <span class="gs-method">— 작문형 + 면접형 (추정)</span>
+      </a>
+      <a class="group-school" href="../11/">
+        <span class="gs-num">11</span>
+        <span class="gs-name">백석예대 영화콘텐츠</span>
+        <span class="gs-method">— 실기(작문) 70% + 면접</span>
+      </a>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head">
+      <span class="group-key">THEORY</span>
+      <h3>이론·장면구성형</h3>
+    </div>
+    <p class="group-desc">교차편집·몽타주·시나리오 3요소 등 영화이론과 장면 분석 능력.</p>
+    <div class="group-list">
+      <a class="group-school" href="../13/">
+        <span class="gs-num">13</span>
+        <span class="gs-name">청주대 영화학과</span>
+        <span class="gs-method">— 장면구성 + 영화이론 + 면접 (25분 사고시간)</span>
+      </a>
+      <a class="group-school" href="../09/">
+        <span class="gs-num">09</span>
+        <span class="gs-name">서울예대 (2차)</span>
+        <span class="gs-method">— 이미지 분석 — 구도·색감·빛·상징성 분석</span>
+      </a>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head">
+      <span class="group-key">INTERVIEW</span>
+      <h3>면접·구술 중심형</h3>
+    </div>
+    <p class="group-desc">좋아하는 영화·감독, 본인 영화관, 시사 토픽. 짧은 시간에 자기 입장 정리.</p>
+    <div class="group-list">
+      <a class="group-school" href="../02/">
+        <span class="gs-num">02</span>
+        <span class="gs-name">한예종 방송영상과</span>
+        <span class="gs-method">— 논술 + 면접 (방송·미디어 환경 비중↑)</span>
+      </a>
+      <a class="group-school" href="../05/">
+        <span class="gs-num">05</span>
+        <span class="gs-name">한양대 연극영화</span>
+        <span class="gs-method">— 면접·구술 + 정시 실기고사</span>
+      </a>
+      <a class="group-school" href="../07/">
+        <span class="gs-num">07</span>
+        <span class="gs-name">단국대 죽전</span>
+        <span class="gs-method">— 면접 준비 20분 / 답변 6분 (영화 토론)</span>
+      </a>
+      <a class="group-school" href="../08/">
+        <span class="gs-num">08</span>
+        <span class="gs-name">단국대 천안</span>
+        <span class="gs-method">— 실기우수자 (이론·연출·스탭)</span>
+      </a>
+      <a class="group-school" href="../12/">
+        <span class="gs-num">12</span>
+        <span class="gs-name">대진대 영화방송</span>
+        <span class="gs-method">— 면접 (논리·창의 평가)</span>
+      </a>
+      <a class="group-school" href="../14/">
+        <span class="gs-num">14</span>
+        <span class="gs-name">수원대 영화영상</span>
+        <span class="gs-method">— 인성면접 ZOOM (1분 자기소개 + 구술)</span>
+      </a>
+      <a class="group-school" href="../15/">
+        <span class="gs-num">15</span>
+        <span class="gs-name">상명대 영화전공</span>
+        <span class="gs-method">— 정보 부족 — 입학처 확인</span>
+      </a>
+      <a class="group-school" href="../16/">
+        <span class="gs-num">16</span>
+        <span class="gs-name">서경대 영화영상</span>
+        <span class="gs-method">— 실기고사 (기준점 미달 시 컷오프)</span>
+      </a>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head">
+      <span class="group-key">ADMIT</span>
+      <h3>학종·서류·심층면접형</h3>
+    </div>
+    <p class="group-desc">학생부에 영화 관련 활동·독서·진로 기록이 핵심. 면접은 서류 기반.</p>
+    <div class="group-list">
+      <a class="group-school" href="../06/">
+        <span class="gs-num">06</span>
+        <span class="gs-name">건국대 영화학과</span>
+        <span class="gs-method">— 학종 면접 10분 (위원 2~3명)</span>
+      </a>
+      <a class="group-school" href="../17/">
+        <span class="gs-num">17</span>
+        <span class="gs-name">동국대 영화영상</span>
+        <span class="gs-method">— 1단계 서류 100% → 2단계 서류 70%+면접 30%</span>
+      </a>
+      <a class="group-school" href="../18/">
+        <span class="gs-num">18</span>
+        <span class="gs-name">명지대 영화학과</span>
+        <span class="gs-method">— 학종 심층면접 10분</span>
+      </a>
+      <a class="group-school" href="../19/">
+        <span class="gs-num">19</span>
+        <span class="gs-name">성균관대 영상학과</span>
+        <span class="gs-method">— 서류 100% (면접 없음, 수능 최저)</span>
+      </a>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head">
+      <span class="group-key">DESIGN</span>
+      <h3>기초디자인 실기형</h3>
+    </div>
+    <p class="group-desc">미술 베이스 필요. 영화과와 별도 트랙.</p>
+    <div class="group-list">
+      <a class="group-school" href="../06/">
+        <span class="gs-num">06</span>
+        <span class="gs-name">건국대 영상학과</span>
+        <span class="gs-method">— 기초디자인 실기 — 영화학과와 별개</span>
+      </a>
+    </div>
+  </div>
+
+      <div class="footer">
+        © Period. · 영화입시 전문과외 · 수업 자료 · 조사 2026-04-05
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
