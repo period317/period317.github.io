@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>입시요강 분석 · 자료실 · Period.</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    --bg:#fff; --soft:#fafafa; --pink:#3182F6; --tint:#E8F2FE;
+    --text:#191F28; --text-2:#4E5968; --text-3:#8B95A1;
+    --border:#F2F4F6; --border-strong:#E5E8EB;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ===== Layout with sidebar ===== */
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
+  aside.sidebar{
+    position:fixed;top:0;left:0;
+    width:240px;height:100vh;overflow-y:auto;z-index:5;
+    background:var(--soft);border-right:1px solid var(--border);
+    padding:1.75rem 1.25rem;
+  }
+  @media (max-width:760px){
+    aside.sidebar{
+      position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;
+      border-right:0;border-bottom:1px solid var(--border);
+      padding:1rem 1.125rem;background:var(--soft);z-index:10;
+    }
+  }
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{
+    font-size:.6875rem;font-weight:800;color:var(--text-3);
+    letter-spacing:.6px;text-transform:uppercase;
+    margin:0 0 .5rem;padding:0 .75rem;
+  }
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
+  .sb-item{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.5rem .75rem;border-radius:10px;
+    font-size:.875rem;color:var(--text-2);text-decoration:none;
+    transition:all .15s ease;
+  }
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem}
+  .sb-item.active .sb-num{color:var(--pink)}
+
+  .page-main{padding:0}
+  .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+  .crumb{font-size:.8125rem;color:var(--text-3);margin-bottom:.5rem}
+  h1{font-size:1.75rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.025em}
+  .lead{font-size:.9375rem;color:var(--text-2);margin:0 0 2.5rem;line-height:1.7}
+
+  .empty{
+    border:1px dashed var(--border-strong);border-radius:14px;
+    padding:2.5rem 1.25rem;text-align:center;
+    font-size:.875rem;color:var(--text-3);line-height:1.7;
+  }
+  .empty strong{color:var(--text-2);font-weight:700;display:block;margin-bottom:.25rem}
+
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-brand">Period. · 자료실</div>
+
+    <div class="sb-section">
+      <p class="sb-section-title">이야기 글쓰기</p>
+      <nav class="sb-list">
+        <a class="sb-item" href="../story/"><span class="sb-num">⌂</span>목록</a>
+        <a class="sb-item" href="../story/001/"><span class="sb-num">001</span>포항 지진</a>
+        <a class="sb-item" href="../story/002/"><span class="sb-num">002</span>12년 전 거리</a>
+        <a class="sb-item" href="../story/003/"><span class="sb-num">003</span>402호</a>
+        <a class="sb-item" href="../story/004/"><span class="sb-num">004</span>가정의 비밀</a>
+        <a class="sb-item" href="../story/005/"><span class="sb-num">005</span>이삿짐</a>
+      </nav>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-section-title">입시요강 분석</p>
+      <nav class="sb-list">
+        <a class="sb-item active" href="./"><span class="sb-num">⌂</span>목록</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="page-main">
+    <div class="wrap">
+      <div class="crumb">자료실 › 입시요강 분석</div>
+      <h1>입시요강 분석</h1>
+      <p class="lead">학교별 영화·영상 입시요강 분석 자료. 현재 준비 중입니다.</p>
+
+      <div class="empty">
+        <strong>준비 중입니다.</strong>
+        자료가 등록되면 이곳에 표시됩니다.
+      </div>
+
+      <div class="footer">
+        © Period. · 영화입시 전문과외 · 수업 자료
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

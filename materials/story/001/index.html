@@ -23,22 +23,24 @@
       padding:1rem 1.125rem;background:var(--soft);z-index:10;
     }
   }
-  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
-  .sb-title{font-size:1rem;font-weight:800;color:var(--text);margin:0 0 1.25rem;letter-spacing:-.02em}
-  @media (max-width:760px){.sb-title{display:none}}
-  .sb-list{display:flex;flex-direction:column;gap:.25rem}
-  @media (max-width:760px){.sb-list{flex-direction:row;gap:.375rem;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{
+    font-size:.6875rem;font-weight:800;color:var(--text-3);
+    letter-spacing:.6px;text-transform:uppercase;
+    margin:0 0 .5rem;padding:0 .75rem;
+  }
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
   .sb-item{
     display:flex;align-items:baseline;gap:.5rem;
-    padding:.625rem .75rem;border-radius:10px;
+    padding:.5rem .75rem;border-radius:10px;
     font-size:.875rem;color:var(--text-2);text-decoration:none;
-    transition:all .15s ease;white-space:nowrap;
+    transition:all .15s ease;
   }
   .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
   .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
-  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem}
   .sb-item.active .sb-num{color:var(--pink)}
-  .sb-name{letter-spacing:-.01em}
 </style>
 <style>
   :root{
@@ -183,15 +185,25 @@
 <div class="app">
   <aside class="sidebar">
     <div class="sb-brand">Period. · 자료실</div>
-    <h2 class="sb-title">이야기 글쓰기</h2>
-    <nav class="sb-list">
-      <a class="sb-item" href="../"><span class="sb-num">⌂</span><span class="sb-name">목록</span></a>
-      <a class="sb-item active" href="../001/"><span class="sb-num">001</span><span class="sb-name">포항 지진</span></a>
-      <a class="sb-item" href="../002/"><span class="sb-num">002</span><span class="sb-name">12년 전 거리</span></a>
-      <a class="sb-item" href="../003/"><span class="sb-num">003</span><span class="sb-name">402호</span></a>
-      <a class="sb-item" href="../004/"><span class="sb-num">004</span><span class="sb-name">가정의 비밀</span></a>
-      <a class="sb-item" href="../005/"><span class="sb-num">005</span><span class="sb-name">이삿짐</span></a>
-    </nav>
+
+    <div class="sb-section">
+      <p class="sb-section-title">이야기 글쓰기</p>
+      <nav class="sb-list">
+        <a class="sb-item" href="../"><span class="sb-num">⌂</span>목록</a>
+        <a class="sb-item active" href="../001/"><span class="sb-num">001</span>포항 지진</a>
+        <a class="sb-item" href="../002/"><span class="sb-num">002</span>12년 전 거리</a>
+        <a class="sb-item" href="../003/"><span class="sb-num">003</span>402호</a>
+        <a class="sb-item" href="../004/"><span class="sb-num">004</span>가정의 비밀</a>
+        <a class="sb-item" href="../005/"><span class="sb-num">005</span>이삿짐</a>
+      </nav>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-section-title">입시요강 분석</p>
+      <nav class="sb-list">
+        <a class="sb-item" href="../../admissions/"><span class="sb-num">⌂</span>목록</a>
+      </nav>
+    </div>
   </aside>
   <main class="page-main">
   <div class="wrap">
