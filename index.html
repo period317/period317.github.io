@@ -260,6 +260,27 @@ button{font-family:inherit}
   font-weight:700;letter-spacing:-0.3px;
 }
 
+/* ===== Feedback principles ===== */
+.feedback-principles{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.feedback-principles .fp-title{
+  font-size:1.0625rem;font-weight:800;color:var(--text);
+  margin-bottom:1rem;letter-spacing:-0.3px;
+}
+.feedback-principles .fp-sub{
+  font-size:0.9375rem;font-weight:700;color:var(--text);
+  margin-top:1rem;margin-bottom:0.4rem;
+}
+.feedback-principles .fp-list{
+  margin:0 0 0.5rem;padding-left:1.1rem;
+}
+.feedback-principles .fp-list li{
+  font-size:0.875rem;color:var(--text-2);line-height:1.7;margin:0.25rem 0;
+}
+.feedback-principles .fp-note{
+  margin-top:1rem;font-size:0.8125rem;color:var(--text-3);
+  line-height:1.7;font-style:italic;
+}
+
 /* ===== Reviews ===== */
 .reviews-grid{display:grid;gap:1rem}
 .review-item{
@@ -291,22 +312,22 @@ button{font-family:inherit}
 }
 
 /* ===== Teacher mini (home) ===== */
-.teacher-mini-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.teacher-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.625rem;margin-top:1.5rem}
 .teacher-mini{
-  padding:1.25rem;border:1px solid var(--border);
-  border-radius:var(--radius);
+  padding:0.875rem 1rem;border:1px solid var(--border);
+  border-radius:10px;background:#fafafa;
 }
 .teacher-mini h4{
-  font-size:1.0625rem;font-weight:800;color:var(--text);
-  margin-bottom:0.625rem;
+  font-size:0.9375rem;font-weight:800;color:var(--text);
+  margin-bottom:0.375rem;
 }
 .teacher-mini p{
-  font-size:0.875rem;line-height:1.7;
-  color:var(--text-2);margin-bottom:0.125rem;
+  font-size:0.75rem;line-height:1.55;
+  color:var(--text-2);margin-bottom:0.0625rem;
 }
 .teacher-mini .mini-link{
-  display:inline-block;margin-top:0.625rem;
-  font-size:0.8125rem;color:var(--pink);font-weight:700;
+  display:inline-block;margin-top:0.4375rem;
+  font-size:0.75rem;color:var(--pink);font-weight:700;
 }
 
 /* ===== Final CTA ===== */
@@ -612,6 +633,23 @@ button{font-family:inherit}
       <p>인생을 건 학생들의 선택에 대해,<br>시간낭비 하지 않고 의미있고 재미있게 배울 수 있게<br>본격적으로 과외를 시작하며 학생들을 찾게 되었습니다.</p>
       <p>학부모든 학생이든<br>저희의 이야기를 읽어보시고, 상담해 보길 추천합니다.</p>
     </div>
+
+    <div class="teacher-mini-grid">
+      <div class="teacher-mini">
+        <h4>어드쌤</h4>
+        <p>중앙대 연극영화과 연출 수석졸업 · 대학원</p>
+        <p>영화입시 학원 6년 · 약 150명 지도</p>
+        <p>학생들 요청으로 1:1 과외 시작</p>
+        <a href="https://blog.naver.com/songtorytelling/224217327581" target="_blank" class="mini-link">상세 소개 →</a>
+      </div>
+      <div class="teacher-mini">
+        <h4>피리쌤</h4>
+        <p>연세대 신문방송학과</p>
+        <p>국내 탑티어 금융회사 · 핀테크 기획자</p>
+        <p>세상의 변화, 자소서·면접 전략 담당</p>
+        <a href="https://blog.naver.com/songtorytelling/224217581391" target="_blank" class="mini-link">상세 소개 →</a>
+      </div>
+    </div>
   </section>
 
   <!-- 핵심 3개 섹션 -->
@@ -630,6 +668,27 @@ button{font-family:inherit}
         </div>
         <p>해줘야 할 말이 많기 때문에, 학생이 써온 것보다 피드백이 길어지는 경우가 많습니다.</p>
         <p>숙제처럼 글 하나를 내주고 피드백만 하는 게 아닙니다. 잘 할 수 있게 — 기본기든, 반복 훈련이든, 그 학생에게 필요한 수업을 합니다.</p>
+
+        <div class="feedback-principles">
+          <p class="fp-title">실제로 어떻게 하는지.</p>
+
+          <p class="fp-sub">이런 피드백은 하지 않습니다.</p>
+          <ul class="fp-list">
+            <li>글이나 면접지가 어떻다는 평가만 하는 피드백.</li>
+            <li>학생이 써온 글보다 짧게 끝나는 피드백.</li>
+            <li>단순 첨삭 위주의 피드백.</li>
+          </ul>
+
+          <p class="fp-sub">이렇게 합니다.</p>
+          <ul class="fp-list">
+            <li>피드백을 받고도 어떻게 고쳐야 할지 막막한 경우가 많습니다. 그래서 구체적으로 어떻게 써야 했는지, 예시까지 같이 드립니다.</li>
+            <li>이야기 구조만 보지 않습니다. 어떻게 해야 — 보이고 들리는 — 영화적 글쓰기가 되는지까지 짚습니다.</li>
+            <li>기초가 안 잡혀 있다면 무작정 글부터 쓰지 않습니다. 기초 강의부터 시작합니다.</li>
+          </ul>
+
+          <p class="fp-note">예전엔 학생이 미리 써서 가져오는 글들이 많아서, 피드백이 실제 글보다 더 길게 나오는 때도 있었습니다. 그 정도가 정상이라고 생각합니다.</p>
+        </div>
+
         <div class="core-cta">
           <p>써놓은 글이나 면접지가 있다면, 가져오세요. 무료로 한 번 봐드립니다.</p>
           <button onclick="showPage('consultation')">무료 상담 신청</button>
@@ -708,7 +767,7 @@ button{font-family:inherit}
           방송이나 유튜브와 다른 예술로서의 영화는 무엇인지.<br>
           그런 관점에서 학교는 어떤 학생들을 필요로 하는지.
         </p>
-        <p>이런 부분에 대한 기초적인 이해를 바탕으로 학생과 선생 간의 이해도를 맞춥니다. 납득이 되지 않는 부분들은 함께 맞춰가면서, 스스로 영화를 배우고 전공하고 감독이 되고 싶다는 동기부여가 되어야 합니다.</p>
+        <p>이런 부분에 대한 기초적인 이해를 바탕으로 학생과 선생 간의 이해도를 맞춥니다. 납득이 되지 않는 부분들은 함께 맞춰가면서, 스스로 영화를 배우고 전공하고 감독이 되고 싶다는 동기가 만들어져야 합니다.</p>
         <p>보통은 하지 않는, 남들과는 달라지는 삶을 — 예술 영역을 선택하는 것이기 때문에 <em>가장 먼저 다루는 수업</em>입니다.</p>
       </div>
     </article>
@@ -793,7 +852,7 @@ button{font-family:inherit}
     <h2 class="section-title">후기</h2>
 
     <div class="personal-note">
-      <p>후기를 보는 이유는 학원이나 과외 선생님 말만 믿기 힘들기 때문인 것 잘 알고 있습니다. 하지만 후기조차 어느 정도 좋아 해준 사람만 쓰기도 하니, <em>사실 한 번 대화 나눠보는 게 더 좋다고 생각합니다.</em></p>
+      <p>후기를 보는 이유는 학원이나 과외 선생님 말만 믿기 힘들기 때문임을 잘 알고 있습니다. 하지만 후기조차 어느 정도 좋아 해준 사람만 쓰기도 하니, <em>사실 한 번 대화 나눠보는 게 더 좋다고 생각합니다.</em></p>
       <p>하지만 또 열심히 저에게 고마움을 표현해준 학생들이 있기에 후기를 공유합니다. 대신 피리어드의 수업 후기도 업로드 예정입니다.</p>
     </div>
 
@@ -818,11 +877,11 @@ button{font-family:inherit}
         <span class="s-year">2023</span>
       </div>
       <div class="review-row">
-        <p class="r-title">어디에도 없는, 미친듯이 상세한 피드백이었습니다</p>
+        <p class="r-title">어디에도 없는, 미친 듯이 상세한 피드백이었습니다</p>
         <ul>
-          <li>주입식이 아닌 '생각하는 힘' — 매주 상세한 피드백으로 나만의 스타일을 찾아줬다</li>
+          <li>주입식이 아닌 '생각하는 힘' — 매주 상세한 피드백으로 나만의 스타일을 찾아냄</li>
           <li>카페 인물 노트, 버스 종점 가보기 등 책상 밖 관찰 과제로 시선을 단련</li>
-          <li>실기·글쓰기부터 논술·미디어까지 전방위 코칭으로 한예종까지 대비</li>
+          <li>어드쌤(실기·글쓰기) + 피리쌤(논술·미디어) 2인 코칭으로 한예종까지 대비</li>
         </ul>
         <a href="https://blog.naver.com/songtorytelling/224243318803" target="_blank" class="r-link">자세히 보기 →</a>
       </div>
@@ -854,7 +913,7 @@ button{font-family:inherit}
     <h2 class="section-title">상담 신청</h2>
 
     <div class="personal-note">
-      <p>학생이든 학부모든, 아무 것도 준비 안했든 학원을 다니고 있든 — 어떤 상황에서든 편하게 상담하시면 됩니다. <em>돈도 안 드는데 망설일 필요 없습니다.</em></p>
+      <p>학생이든 학부모든, 아무것도 준비 안 했든 학원을 다니고 있든 — 어떤 상황에서든 편하게 상담하시면 됩니다. <em>돈도 안 드는데 망설일 필요 없습니다.</em></p>
       <p>과외를 하라고 강요하지 않습니다. 저의 생계이니 같이 수업하면 더 좋지만, 사실 어떻게든 안타까운 학생들이 나아지길 바라는 마음이 더 큽니다. 해주고 싶은 말이 너무 많기에, 한 명이라도 더 대화해보고 싶습니다.</p>
       <p>연락처를 남겨주셔도 좋고, 아래 제 연락처로 직접 연락주셔도 좋습니다. <em>늦은 새벽도 상관없습니다.</em></p>
     </div>
@@ -896,8 +955,19 @@ button{font-family:inherit}
 <footer class="site-footer">
   © 2025 피리어드 영화입시 과외<br>
   사업자등록번호 245-94-02309<br>
-  film317@naver.com · 010-2781-8621
+  film317@naver.com · 010-2781-8621<br>
+  <a href="#" onclick="openMaterials(event)" style="color:var(--text-3);text-decoration:underline;text-underline-offset:3px;font-size:0.6875rem;letter-spacing:.5px;margin-top:.5rem;display:inline-block">수강생 자료실</a>
 </footer>
+
+<script>
+function openMaterials(e){
+  e.preventDefault();
+  var pw = prompt('비밀번호를 입력하세요');
+  if(pw === null) return;
+  if(pw === '8621'){ location.href = '/materials/story/'; }
+  else { alert('비밀번호가 올바르지 않습니다.'); }
+}
+</script>
 
 <script>
   // ===== 페이지 전환 =====

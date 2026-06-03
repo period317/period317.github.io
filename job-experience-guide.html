@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>취준생 실무경험 — 지금 당장 할 수 있는 것</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .header .label {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #6e6e73;
+    }
+
+    /* Section title */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 36px 0 16px;
+    }
+    .section-title .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .section-title h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #6e6e73;
+    }
+
+    /* Card */
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 28px 24px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Green */
+    .green .card-badge { background: #d4edda; color: #1a6b2f; }
+    .green .accent { color: #1a6b2f; }
+    .green-dot { background: #34c759; }
+
+    /* Yellow */
+    .yellow .card-badge { background: #fff3cd; color: #856404; }
+    .yellow .accent { color: #856404; }
+    .yellow-dot { background: #ff9f0a; }
+
+    /* Red */
+    .red .card-badge { background: #f8d7da; color: #721c24; }
+    .red .accent { color: #8e1a24; }
+    .red-dot { background: #ff3b30; }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: #6e6e73;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .info-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f5f5f7;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #3a3a3c;
+    }
+    .info-chip .icon { font-size: 13px; }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      margin-top: 4px;
+      transition: opacity 0.15s;
+    }
+    .card-link:hover { opacity: 0.75; }
+
+    .green .card-link { background: #d4edda; color: #1a6b2f; }
+    .yellow .card-link { background: #fff3cd; color: #856404; }
+    .red .card-link { background: #f8d7da; color: #721c24; }
+
+    .divider {
+      height: 1px;
+      background: #e5e5ea;
+      margin: 10px 0 14px;
+    }
+
+    .recommend-box {
+      background: #f2f0ff;
+      border-left: 4px solid #5e5ce6;
+      border-radius: 0 10px 10px 0;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #3634a3;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .recommend-box strong { display: block; margin-bottom: 2px; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+    /* Action Plan */
+    .action-plan {
+      background: #1d1d1f;
+      color: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 36px;
+    }
+    .action-plan h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #f5f5f7;
+    }
+    .action-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #3a3a3c;
+    }
+    .action-row:last-child { border-bottom: none; }
+    .action-time {
+      font-size: 11px;
+      font-weight: 700;
+      color: #98989d;
+      min-width: 60px;
+      padding-top: 2px;
+      letter-spacing: 0.5px;
+    }
+    .action-text {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #f5f5f7;
+    }
+    .action-text span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #98989d;
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 12px;
+      color: #aeaeb2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="label">2026.05.27 기준</div>
+      <h1>취준생 실무경험,<br>지금 당장 할 수 있는 것</h1>
+      <p>인턴 자리를 기다리는 동안 — 실제로 신청·참여 가능한 것만 정리</p>
+    </div>
+
+    <!-- 지금 당장 가능 -->
+    <div class="section-title">
+      <div class="dot green-dot"></div>
+      <h2>지금 당장 가능</h2>
+    </div>
+
+    <!-- 렛플 -->
+    <div class="card green">
+      <div class="card-badge">🟢 상시 모집</div>
+      <div class="card-title">렛플 (LETSPL)</div>
+      <div class="card-sub">사이드프로젝트 팀 매칭 플랫폼 — 기획자/PM 포지션으로 팀 합류 또는 직접 팀 개설 가능</div>
+
+      <div class="info-row">
+        <div class="info-chip"><span class="icon">⏱</span> 상시 운영</div>
+        <div class="info-chip"><span class="icon">💻</span> 온라인</div>
+        <div class="info-chip"><span class="icon">🆓</span> 무료</div>
+        <div class="info-chip"><span class="icon">👤</span> PM·기획자 포지션 있음</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="recommend-box">
+        <strong>추천 액션</strong>
+        핀테크·금융·IT 키워드로 검색 → PM 역할로 합류 → 필사그래피 다음 케이스 만들기
+      </div>
+
+      <br>
+      <a class="card-link" href="https://letspl.me/project" target="_blank">→ 현재 모집 프로젝트 보기</a>
+    </div>
+
+    <!-- 해커톤 모니터링 -->
+    <div class="card green">
+      <div class="card-badge">🟢 수시 오픈 — 상시 체크 필요</div>
+      <div class="card-title">해커톤 / 서비스기획 공모전</div>
+      <div class="card-sub">링글·블레이버스 등 상반기 공모전은 모두 마감됨. 하반기 공고는 아래 플랫폼에서 수시 확인 필요</div>
+
+      <div class="info-row">
+        <div class="info-chip"><span class="icon">⚡</span> 단기 결과물 가능</div>
+        <div class="info-chip"><span class="icon">📋</span> 기획 포지션 있음</div>
+        <div class="info-chip"><span class="icon">🔔</span> 알림 설정 추천</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="recommend-box">
+        <strong>지금 할 것</strong>
+        아래 세 곳에 알림 설정 → "해커톤", "서비스기획 공모전" 키워드 등록해두기
+      </div>
+
+      <br>
+      <a class="card-link" href="https://linkareer.com/list/activity" target="_blank" style="margin-right:8px;">→ 링커리어</a>
+      <a class="card-link" href="https://www.wevity.com/" target="_blank" style="margin-right:8px;">→ 위비티</a>
+      <a class="card-link" href="https://spectory.net/" target="_blank">→ 스펙토리</a>
+    </div>
+
+    <!-- 6월 중 가능 -->
+    <div class="section-title">
+      <div class="dot yellow-dot"></div>
+      <h2>6월 중 신청 예정</h2>
+    </div>
+
+    <!-- 미래내일 일경험 -->
+    <div class="card yellow">
+      <div class="card-badge">🟡 기업 모집 마감 5/29 → 청년 신청 6월 이후</div>
+      <div class="card-title">미래내일 일경험 (프로젝트형)</div>
+      <div class="card-sub">실제 기업 프로젝트에 8주 참여하는 정부 지원 사업. IT·핀테크 기업에 배치되면 인턴급 경험치</div>
+
+      <div class="info-row">
+        <div class="info-chip"><span class="icon">📅</span> 청년 신청: 6월 이후 오픈 예정</div>
+        <div class="info-chip"><span class="icon">🏢</span> 실제 기업 프로젝트</div>
+        <div class="info-chip"><span class="icon">⏳</span> 8주</div>
+        <div class="info-chip"><span class="icon">🆓</span> 정부 지원</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="recommend-box">
+        <strong>추천 액션</strong>
+        지금 work24.go.kr 북마크 → 6월 청년 신청 오픈되면 IT·핀테크 기업 선택해서 즉시 지원
+      </div>
+
+      <br>
+      <a class="card-link" href="https://yw.work24.go.kr/main.do" target="_blank">→ 청년일경험 포털 바로가기</a>
+    </div>
+
+    <!-- 하반기 준비 -->
+    <div class="section-title">
+      <div class="dot red-dot"></div>
+      <h2>하반기 대기 — 지금 팔로우만</h2>
+    </div>
+
+    <!-- SOPT -->
+    <div class="card red">
+      <div class="card-badge">🔴 37기 하반기 예상</div>
+      <div class="card-title">SOPT</div>
+      <div class="card-sub">국내 최대 대학생 IT 연합 동아리. 36기 활동기간 25년 3~7월 → 37기는 2026년 하반기 모집 예상. 실 서비스 300개+ 출시 이력</div>
+
+      <div class="info-row">
+        <div class="info-chip"><span class="icon">📅</span> 37기 하반기 예상</div>
+        <div class="info-chip"><span class="icon">🏆</span> 실 서비스 출시</div>
+        <div class="info-chip"><span class="icon">👥</span> 기획 포지션 있음</div>
+      </div>
+
+      <a class="card-link" href="https://www.sopt.org/" target="_blank">→ SOPT 공식 사이트 팔로우</a>
+    </div>
+
+    <!-- 디프만 -->
+    <div class="card red">
+      <div class="card-badge">🔴 19기 하반기 예상</div>
+      <div class="card-title">디프만 (Depromeet)</div>
+      <div class="card-sub">디자이너 + 개발자 17주 협업, 서비스 기획~론칭 전 과정 경험. 18기 모집은 26년 2월 완료 → 19기 하반기 예상</div>
+
+      <div class="info-row">
+        <div class="info-chip"><span class="icon">📅</span> 19기 하반기 예상</div>
+        <div class="info-chip"><span class="icon">⏳</span> 17주</div>
+        <div class="info-chip"><span class="icon">🚀</span> 서비스 론칭까지</div>
+      </div>
+
+      <a class="card-link" href="https://www.depromeet.com/recruit" target="_blank">→ 디프만 모집 페이지 팔로우</a>
+    </div>
+
+    <!-- Action Plan -->
+    <div class="action-plan">
+      <h3>📋 윤정민 기준 — 액션 플랜</h3>
+
+      <div class="action-row">
+        <div class="action-time">이번 주</div>
+        <div class="action-text">
+          렛플(letspl.me) 가입 → 핀테크/금융/IT PM 팀 지원
+          <span>지금 당장 시작 가능, 가장 빠른 경험</span>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <div class="action-time">수시</div>
+        <div class="action-text">
+          링커리어·위비티·스펙토리에 해커톤/서비스기획 알림 등록
+          <span>하반기 공고 오픈되면 바로 지원</span>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <div class="action-time">6월 이후</div>
+        <div class="action-text">
+          미래내일 일경험 청년 신청 오픈되면 즉시 지원
+          <span>IT·핀테크 기업 배치 목표로 신청</span>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <div class="action-time">하반기</div>
+        <div class="action-text">
+          SOPT 37기 / 디프만 19기 모집 공고 뜨면 준비해서 지원
+          <span>지금 공식 SNS 팔로우만 해두기</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      2026.05.27 기준 / 멘토링 참고 자료
+    </div>
+
+  </div>
+</body>
+</html>
