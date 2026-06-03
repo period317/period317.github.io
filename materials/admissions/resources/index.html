@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영화과 기출·면접 질문 — 피리어드</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #F1296C;
+    --text: #1a1a1a;
+    --text-2: #555;
+    --text-3: #999;
+    --border: rgba(0,0,0,0.08);
+    --bg-soft: #f8f8f8;
+    --radius: 12px;
+  }
+  body {
+    font-family: 'Pretendard Variable', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .top-bar {
+    background: var(--pink);
+    color: #fff;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .top-bar a { color: #fff; text-decoration: underline; }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  .page-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .page-meta {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 28px;
+  }
+
+  /* 탭 */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-2);
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .tab-btn.active {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+  }
+
+  /* 섹션 */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .school-block {
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .school-header {
+    background: var(--bg-soft);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .school-name {
+    font-weight: 700;
+    font-size: 15px;
+    flex: 1;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--pink);
+    color: #fff;
+  }
+  .badge.gray {
+    background: #e0e0e0;
+    color: var(--text-2);
+  }
+  .badge.green {
+    background: #e6f4ea;
+    color: #2e7d32;
+  }
+  .chevron {
+    font-size: 12px;
+    color: var(--text-3);
+    transition: transform 0.2s;
+  }
+  .school-block.open .chevron { transform: rotate(180deg); }
+  .school-body {
+    display: none;
+    padding: 16px 18px;
+    border-top: 1.5px solid var(--border);
+  }
+  .school-block.open .school-body { display: block; }
+
+  .q-list { list-style: none; }
+  .q-list li {
+    padding: 10px 14px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 28px;
+  }
+  .q-list li::before {
+    content: 'Q';
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--pink);
+  }
+  .q-list li.highlight {
+    background: #fff0f5;
+    border-left: 3px solid var(--pink);
+  }
+  .q-list li.highlight::after {
+    content: '★ 자주 출제';
+    font-size: 11px;
+    color: var(--pink);
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .info-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-3);
+    min-width: 64px;
+  }
+  .info-val {
+    font-size: 13px;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .exam-card {
+    background: var(--bg-soft);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .exam-card .year {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 8px;
+  }
+  .exam-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .exam-card .subq {
+    margin-top: 8px;
+    padding-left: 14px;
+    border-left: 2px solid var(--pink);
+    font-size: 13px;
+    color: var(--text-2);
+  }
+
+  .table-wrap { overflow-x: auto; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--bg-soft); padding: 8px 12px; text-align: left; font-weight: 600; border-bottom: 1.5px solid var(--border); }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  .notice {
+    background: #fff8e1;
+    border-left: 3px solid #f9a825;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .notice strong { color: #b7791f; }
+
+  .source-link {
+    font-size: 11px;
+    color: var(--text-3);
+    display: block;
+    margin-top: 8px;
+  }
+  .source-link a { color: var(--text-3); }
+
+  .todo-block {
+    background: #f3f0ff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #5a3ea1;
+    line-height: 1.7;
+  }
+  .todo-block strong { display: block; margin-bottom: 6px; }
+
+  hr { border: none; border-top: 1.5px solid var(--border); margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">피리어드 내부 자료 — 비공개 | <a href="https://period317.github.io">홈으로</a></div>
+
+<div class="container">
+  <div class="page-title">영화과 입시 기출·면접 질문</div>
+  <div class="page-meta">조사일 2026-06-03 · 검증 통과 항목만 수록 · 108개 에이전트</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('A')">A. 구술 스토리창작</button>
+    <button class="tab-btn" onclick="switchTab('B')">B. 작문·논술</button>
+    <button class="tab-btn" onclick="switchTab('C')">C. 시나리오·이론</button>
+    <button class="tab-btn" onclick="switchTab('D')">D. 면접 질문</button>
+    <button class="tab-btn" onclick="switchTab('X')">⚠ 미확인·주의</button>
+  </div>
+
+  <!-- A -->
+  <div class="section active" id="tab-A">
+    <div class="notice">
+      <strong>이 유형 특징</strong>
+      제시어·상황을 주고 즉석에서 이야기를 구성하는 실기. 세종대가 대표적이며 공식 PDF를 공개하고 있음.
+    </div>
+
+    <div class="school-block open">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">세종대학교 영화예술학과</div>
+        <span class="badge green">공식 PDF 있음</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="info-row"><span class="info-label">전형</span><span class="info-val">창의인재(면접형) — 전공적합성 평가</span></div>
+        <div class="info-row"><span class="info-label">공개 연도</span><span class="info-val">2023·2024·2025·2026학년도 PDF</span></div>
+        <div class="info-row"><span class="info-label">포함 내용</span><span class="info-val">출제의도 · 문항해설 · 채점기준 · 예시답안</span></div>
+        <div class="notice" style="margin-top:12px">창의인재전형 <strong>전 학과</strong> 대상 PDF — 영화과 문항은 PDF 내부에서 직접 필터 필요</div>
+        <span class="source-link">출처: <a href="https://ipsi.sejong.ac.kr/sub_page/sub5/0102_list.asp?tab1=5&B_CODE=BOARD_1455985403&B_CATEGORY=0" target="_blank">세종대 입학처 기출문제 자료실</a></span>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">참고: 문예창작과 기출 (출제 스타일 참고용)</div>
+        <span class="badge gray">영화과 아님 주의</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="notice"><strong>주의</strong> 아래는 문예창작과 기출입니다. 영화과 실기와 혼동하지 마세요.</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>학교</th><th>제시어·상황</th></tr>
+            <tr><td>동국대 (문창)</td><td>문학 스터디 모임 구성원들이 이메일/편지를 교환 → 단편소설 작성</td></tr>
+            <tr><td>명지대 (문창)</td><td>"여관에서 잃어버린 지갑" / "낯선 이가 화분을 두고 사라짐"</td></tr>
+            <tr><td>중앙대 (문창)</td><td>취업에서 실용 전공이 우대받아 인문계열 학과가 축소되는 상황</td></tr>
+            <tr><td>추계예대 (문창)</td><td>첫 문장 제시: "자정에 언니의 문자를 읽고 웃었다"</td></tr>
+          </table>
+        </div>
+        <span class="source-link">출처: <a href="https://www.munchang.net/bbs/board.php?bo_table=gichul" target="_blank">문창넷 기출문제 게시판</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="section" id="tab-B">
+    <div class="notice">
+      <strong>이 유형 특징</strong>
+      주제를 주고 글자수 내에서 논술·에세이를 쓰는 형식. 한예종이 대표적.
+    </div>
+
+    <div class="school-block open">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">한국예술종합학교 영화과</div>
+        <span class="badge">1차 논술 기출</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="exam-card">
+          <div class="year">2024학년도 ✅ 고신뢰</div>
+          <p><strong>주제1</strong></p>
+          <div class="subq">문항1 (600자): "예술이 세상을 바꿀 수 있다고 생각하는 이유를 적으시오"</div>
+          <div class="subq">문항2 (400자): "예술이 세상을 바꾼 구체적인 예를 두 가지 적으시오"</div>
+          <span class="source-link">출처: <a href="https://staffstudy.com/?kboard_content_redirect=1469" target="_blank">스탭스터디 합격생 후기</a></span>
+        </div>
+        <div class="exam-card">
+          <div class="year">2020학년도</div>
+          <p>문제1: <strong>내러티브 형식</strong></p>
+          <p>문제2: <strong>논설문 형식</strong></p>
+          <span class="source-link">출처: <a href="https://brunch.co.kr/@@7HEL/133" target="_blank">브런치 입시 전문 계정</a></span>
+        </div>
+        <div class="exam-card">
+          <div class="year">2019학년도</div>
+          <p>문제1: <strong>논설문 형식</strong></p>
+          <p>문제2: <strong>내러티브 형식</strong></p>
+          <p style="margin-top:6px;font-size:13px;color:var(--text-2)">※ 2020년과 달리 <strong>제시문(참고자료)</strong> 함께 제공됨</p>
+          <span class="source-link">출처: <a href="https://brunch.co.kr/@@7HEL/136" target="_blank">브런치 입시 전문 계정</a></span>
+        </div>
+        <div class="info-row" style="margin-top:4px">
+          <span class="info-label">공식 기출</span>
+          <span class="info-val"><a href="https://www.karts.ac.kr/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000009" target="_blank" style="color:var(--pink)">한예종 입학처 기출문제 게시판</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">중앙대학교 — 참고용 (문예창작과)</div>
+        <span class="badge gray">문창과 기출</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="notice"><strong>주의</strong> 영화과가 아닌 문예창작과 기출입니다.</div>
+        <div class="exam-card">
+          <div class="year">2024학년도</div>
+          <p>핵심 상황: <strong>"나와 신만이 있었어요, 무선통신마저 끊어진 암흑 속 48분"</strong></p>
+          <span class="source-link">출처: <a href="https://m.cafe.daum.net/godo1/R4A0/184" target="_blank">고도문예창작학원 다음카페</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="section" id="tab-C">
+    <div class="notice">
+      <strong>이 유형 특징</strong>
+      시나리오 또는 영화 이론 지식을 묻는 실기. 청주대가 유형별 이론 선택형으로 구성.
+    </div>
+
+    <div class="school-block open">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">청주대학교 영화학과</div>
+        <span class="badge">2016년 실기 기출</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="info-row"><span class="info-label">구성</span><span class="info-val">장면구성 + A/B/C 유형 중 선택</span></div>
+        <div class="table-wrap" style="margin-top:12px">
+          <table>
+            <tr><th>유형</th><th>문항 내용</th></tr>
+            <tr><td><strong>A유형</strong></td><td>포인트 오브 뷰(Point of View) / 슬랩스틱(Slapstick)</td></tr>
+            <tr><td><strong>B유형</strong></td><td>프로듀서의 역할 / 영화연기의 특징</td></tr>
+            <tr><td><strong>C유형</strong></td><td>화이트 밸런스를 맞추는 이유 / 필름 저장과 메모리 저장의 차이</td></tr>
+          </table>
+        </div>
+        <span class="source-link">출처: <a href="https://staffstudy.com/?kboard_content_redirect=1048" target="_blank">스탭스터디 합격생 1인칭 후기</a></span>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">수원대학교 영화영상학과</div>
+        <span class="badge gray">공식 기출 없음</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="notice">
+          <strong>확인 결과</strong> 입학처 기출 자료실(2022~2026)에는 시나리오 분석 실기 기출이 없습니다. 논술고사·편입 영어만 수록.
+        </div>
+        <div class="info-row"><span class="info-label">자료실</span><span class="info-val"><a href="https://ipsi.suwon.ac.kr/board/pre_question" target="_blank" style="color:var(--pink)">수원대 입학처 기출문제 페이지</a></span></div>
+        <p style="font-size:13px;color:var(--text-2);margin-top:8px">→ 합격생 커뮤니티(스탭스터디·필름메이커스)를 통해 별도 수집 필요</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="section" id="tab-D">
+    <div class="notice">
+      <strong>안내</strong>
+      면접 질문은 대학이 공식 공개하지 않으며, 합격생 커뮤니티 후기가 사실상 최고 품질의 1차 자료입니다. 연도·교수·전형 조건에 따라 달라질 수 있습니다.
+    </div>
+
+    <div class="school-block open">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">한국예술종합학교 영화과</div>
+        <span class="badge">✅ 고신뢰</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="info-row"><span class="info-label">면접관</span><span class="info-val">박광수 교수</span></div>
+        <div class="info-row"><span class="info-label">소요시간</span><span class="info-val">약 10~13분 (2차 작문 결과물 기반 압박 면접)</span></div>
+        <ul class="q-list" style="margin-top:12px">
+          <li>"자소서 안 읽었다고 칠테니까 자기소개 해보게"</li>
+          <li class="highlight">"자네가 살면서 가장 비겁했던 일과 용감했던 일을 말해보게"</li>
+          <li>"그래도 개연성이 떨어지는 것 같네. 만약에 자네가 시험이 아니라 작품으로 탈고한다고 해도 같은 결론인가?" <span style="font-size:12px;color:var(--text-3)">(2차 작문 개연성 압박)</span></li>
+        </ul>
+        <span class="source-link">출처: <a href="https://m.cafe.daum.net/gotothekuna/HqGw/167" target="_blank">다음카페 gotothekuna 합격생 후기</a></span>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">청주대학교 영화학과</div>
+        <span class="badge">✅ 고신뢰</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="info-row"><span class="info-label">형식</span><span class="info-val">대화형 면접 (실기 작성 내용 기반)</span></div>
+        <ul class="q-list" style="margin-top:12px">
+          <li>"인물을 그렇게 설정한 이유가 뭐야?"</li>
+          <li>"글의 분위기는 뭐야?"</li>
+          <li class="highlight">"청주대 왜 지원했어?"</li>
+          <li>"영화찍어봤어? / 연출했니?"</li>
+          <li class="highlight">"어떤 영화감독이 되고 싶니?"</li>
+          <li class="highlight">"너한테 영화는 뭐야? 한 단어로 표현해봐"</li>
+        </ul>
+        <span class="source-link">출처: <a href="https://staffstudy.com/?kboard_content_redirect=983" target="_blank">스탭스터디 합격생 1인칭 후기</a></span>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">서울예술대학교 영화과</div>
+        <span class="badge gray">중간 신뢰</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <ul class="q-list" style="margin-top:4px">
+          <li class="highlight">"영화 좋아하는 만큼 공부도 좋아하나?"</li>
+        </ul>
+        <span class="source-link">출처: <a href="https://www.filmmakers.co.kr/board/421398" target="_blank">필름메이커스 커뮤니티 면접 후기</a></span>
+      </div>
+    </div>
+
+    <div class="todo-block">
+      <strong>📋 추가 수집 필요한 학교</strong>
+      중앙대 · 한양대 · 건국대 · 단국대 · 명지대 · 백석예대 · 대진대 · 동국대 영화과 면접 질문 — 커뮤니티 로그인 벽으로 현재 미확인. 스탭스터디·필름메이커스·DCInside 영화학갤에서 수집 필요.
+    </div>
+  </div>
+
+  <!-- X -->
+  <div class="section" id="tab-X">
+    <div class="notice">
+      <strong>검증 탈락 항목</strong>
+      3-vote 검증에서 반박된 항목들입니다. 수업·상담에서 사용하지 마세요.
+    </div>
+
+    <div class="school-block open">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">검증 탈락 목록 (사용 금지)</div>
+        <span class="badge gray">9건 탈락</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <div class="table-wrap">
+          <table>
+            <tr><th>항목</th><th>결과</th></tr>
+            <tr><td>서울예대: "더치 앵글이 뭐예요?"</td><td>1-2 반박</td></tr>
+            <tr><td>서울예대: 죠스 시놉시스 재구성 필기</td><td>0-3 반박</td></tr>
+            <tr><td>서울예대: "가장 좋아하는 영화감독이 누구냐"</td><td>1-2 반박</td></tr>
+            <tr><td>서울예대: "누벨바그에 대해 아는가"</td><td>0-3 반박</td></tr>
+            <tr><td>청주대 2015 A/B유형 선택형 기출</td><td>1-2 반박</td></tr>
+            <tr><td>한예종 2019년 논술 제시문 (고령화 통계)</td><td>1-2 반박</td></tr>
+            <tr><td>한예종 2024 논술 주제2 (영어지문+표현의자유)</td><td>1-2 반박</td></tr>
+            <tr><td>서울예대 2024: "지구에서 가장 시적인 순간" 제시어</td><td>0-3 반박</td></tr>
+            <tr><td>서경대 작문+면접 결합형 기출</td><td>0-3 반박</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="school-block">
+      <div class="school-header" onclick="toggle(this)">
+        <div class="school-name">미확인 항목 (추가 조사 필요)</div>
+        <span class="badge gray">4건</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="school-body">
+        <ul style="padding-left:18px;font-size:14px;line-height:2">
+          <li>세종대 기출 PDF 내 영화과 전공 문항 원문</li>
+          <li>한예종 2021~2023학년도 논술 문항 (현재 2019·2020·2024만 확인)</li>
+          <li>중앙대·한양대·건국대·단국대·명지대·백석예대·대진대 영화과 면접 질문</li>
+          <li>수원대·청주대 2022~2025 최신 시나리오 분석 기출</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggle(header) {
+  header.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>
