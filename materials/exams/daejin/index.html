@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>대진대 · 자료실 · Period.</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>body{font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif}
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
+  aside.sidebar{
+    position:fixed;top:0;left:0;
+    width:240px;height:100vh;overflow-y:auto;z-index:5;
+    background:var(--soft);border-right:1px solid var(--border);
+    padding:1.75rem 1.25rem;
+  }
+  @media (max-width:760px){
+    aside.sidebar{
+      position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;
+      border-right:0;border-bottom:1px solid var(--border);
+      padding:1rem 1.125rem;background:var(--soft);z-index:10;
+    }
+  }
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{
+    font-size:.6875rem;font-weight:800;color:var(--text-3);
+    letter-spacing:.6px;text-transform:uppercase;
+    margin:0 0 .5rem;padding:0 .75rem;
+  }
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
+  .sb-item{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.5rem .75rem;border-radius:10px;
+    font-size:.875rem;color:var(--text-2);text-decoration:none;
+    transition:all .15s ease;
+  }
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem}
+  .sb-item.active .sb-num{color:var(--pink)}
+</style>
+<style>
+  :root{
+    --bg:#fff; --soft:#fafafa; --pink:#3182F6; --tint:#E8F2FE;
+    --text:#191F28; --text-2:#4E5968; --text-3:#8B95A1;
+    --border:#F2F4F6; --border-strong:#E5E8EB;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+  .brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
+  .crumb{font-size:.8125rem;color:var(--text-3);margin-bottom:.5rem}
+  .crumb a:hover{color:var(--text-2)}
+  .crumb-sep{margin:0 .375rem;color:var(--border-strong)}
+  h1{font-size:1.75rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.025em}
+  h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.02em}
+  h3{font-size:1rem;font-weight:700;margin:1.25rem 0 .375rem;letter-spacing:-.015em}
+  .lead{font-size:.9375rem;color:var(--text-2);margin:0 0 2rem;line-height:1.7}
+  .list{display:flex;flex-direction:column;gap:.5rem}
+  .item{display:block;padding:1rem 1.125rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:all .15s ease}
+  .item:hover{border-color:var(--border-strong);background:var(--soft)}
+  .item-top{display:flex;align-items:baseline;gap:.625rem;margin-bottom:.375rem}
+  .item-num{font-size:.75rem;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+  .item-title{font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-.015em}
+  .item-desc{font-size:.8125rem;color:var(--text-2);line-height:1.6;margin:0}
+  .exam-block{
+    margin:0 0 1.25rem;padding:1.125rem 1.25rem;
+    background:var(--soft);border:1px solid var(--border);
+    border-radius:14px;
+  }
+  .exam-year{
+    display:inline-block;font-size:.75rem;font-weight:800;color:var(--pink);
+    background:var(--tint);padding:.125rem .625rem;border-radius:999px;
+    letter-spacing:.5px;margin-bottom:.5rem;
+  }
+  .exam-content{font-size:.875rem;line-height:1.7;color:var(--text);white-space:pre-wrap}
+  .source-link{font-size:.75rem;color:var(--text-3);margin-top:.5rem;display:block}
+  .source-link a{color:var(--text-3);text-decoration:underline}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+  .school-tag{
+    display:inline-block;font-size:.6875rem;font-weight:700;color:var(--text-3);
+    letter-spacing:.5px;text-transform:uppercase;margin-bottom:.25rem;
+  }
+  .school-card{
+    display:block;padding:1.25rem 1.375rem;
+    border:1px solid var(--border);border-radius:14px;
+    background:var(--bg);transition:all .15s ease;
+    margin-bottom:.5rem;
+  }
+  .school-card:hover{border-color:var(--border-strong);background:var(--soft)}
+  .school-card h3{margin:0 0 .25rem;font-size:1.0625rem}
+  .school-card .meta{font-size:.8125rem;color:var(--text-2);margin:0 0 .375rem}
+  .school-card .years{font-size:.75rem;color:var(--text-3);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+<div class="sb-brand">Period. · 자료실</div>
+<div class="sb-section">
+<p class="sb-section-title">기출문제 모음</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../exams/"><span class="sb-num">⌂</span>전체 모음</a>
+<a class="sb-item" href="../../exams/kookmin/"><span class="sb-num">📜</span>국민대</a>
+<a class="sb-item" href="../../exams/knua/"><span class="sb-num">📜</span>한예종</a>
+<a class="sb-item" href="../../exams/dankook/"><span class="sb-num">📜</span>단국대</a>
+<a class="sb-item" href="../../exams/sungkyun/"><span class="sb-num">📜</span>성균관대</a>
+<a class="sb-item" href="../../exams/seoularts/"><span class="sb-num">📜</span>서울예대</a>
+<a class="sb-item" href="../../exams/sejong/"><span class="sb-num">📜</span>세종대</a>
+<a class="sb-item" href="../../exams/soongsil/"><span class="sb-num">📜</span>숭실대</a>
+<a class="sb-item" href="../../exams/cheongju/"><span class="sb-num">📜</span>청주대</a>
+<a class="sb-item" href="../../exams/sungkyul/"><span class="sb-num">📜</span>성결대</a>
+<a class="sb-item" href="../../exams/yongin/"><span class="sb-num">📜</span>용인대</a>
+<a class="sb-item active" href="../../exams/daejin/"><span class="sb-num">📜</span>대진대</a>
+<a class="sb-item" href="../../exams/joongbu/"><span class="sb-num">📜</span>중부대</a>
+<a class="sb-item" href="../../exams/suwon/"><span class="sb-num">📜</span>수원대</a>
+<a class="sb-item" href="../../exams/inha/"><span class="sb-num">📜</span>인하대</a>
+<a class="sb-item" href="../../exams/sangmyung/"><span class="sb-num">📜</span>상명대</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">이야기 글쓰기</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../story/"><span class="sb-num">⌂</span>목록</a>
+<a class="sb-item" href="../../story/001/"><span class="sb-num">001</span>포항 지진</a>
+<a class="sb-item" href="../../story/002/"><span class="sb-num">002</span>12년 전 거리</a>
+<a class="sb-item" href="../../story/003/"><span class="sb-num">003</span>402호</a>
+<a class="sb-item" href="../../story/004/"><span class="sb-num">004</span>가정의 비밀</a>
+<a class="sb-item" href="../../story/005/"><span class="sb-num">005</span>이삿짐</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">입시요강 분석</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../admissions/"><span class="sb-num">⌂</span>전체</a>
+<a class="sb-item" href="../../admissions/resources/"><span class="sb-num">📂</span>참고자료 (공식)</a>
+<a class="sb-item" href="../../admissions/types/storytelling/"><span class="sb-num">✍️</span>스토리텔링</a>
+<a class="sb-item" href="../../admissions/types/oral/"><span class="sb-num">🎤</span>스토리 구술</a>
+<a class="sb-item" href="../../admissions/types/scene/"><span class="sb-num">🎬</span>시나리오 분석</a>
+<a class="sb-item" href="../../admissions/types/interview/"><span class="sb-num">💬</span>면접·구술</a>
+<a class="sb-item" href="../../admissions/types/admit/"><span class="sb-num">📄</span>학종·서류</a>
+<a class="sb-item" href="../../admissions/types/design/"><span class="sb-num">🎨</span>기초디자인</a>
+<a class="sb-item" href="../../admissions/types/portfolio/"><span class="sb-num">📦</span>포트폴리오</a>
+</nav></div>
+</aside>
+<main class="page-main"><div class="wrap">
+<div class="brand">Period. · 자료실</div>
+<div class="crumb">자료실 <span class="crumb-sep">›</span> <a href="../">기출문제 모음</a> <span class="crumb-sep">›</span> 대진대</div>
+<h1>대진대 기출문제</h1>
+<p class="lead">대진대학교 연극영화학부 영화전공<br>실기 유형: <strong>심층면접 + 질의응답</strong></p>
+<div class="exam-block">
+  <span class="exam-year">2025학년도</span>
+  <div class="exam-content">2025학년도 영화과 영화영상학과 실기 위주 학교 준비하는 법
+매해 소수 정예 인원만으로 80% 이상의 합격률을 자랑하고 있습니다.
+영화과 영화영상학과 실기학원 과외 커리큘럼
+대진대 영화영상학과 합격후기
+학생들의 꿈을 가지고 장난치지 않습니다. 여러분의 합격이 365films 합격입니다.
+[영화과 실기 입시 학원과외 ]
+대진대학교 영화영상학과 기출문제
+_ 질의응답, 전공 질문, 실기 위주
+꾸며진 것이 아닌, 자신의 확고한 취향을 솔직하게 이야기하는 것이 중요합니다.
+그러기 위해선 자신이 뭘 좋아하는지 어떤 걸 하고 싶은지 자신을 탐구하는 훈련이 제일 중요합니다.
+대진대 영화영상학과 기출문제
+대진대학교 영화영상학과 실기 항목
+연출 및 스태프
+· 영화전공 전문성(적성 적합도) 및 이해도 측정
+· 질의응답을 통한 영화 상식 및 열의도 평가
+영화영상학과 실기 학원 과외 추천
+대진대학교 영화영상학과 기출문제
+기출문제 1.
+1. 좋아하는 영화장르는 무엇이며 그 이유에 대해서 설명하시오.
+2. 한국영화산업의 10년 후 모습에 대해 예측하고 이유를 설명하시오.
+3. 영화 스태프(연출, 제작, 촬영, 조명, 편집, 미술, 사운드 등) 중 관심을 가지고 있는 분야는 무엇이며 그 이유에 대해 설명하시오.
+기출문제 2.
+1. 영화 전공을 선택하게 된 계기를 설명하고 영화를 하기 위해 어떠한 노력을 하였는지 설명하시오.
+2. 가장 좋아하는 감독과 영화는 무엇이고 그 이유를 설명하시오.
+3. 영화에서 피사계의 심도란 무엇이며, 피사계 심도가 잘 표현된 작품과 이유를 설명하시오.
+기출문제 3.
+1. 영화에서 몽타주기법은 무엇인가. 몽타주기법을 적절히 사용한 영화의 사례를 들어 설명하시오.
+2. 수험생이 우리학과에 입학 후 찍고 싶은 영화가 있다면 간단한 줄거리를 이야기 해주세요.
+3. 영화영상학과를 선택하게 된 계기가 있었다면 무엇이며 그 이유에 대하여 설명하시오.
+2024학년도 대진대학교 영화영상학과 수시모집 총 3명 합격
+서울 강남 9호선 신분당선 신논현역 3분 거리, 7호선 신분당선 논현역 8분 거리 레슨실이 위치해 있으며
+매해 부산, 창원, 마산, 진주, 울산, 경주, 포항, 안동, 대구, 구미, 전주, 광주, 목포, 순천, 광양, 대전, 천안, 세종, 충주, 청주, 강릉, 속초, 원주, 속초, 제주도 등 전국 각지에서 365films 수업을 함께 하고 있습니다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223390532181" target="_blank" rel="noopener">365films · 2024. 3. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 기준으로 면접 문제를 미리 제시해 주고 그 문제에 대한 답변을 준비해 가고 그 외 개인 구술면접이 진행됩니다.
+대진대학교 영화영상학과 실기 준비하는 법</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223390532181" target="_blank" rel="noopener">365films · 2024. 3. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 정시모집 대진대학교 실기 위주 전형 연극 영화학부 영화전공 심층 면접 문항
+[영화과 실기 과외]</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222186069251" target="_blank" rel="noopener">365films · 2020. 12. 26.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 정시모집 대진대학교 실기 위주 전형 연극 영화학부 영화전공 심층 면접 문항이 발표되었습니다.
+대진대 영화전공은 면접 문항을 미리 준비해 간 후 준비해 간 면접 문항을 중심으로 개인 구술면접까지 이어집니다.
+미리 발표하는 만큼 꼼꼼한 준비를 해가야 한다는 점 잊지 마세요.
+대진대 영화과 외 영화과 심층 면접 준비를 원하는 친구들은 연락 주세요!
+카카오톡 365films
+2021학년도 정시모집
+영화전공(영화 연출 및 스태프)
+※ 아래 3개 모든 문항 질문 + 추가 질문으로 진행
+1. 영화전공(연출, 촬영, 편집, 사운드, 미술 등) 가운데 하고 싶은 전공은 무엇이며, 그 이유에 대하여 설명하시오.
+2. 개인적으로 가장 좋아하는 한국 영화는 무엇이고 그 이유를 설명하시오.
+3. OTT(Over The Top)가 한국 영상 산업에 미치는 긍정적인 영향에 대해 주관적 관점에서 설명하시오.
+자세한 내용은 아래 첨부파일을 확인하세요.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222186069251" target="_blank" rel="noopener">365films · 2020. 12. 26.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 대진대학교 연극 영화학부 영화전공(영화 연출 및 스태프) 정시모집 요강
+전형 일정
+원서접수 2021. 1. 7(목) ~ 11(월)
+실기고사 2021. 1. 29(금) ~ 30(토)
+합격자 발표 2021. 2. 5(금) 14:00 예정
+모집인원
+8명
+전형방법
+수능 30% + 실기 70%
+(수능 •국어영역, 영어 영역, 수학(가/나) 영역 중 상위 성적 2개 영역 •탐구(사회/과학/직업) 영역 중 1과목)
+실기고사
+•영화전공 전문성(적성 적합도) 및 이해도 측정
+•질의응답을 통한 영화 상식 및 열의도 평가
+&lt;대진대학교 영화전공 합격후기&gt;</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222186069251" target="_blank" rel="noopener">365films · 2020. 12. 26.</a></span>
+</div>
+<h2>원본 글 (365films 블로그)</h2><ul style="font-size:.8125rem;color:var(--text-2);line-height:1.8"><li><a href="https://blog.naver.com/365films/223390532181" target="_blank" rel="noopener">[영화과 실기 입시 학원과외 ] 대진대학교 영화영상학과 기출문제 _ 질의응답, 전공 질문, 실기 위주</a> (2024. 3. 21.)</li><li><a href="https://blog.naver.com/365films/222186069251" target="_blank" rel="noopener">[영화과 실기과외] 2021학년도 정시모집 대진대학교 실기 위주 전형 연극 영화학부 영화전공 심층 면접 문항</a> (2020. 12. 26.)</li></ul>
+<div class="footer">© Period. · 영화입시 전문과외 · 수업 자료</div>
+</div></main>
+</div></body></html>

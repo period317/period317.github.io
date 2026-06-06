@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>국민대 · 자료실 · Period.</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>body{font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif}
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
+  aside.sidebar{
+    position:fixed;top:0;left:0;
+    width:240px;height:100vh;overflow-y:auto;z-index:5;
+    background:var(--soft);border-right:1px solid var(--border);
+    padding:1.75rem 1.25rem;
+  }
+  @media (max-width:760px){
+    aside.sidebar{
+      position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;
+      border-right:0;border-bottom:1px solid var(--border);
+      padding:1rem 1.125rem;background:var(--soft);z-index:10;
+    }
+  }
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{
+    font-size:.6875rem;font-weight:800;color:var(--text-3);
+    letter-spacing:.6px;text-transform:uppercase;
+    margin:0 0 .5rem;padding:0 .75rem;
+  }
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
+  .sb-item{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.5rem .75rem;border-radius:10px;
+    font-size:.875rem;color:var(--text-2);text-decoration:none;
+    transition:all .15s ease;
+  }
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem}
+  .sb-item.active .sb-num{color:var(--pink)}
+</style>
+<style>
+  :root{
+    --bg:#fff; --soft:#fafafa; --pink:#3182F6; --tint:#E8F2FE;
+    --text:#191F28; --text-2:#4E5968; --text-3:#8B95A1;
+    --border:#F2F4F6; --border-strong:#E5E8EB;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+  .brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
+  .crumb{font-size:.8125rem;color:var(--text-3);margin-bottom:.5rem}
+  .crumb a:hover{color:var(--text-2)}
+  .crumb-sep{margin:0 .375rem;color:var(--border-strong)}
+  h1{font-size:1.75rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.025em}
+  h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.02em}
+  h3{font-size:1rem;font-weight:700;margin:1.25rem 0 .375rem;letter-spacing:-.015em}
+  .lead{font-size:.9375rem;color:var(--text-2);margin:0 0 2rem;line-height:1.7}
+  .list{display:flex;flex-direction:column;gap:.5rem}
+  .item{display:block;padding:1rem 1.125rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:all .15s ease}
+  .item:hover{border-color:var(--border-strong);background:var(--soft)}
+  .item-top{display:flex;align-items:baseline;gap:.625rem;margin-bottom:.375rem}
+  .item-num{font-size:.75rem;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+  .item-title{font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-.015em}
+  .item-desc{font-size:.8125rem;color:var(--text-2);line-height:1.6;margin:0}
+  .exam-block{
+    margin:0 0 1.25rem;padding:1.125rem 1.25rem;
+    background:var(--soft);border:1px solid var(--border);
+    border-radius:14px;
+  }
+  .exam-year{
+    display:inline-block;font-size:.75rem;font-weight:800;color:var(--pink);
+    background:var(--tint);padding:.125rem .625rem;border-radius:999px;
+    letter-spacing:.5px;margin-bottom:.5rem;
+  }
+  .exam-content{font-size:.875rem;line-height:1.7;color:var(--text);white-space:pre-wrap}
+  .source-link{font-size:.75rem;color:var(--text-3);margin-top:.5rem;display:block}
+  .source-link a{color:var(--text-3);text-decoration:underline}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+  .school-tag{
+    display:inline-block;font-size:.6875rem;font-weight:700;color:var(--text-3);
+    letter-spacing:.5px;text-transform:uppercase;margin-bottom:.25rem;
+  }
+  .school-card{
+    display:block;padding:1.25rem 1.375rem;
+    border:1px solid var(--border);border-radius:14px;
+    background:var(--bg);transition:all .15s ease;
+    margin-bottom:.5rem;
+  }
+  .school-card:hover{border-color:var(--border-strong);background:var(--soft)}
+  .school-card h3{margin:0 0 .25rem;font-size:1.0625rem}
+  .school-card .meta{font-size:.8125rem;color:var(--text-2);margin:0 0 .375rem}
+  .school-card .years{font-size:.75rem;color:var(--text-3);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+<div class="sb-brand">Period. · 자료실</div>
+<div class="sb-section">
+<p class="sb-section-title">기출문제 모음</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../exams/"><span class="sb-num">⌂</span>전체 모음</a>
+<a class="sb-item active" href="../../exams/kookmin/"><span class="sb-num">📜</span>국민대</a>
+<a class="sb-item" href="../../exams/knua/"><span class="sb-num">📜</span>한예종</a>
+<a class="sb-item" href="../../exams/dankook/"><span class="sb-num">📜</span>단국대</a>
+<a class="sb-item" href="../../exams/sungkyun/"><span class="sb-num">📜</span>성균관대</a>
+<a class="sb-item" href="../../exams/seoularts/"><span class="sb-num">📜</span>서울예대</a>
+<a class="sb-item" href="../../exams/sejong/"><span class="sb-num">📜</span>세종대</a>
+<a class="sb-item" href="../../exams/soongsil/"><span class="sb-num">📜</span>숭실대</a>
+<a class="sb-item" href="../../exams/cheongju/"><span class="sb-num">📜</span>청주대</a>
+<a class="sb-item" href="../../exams/sungkyul/"><span class="sb-num">📜</span>성결대</a>
+<a class="sb-item" href="../../exams/yongin/"><span class="sb-num">📜</span>용인대</a>
+<a class="sb-item" href="../../exams/daejin/"><span class="sb-num">📜</span>대진대</a>
+<a class="sb-item" href="../../exams/joongbu/"><span class="sb-num">📜</span>중부대</a>
+<a class="sb-item" href="../../exams/suwon/"><span class="sb-num">📜</span>수원대</a>
+<a class="sb-item" href="../../exams/inha/"><span class="sb-num">📜</span>인하대</a>
+<a class="sb-item" href="../../exams/sangmyung/"><span class="sb-num">📜</span>상명대</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">이야기 글쓰기</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../story/"><span class="sb-num">⌂</span>목록</a>
+<a class="sb-item" href="../../story/001/"><span class="sb-num">001</span>포항 지진</a>
+<a class="sb-item" href="../../story/002/"><span class="sb-num">002</span>12년 전 거리</a>
+<a class="sb-item" href="../../story/003/"><span class="sb-num">003</span>402호</a>
+<a class="sb-item" href="../../story/004/"><span class="sb-num">004</span>가정의 비밀</a>
+<a class="sb-item" href="../../story/005/"><span class="sb-num">005</span>이삿짐</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">입시요강 분석</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../admissions/"><span class="sb-num">⌂</span>전체</a>
+<a class="sb-item" href="../../admissions/resources/"><span class="sb-num">📂</span>참고자료 (공식)</a>
+<a class="sb-item" href="../../admissions/types/storytelling/"><span class="sb-num">✍️</span>스토리텔링</a>
+<a class="sb-item" href="../../admissions/types/oral/"><span class="sb-num">🎤</span>스토리 구술</a>
+<a class="sb-item" href="../../admissions/types/scene/"><span class="sb-num">🎬</span>시나리오 분석</a>
+<a class="sb-item" href="../../admissions/types/interview/"><span class="sb-num">💬</span>면접·구술</a>
+<a class="sb-item" href="../../admissions/types/admit/"><span class="sb-num">📄</span>학종·서류</a>
+<a class="sb-item" href="../../admissions/types/design/"><span class="sb-num">🎨</span>기초디자인</a>
+<a class="sb-item" href="../../admissions/types/portfolio/"><span class="sb-num">📦</span>포트폴리오</a>
+</nav></div>
+</aside>
+<main class="page-main"><div class="wrap">
+<div class="brand">Period. · 자료실</div>
+<div class="crumb">자료실 <span class="crumb-sep">›</span> <a href="../">기출문제 모음</a> <span class="crumb-sep">›</span> 국민대</div>
+<h1>국민대 기출문제</h1>
+<p class="lead">국민대학교 공연예술학부 영화전공<br>실기 유형: <strong>시 제시문 → 스토리 구성</strong></p>
+<div class="exam-block">
+  <span class="exam-year">2027학년도</span>
+  <div class="exam-content">2027학년도 영화과 실기 준비 수강생 모집 곧 마감!!! 서두르세요!!
+[ 영화과과외 실기학원] 국민대학교 공연예술학부 영화전공 수시모집 역대 기출문제 _ 스토리구성, 시 분석, 실기위주</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">365films · 2026. 4. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2026학년도</span>
+  <div class="exam-content">2026학년도 국민대 영화과 수시 기출문제
+너를 기다리는 동안
+황지우
+네가 오기로 한 그 자리에
+내가 미리 가 너를 기다리는 동안
+다가오는 모든 발자국은
+내 가슴에 쿵쿵거린다
+바스락거리는 나뭇잎 하나도 다 내게 온다
+기다려본 적이 있는 사람은 안다
+세상에서 기다리는 일처럼 가슴 애리는 일 있을까
+네가 오기로 한 그 자리, 내가 미리 와 있는 이 곳에서
+문을 열고 들어오는 모든 사람이
+너였다가
+너였다가, 너일 것이었다가
+다시 문이 닫힌다
+사랑하는 이여
+오지 않는 너를 기다리며
+마침내 나는 너에게 간다
+아주 먼 데서 나는 너에게 가고
+아주 오랜 세월을 다하여 너는 지금 오고 있다
+아주 먼 데서 지금도 천천히 오고 있는 너를
+너를 기다리는 동안 나도 가고 있다
+남들이 열고 들어오는 문을 통해
+내 가슴에 쿵쿵거리는 모든 발자국 따라
+너를 기다리는 동안 나는 너에게 가고 있다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">365films · 2026. 4. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2025학년도</span>
+  <div class="exam-content">2025학년도 국민대 영화과 수시 기출문제
+옥외계단
+이기영
+곧 철거될 건물 외벽에 걸려있는
+아무도 사용하지 않는 녹슨 계단이 있다
+신경은 모두 손상되었으나 감각만은
+꿋꿋하게 살아남아 버티고 있는 통증처럼
+점점 완강해져서 어찌해 볼 도리가 없는 것처럼
+숨길 수 없는 사연 줄줄 흘리고 있다
+장대비 견디고 있다
+살면 살수록 포기는 많아지는데
+왜 근심은 더 느는 것일까
+처음부터 한 발짝도 들이지 못하고 밀려나
+자기 최면으로 헐벗은 현실을
+속이고 살았을 것이다
+그러나 현실은 견딤보다 훨씬 잔인했을 것이다
+언제 철거되는지도 모르게 철거될 것이고
+허공에 매달려 있던 때처럼
+팔다리는 오래 저릴 것이다
+층층마다 열 수 있는 문, 바깥에는
+옥상조차 갈 수 없는
+잊혀진 열외가 있다</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">365films · 2026. 4. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 국민대 영화과 수시 기출문제
+엄마 걱정
+기형도
+열무 삼십 단을 이고
+시장에 간 우리 엄마
+안 오시네, 해는 시든 지 오래
+나는 찬밥처럼 방에 담겨
+아무리 천천히 숙제를 해도
+엄마 안 오시네, 배춧잎 같은 발소리 타박타박
+안 들리네, 어둡고 무서워
+금간 창 틈으로 고요히 빗소리
+빈 방에 혼자 엎드려 훌쩍거리던
+아주 먼 옛날
+지금도 내 눈시울을 뜨겁게 하는
+그 시절, 내 유년의 윗목</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">365films · 2026. 4. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2023학년도</span>
+  <div class="exam-content">2023학년도 국민대 영화과 수시 기출문제
+첫눈이 가장 먼저 내리는 곳
+정호승
+첫눈이 가장 먼저 내리는 곳은
+너와 처음 만났던 도서관 숲길이다
+아니다
+네가 처음으로 무거운 내 가방을 들어주었던
+버스 종점이다
+아니다
+버스 종점 부근에 서 있던
+플라타너스 가지 위의 까치집이다
+아니다
+네가 사는 다세대주택 뒷산
+민들레가 무더기로 피어나던 강아지 무덤 위다
+아니다
+지리산 노고단에 피었다 진 원추리의 이파리다
+아니다
+외로운 선인장의 가시 위다
+아니다
+봉천동 달동네에 사는 소년의 똥무더기 위다
+아니다
+초파일 날
+네가 술을 먹고 토하던 조계사 뒷골목이다
+아니다
+전경들이 진압봉을 들고 서 있던 명동성당 입구다
+아니다
+나를 첫사랑이라고 말하던 너의 입술 위다
+그렇다
+누굴 사랑해본 것은 네가 처음이라고 말하던
+나의 입술 위다
+그렇다
+1:1 개인 레슨으로 진행되는 수업은 학생 개인의 장점을 살린 실기 준비를 통해 온라인 수업만으로도 매해 많은 학생들이 영화과 합격의 꿈을 이루고 있습니다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">365films · 2026. 4. 21.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 국민대학교 영화실기자우수자전형
+공연예술학부 영화전공 기출문제 1차/2차
+안녕하세요. 365필름지기 입니다. 오늘은</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 국민대학교 영화실기자우수자전형
+공연예술학부 영화전공 기출문제를 준비했습니다.
+국민대 영화과 실기는 1차 글쓰기, 2차 면접으로 구성되어 있습니다.
+실기비중이 높은 학교로, 성적이 낮은 친구들도 노려 볼 수 있는 인서울 영화과이며,
+수시모집에서만 인원을 선발하니 관심있는 친구들은 실기준비에 서둘러 주세요!
+국민대 영화과 전형방법
+1차 실기 70% + 학생부 30
+2차 1단계 성적 70% + 면접 30%
+영화과 글쓰기 실기 및 개인구술 면접 준비를 원하는 친구들은 연락주세요!
+국민대학교 공연예술학부 영화전공 김OO 합격후기</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 국민대 영화전공 수시모집 1차 기출문제  스토리구성 문제
+국민대 영화과 1차 기출문제
+장 지오노, 『나무를 심은 사람』 중에서
+※아래의 작품을 읽고 장면 분석하여 &amp;#x27;기승전결&amp;#x27; 구조의 스토리로 재구성하시오.
+한 사람이 참으로 보기 드문 인격을 갖고 있는가를 알기 위해서는 여러 해 동안 그의 행동을 관찰 할 수 있는 행운을 가져야만 한다. 그 사람의 행동이 온갖 이기주의에서 벗어나 있고, 그 행동을 이글어 나가는 생각이 더없이 고결하며, 어떠한 보상도 바라지 않고, 그런데도 이 세상에 뚜렷한 흔적을 남겼다면 우리는 틀림없이 잊을 수없는 한 인격을 만났다고 할 수 있다..
+햇빛이 눈부시게 쏟아지는 6월의 아름다운 날이었다. 그러나 하늘 높이 솟아있는 나무라고는 없는 땅 위로 견디기 어려운 세찬 바람이 불고 있었다. 뼈대만 남은 집들 속으로 불어 닥치는 바람소리는 마치 식사를 방해받은 들짐승처럼 으르렁거렸다. 나는 텐트를 겆지 않을 수 없었다. 그곳에서부터 다섯 시간이나 더 걸어 보았어도 여전히 물을 찾을 수 없었고, 또 그럴 희망마저 보이지 않았다. 모든 곳이 똑같이 메말라 있었고 거친 풀들만 자라고 있었다.
+그런데 저 멀리에서 작고 검은 그림자가 어른거리는 것 같았다. 나는 그림자 같은 그 모습을 홀로 서있는 나무의 둥지로 착각했다. 그것을 향해 걸어가 보니 한 양치기 목자가 있었다. 그의 곁 뜨거운 땅위에는 30여 마리의 양들이 누워 쉬고 있었다.
+(이하생략)
+*나머지 문제는 첨부화일을 확인하세요!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 국민대 공연예술학부 영화전공 수시모집 2차 기출문제  면접문제
+기본소양 1
+거대한 자본과 스케일, 현란한 컴퓨터 그래픽으로 무장한 할리우드 영화의 전 세계를 한 물량고세가 해가 갈수록 거세지고 있다. 이에 대비하기 위해 우리나라 영화산업과 영화인들은 무엇을 준비해야 하는가?
+기본소양 2
+언제, 어디서, 누구라도 자신만의 영상콘텐츠를 제작하고 소비할 수 있는 &amp;#x27;1인 미디어 시대&amp;#x27;가 열렸다. 이를 가속화시킨 가장 핵심적인 요인은 무엇인가?
+기본소양 1
+2018년에 개봉된 독립,예술영화과 496편 중 한국영화는 113편이고, 관객 수는 11만명 수준으로 전체관객 수 대비 0.5%에 불과한 수치이다. 지난 3년간 1% 정도 수준을 유지해오던 관객 수가 절반으로 떨어진 것이다. 독립,예술영화과 &amp;#x27;제7의 예술&amp;#x27;로서 상업영화와 동반성장할 수 있는 방안에 대해 자신의 견해를 피력해보시오.
+기본소양 2
+지난 2019년 4월에 개봉한 영화 &lt;어벤져스 : 엔드게임&gt;이 스크린 2760개를 점유하면서 첫날 상영점유율 80.8%로 전국 극장을 싹쓸이하다시피 했다. 이런 현실에서 영화 한 편이 상영관을 독식하는 스크린 독과점 현상을 막기 위해 한 극장에서 특정 영화에 배정하는 스크린 수를 법으로 제한하는 &amp;#x27;스크린 상한제&amp;#x27;의 필요성이 제기되고 있다. 이런 법적 조치가 시행된다면 영화제작과 상영에 어떤 영향을 미칠 수 있을까?에 대한 자신의 견해를 피력해 보시오.
+면접문제 출체의도 및 체점기준은 첨부화일을 확인하세요!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 수시모집 실기우수자전형 면접문제 &lt;공연예술학부 영화전공&gt; 첨부화일 확인!
+2021학년도 국민대학교 예술대학교 공연예술학부 영화전공 수시/정시 모집 기본계획안</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 2단계) 기출문제 _영화과입시학원 영화연출실기 영화과과외</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221719093668" target="_blank" rel="noopener">365films · 2019. 11. 26.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 2단계) 기출문제입니다.
+국민대영화과 2차에선 영화 뿐 아니라, 사회와 영화의 관계,
+그 외 시사상식에 대해서 준비를 해두어야 볼 수 있는 시험입니다.
+기출문제를 중심으로 그 해 이슈가 되었던 문제들을 잘 분석해서 준비하시길 바랍니다.
+국민대영화과 입시는 언제나 365films!
+수업문의 및 상담환영!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221719093668" target="_blank" rel="noopener">365films · 2019. 11. 26.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 2단계) 기출문제
+수시문제로는 최근까지 화두되고 있는 넷플릭스 및 플랫폼에 관한 이야기와
+한국영화의 침체기등이 문제로 출제되었습니다.
+국민대 영화과 2차는 채점기준과 답이 출제의도가 나와 있습니다.
+자신의 답지를 준비 한 후 자신이 채첨기준에 얼마나 부합한지 대조해보고,
+그 후 부족한 부분을 채워가는 형식으로 연습하는 것이 중요합니다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221719093668" target="_blank" rel="noopener">365films · 2019. 11. 26.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 1단계) 기출문제 _국민대 영화과 실기 준비 영화과 과외 실기</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221713582201" target="_blank" rel="noopener">365films · 2019. 11. 20.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도부턴 기존에 진행했던 스토리보드 실기를 없애고 글쓰기 전형으로만 진행되었던 해입니다.
+제시되는 지문을 가지고 이야기를 각색하는 형태에 실기를 치렀습니다.
+수업 문의 및 진학상담은 언제나 환영~
+2021학년도 국민대학교 예술대학 공연예술학부 영화전공 수시/정시 기본 계획안</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221713582201" target="_blank" rel="noopener">365films · 2019. 11. 20.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 국민대학교 수시모집 #실기우수자전형 실기 문제(영화전공 1단계) 기출문제
+애드거 앨런 포, 「도둑맞은 편지 」 소설이 출제되었습니다.
+소설의 일부를 읽고, 장면분석하여 &amp;#x27;기승전결&amp;#x27; 구조의  스토리를 재구성하는 시험입니다.
+자세한 내용은 첨부파일로 확인하세요~!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221713582201" target="_blank" rel="noopener">365films · 2019. 11. 20.</a></span>
+</div>
+<h2>원본 글 (365films 블로그)</h2><ul style="font-size:.8125rem;color:var(--text-2);line-height:1.8"><li><a href="https://blog.naver.com/365films/224259861949" target="_blank" rel="noopener">[ 영화과과외 실기학원] 국민대학교 공연예술학부 영화전공 수시모집 역대 기출문제 _ 스토리구성, 시 분석, 실기위주</a> (2026. 4. 21.)</li><li><a href="https://blog.naver.com/365films/223374042846" target="_blank" rel="noopener">[ 영화과 과외 학원 ] 국민대학교 영화전공 기출문제 및 합격작 _ 실기위주 영화과, 스토리 구성, 포트폴리오, 인서울 영화과</a> (2024. 3. 5.)</li><li><a href="https://blog.naver.com/365films/221915654459" target="_blank" rel="noopener">2020학년도 국민대학교 영화실기자우수자전형 공연예술학부 영화전공 기출문제 1차/2차</a> (2020. 4. 18.)</li><li><a href="https://blog.naver.com/365films/221719093668" target="_blank" rel="noopener">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 2단계) 기출문제 _영화과입시학원 영화연출실기 영화과과외</a> (2019. 11. 26.)</li><li><a href="https://blog.naver.com/365films/221713582201" target="_blank" rel="noopener">2019학년도 국민대학교 수시모집 실기우수자 전형 실기 문제(영화전공 1단계) 기출문제 _국민대 영화과 실기 준비 영화과 과외 실기</a> (2019. 11. 20.)</li><li><a href="https://blog.naver.com/365films/221236354397" target="_blank" rel="noopener">국민대학교 공연예술학부 영화전공 영화실기자 우수자전형 실기고사 기출문제 2018 수시전형 _ (국민대 영화과 기출문제 / 국민대 스토리보드 구성 / 영화과 실기고사 문제)</a> (2018. 3. 24.)</li><li><a href="https://blog.naver.com/365films/221236372134" target="_blank" rel="noopener">국민대학교 공연예술학부 영화전공 영화실기자 우수자전형 면접고사 기출문제 2018 수시전형 _ (국민대영화과면접/ 영화과면접고사  / 영화과 면접준비)</a> (2018. 3. 24.)</li></ul>
+<div class="footer">© Period. · 영화입시 전문과외 · 수업 자료</div>
+</div></main>
+</div></body></html>

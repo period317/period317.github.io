@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>단국대 · 자료실 · Period.</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>body{font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif}
+  .app{padding-left:240px}
+  @media (max-width:760px){.app{padding-left:0}}
+  aside.sidebar{
+    position:fixed;top:0;left:0;
+    width:240px;height:100vh;overflow-y:auto;z-index:5;
+    background:var(--soft);border-right:1px solid var(--border);
+    padding:1.75rem 1.25rem;
+  }
+  @media (max-width:760px){
+    aside.sidebar{
+      position:sticky;top:0;left:auto;width:auto;height:auto;overflow:visible;
+      border-right:0;border-bottom:1px solid var(--border);
+      padding:1rem 1.125rem;background:var(--soft);z-index:10;
+    }
+  }
+  .sb-brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:1.25rem}
+  .sb-section{margin-bottom:1.25rem}
+  .sb-section-title{
+    font-size:.6875rem;font-weight:800;color:var(--text-3);
+    letter-spacing:.6px;text-transform:uppercase;
+    margin:0 0 .5rem;padding:0 .75rem;
+  }
+  .sb-list{display:flex;flex-direction:column;gap:.125rem}
+  .sb-item{
+    display:flex;align-items:baseline;gap:.5rem;
+    padding:.5rem .75rem;border-radius:10px;
+    font-size:.875rem;color:var(--text-2);text-decoration:none;
+    transition:all .15s ease;
+  }
+  .sb-item:hover{background:rgba(0,0,0,.03);color:var(--text);text-decoration:none}
+  .sb-item.active{background:var(--tint);color:var(--pink);font-weight:700}
+  .sb-num{font-size:.6875rem;font-weight:700;color:var(--text-3);letter-spacing:.5px;font-variant-numeric:tabular-nums;flex-shrink:0;min-width:1.75rem}
+  .sb-item.active .sb-num{color:var(--pink)}
+</style>
+<style>
+  :root{
+    --bg:#fff; --soft:#fafafa; --pink:#3182F6; --tint:#E8F2FE;
+    --text:#191F28; --text-2:#4E5968; --text-3:#8B95A1;
+    --border:#F2F4F6; --border-strong:#E5E8EB;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+  .brand{font-size:.75rem;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:.375rem}
+  .crumb{font-size:.8125rem;color:var(--text-3);margin-bottom:.5rem}
+  .crumb a:hover{color:var(--text-2)}
+  .crumb-sep{margin:0 .375rem;color:var(--border-strong)}
+  h1{font-size:1.75rem;font-weight:800;margin:0 0 .375rem;letter-spacing:-.025em}
+  h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.02em}
+  h3{font-size:1rem;font-weight:700;margin:1.25rem 0 .375rem;letter-spacing:-.015em}
+  .lead{font-size:.9375rem;color:var(--text-2);margin:0 0 2rem;line-height:1.7}
+  .list{display:flex;flex-direction:column;gap:.5rem}
+  .item{display:block;padding:1rem 1.125rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:all .15s ease}
+  .item:hover{border-color:var(--border-strong);background:var(--soft)}
+  .item-top{display:flex;align-items:baseline;gap:.625rem;margin-bottom:.375rem}
+  .item-num{font-size:.75rem;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums;letter-spacing:.5px}
+  .item-title{font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-.015em}
+  .item-desc{font-size:.8125rem;color:var(--text-2);line-height:1.6;margin:0}
+  .exam-block{
+    margin:0 0 1.25rem;padding:1.125rem 1.25rem;
+    background:var(--soft);border:1px solid var(--border);
+    border-radius:14px;
+  }
+  .exam-year{
+    display:inline-block;font-size:.75rem;font-weight:800;color:var(--pink);
+    background:var(--tint);padding:.125rem .625rem;border-radius:999px;
+    letter-spacing:.5px;margin-bottom:.5rem;
+  }
+  .exam-content{font-size:.875rem;line-height:1.7;color:var(--text);white-space:pre-wrap}
+  .source-link{font-size:.75rem;color:var(--text-3);margin-top:.5rem;display:block}
+  .source-link a{color:var(--text-3);text-decoration:underline}
+  .footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-3)}
+  .school-tag{
+    display:inline-block;font-size:.6875rem;font-weight:700;color:var(--text-3);
+    letter-spacing:.5px;text-transform:uppercase;margin-bottom:.25rem;
+  }
+  .school-card{
+    display:block;padding:1.25rem 1.375rem;
+    border:1px solid var(--border);border-radius:14px;
+    background:var(--bg);transition:all .15s ease;
+    margin-bottom:.5rem;
+  }
+  .school-card:hover{border-color:var(--border-strong);background:var(--soft)}
+  .school-card h3{margin:0 0 .25rem;font-size:1.0625rem}
+  .school-card .meta{font-size:.8125rem;color:var(--text-2);margin:0 0 .375rem}
+  .school-card .years{font-size:.75rem;color:var(--text-3);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="app">
+
+<aside class="sidebar">
+<div class="sb-brand">Period. · 자료실</div>
+<div class="sb-section">
+<p class="sb-section-title">기출문제 모음</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../exams/"><span class="sb-num">⌂</span>전체 모음</a>
+<a class="sb-item" href="../../exams/kookmin/"><span class="sb-num">📜</span>국민대</a>
+<a class="sb-item" href="../../exams/knua/"><span class="sb-num">📜</span>한예종</a>
+<a class="sb-item active" href="../../exams/dankook/"><span class="sb-num">📜</span>단국대</a>
+<a class="sb-item" href="../../exams/sungkyun/"><span class="sb-num">📜</span>성균관대</a>
+<a class="sb-item" href="../../exams/seoularts/"><span class="sb-num">📜</span>서울예대</a>
+<a class="sb-item" href="../../exams/sejong/"><span class="sb-num">📜</span>세종대</a>
+<a class="sb-item" href="../../exams/soongsil/"><span class="sb-num">📜</span>숭실대</a>
+<a class="sb-item" href="../../exams/cheongju/"><span class="sb-num">📜</span>청주대</a>
+<a class="sb-item" href="../../exams/sungkyul/"><span class="sb-num">📜</span>성결대</a>
+<a class="sb-item" href="../../exams/yongin/"><span class="sb-num">📜</span>용인대</a>
+<a class="sb-item" href="../../exams/daejin/"><span class="sb-num">📜</span>대진대</a>
+<a class="sb-item" href="../../exams/joongbu/"><span class="sb-num">📜</span>중부대</a>
+<a class="sb-item" href="../../exams/suwon/"><span class="sb-num">📜</span>수원대</a>
+<a class="sb-item" href="../../exams/inha/"><span class="sb-num">📜</span>인하대</a>
+<a class="sb-item" href="../../exams/sangmyung/"><span class="sb-num">📜</span>상명대</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">이야기 글쓰기</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../story/"><span class="sb-num">⌂</span>목록</a>
+<a class="sb-item" href="../../story/001/"><span class="sb-num">001</span>포항 지진</a>
+<a class="sb-item" href="../../story/002/"><span class="sb-num">002</span>12년 전 거리</a>
+<a class="sb-item" href="../../story/003/"><span class="sb-num">003</span>402호</a>
+<a class="sb-item" href="../../story/004/"><span class="sb-num">004</span>가정의 비밀</a>
+<a class="sb-item" href="../../story/005/"><span class="sb-num">005</span>이삿짐</a>
+</nav></div>
+<div class="sb-section">
+<p class="sb-section-title">입시요강 분석</p>
+<nav class="sb-list">
+<a class="sb-item" href="../../admissions/"><span class="sb-num">⌂</span>전체</a>
+<a class="sb-item" href="../../admissions/resources/"><span class="sb-num">📂</span>참고자료 (공식)</a>
+<a class="sb-item" href="../../admissions/types/storytelling/"><span class="sb-num">✍️</span>스토리텔링</a>
+<a class="sb-item" href="../../admissions/types/oral/"><span class="sb-num">🎤</span>스토리 구술</a>
+<a class="sb-item" href="../../admissions/types/scene/"><span class="sb-num">🎬</span>시나리오 분석</a>
+<a class="sb-item" href="../../admissions/types/interview/"><span class="sb-num">💬</span>면접·구술</a>
+<a class="sb-item" href="../../admissions/types/admit/"><span class="sb-num">📄</span>학종·서류</a>
+<a class="sb-item" href="../../admissions/types/design/"><span class="sb-num">🎨</span>기초디자인</a>
+<a class="sb-item" href="../../admissions/types/portfolio/"><span class="sb-num">📦</span>포트폴리오</a>
+</nav></div>
+</aside>
+<main class="page-main"><div class="wrap">
+<div class="brand">Period. · 자료실</div>
+<div class="crumb">자료실 <span class="crumb-sep">›</span> <a href="../">기출문제 모음</a> <span class="crumb-sep">›</span> 단국대</div>
+<h1>단국대 기출문제</h1>
+<p class="lead">단국대학교 공연영화학부 영화전공<br>실기 유형: <strong>이야기구성 + 구술면접</strong></p>
+<div class="exam-block">
+  <span class="exam-year">2025학년도</span>
+  <div class="exam-content">2025학년도 단국대학교 영화전공 이론 연출 스텝 수시모집 요강 요약
+수시 1차 실기 80%
+12명 모집
+실기고사
+이야기 구성, 면접고사
+단국대 영화전공 기출문제
+실기고사문제 &lt;영화전공(이론‧연출‧스탭)&gt;
+◎ 이야기구성
+출 제 문 제
+[문 제] 아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오.
+• 원고지 1,600자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요. (예 :‘안경’이 키워드일 경우, 안경)
+※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+제시문&gt; 그는 다시 한번 바닥을 샅샅이 훑어보았지만 총은 보이지 않았다. 혹시 여자의 몸 아래 깔려 있을지도 모른다! 아니면 카펫 아래! 여자를 움직여야 한다! 그 생각만으로 몸이 떨렸다. 갑자기 여자가 크게 신음 소리를 내더니 오른팔을 움찔거렸다. 그는 깜짝 놀라 허둥대다가 넘어졌다. 그는 얼른 기어서 여자로부터 멀어졌다. 여자는 죽지 않는 것이 분명했고, 조금 있 으면 다시 깨어날 것 같았다. 그는 이곳에서 당장 나가야 했다! 지금 총 같은 것에 신경 쓸 때가 아니었다. 어차피 이곳에서는 총을 쏠 일도 없을 것이다. 무엇보다 그가 휴대폰을 차지 했다는 것이 중요했다. 그 순간 무슨 소리가 들렸다. 현관문이 열렸다가 닫히는 소리였다. 누 군가 긴 복도를 따라 걸어오고 있었다.
+&lt;키워드&gt; 총, 여자, 휴대폰</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2025학년도</span>
+  <div class="exam-content">2025학년도 영화과 영화영상학과 실기 준비해서 가는 법
+영화과 실기 학원 과외 커리큘럼
+서울역, 강남고속버스터미널, 남부터미널, 김포공항, 동서울 터미널, 용산역 등 전국 어디에서 와도 대중교통 30~40분 이내 찾아올 수 있는 거리에 위치해 있습니다.
+여러분의 합격이 곧 365films의 합격입니다.
+학생들의 꿈을 가지고 장난치지 않습니다.
+믿도 함께 한다면 &amp;#x27;합격&amp;#x27; 자신 있습니다.
+영화 연출 실기 학원 과외 추천 이야기 구성 면접
+[실기 과외 학원 영화과]  단국대학교 &lt;영화전공(이론‧연출‧스텝)&gt; 실기고사 기출문제 _ 이야기 구성, 구술면접 실기 위주
+처음부터 잘 하는 친구는 없습니다.
+선생님의 이론 수업과 기출문제를 통한 실전 훈련을 겸비한다면 누구나 다 이야기 구성을 할 수 있습니다.
+다만,
+자신이 부족하다는 것을 인지하고 있다면
+그에 상응하는 노력과 집념이 필요하다는 걸 잊지 마세요!
+단국대학교 &lt;영화전공(이론‧연출‧스탭)&gt; 실기고사 항목
+1차 이야기 구성 (80%%)
+• 지문에 제시된 시간과 공간의 범주 안에서 주어진 키워드를 이야기의 핵심소재로 활용하여 이후의 상황을 완성(분량 : 원고지 1,600자 내외) / 3시간
+2차 구술면접
+영화과 실기 준비하는 법 이야기 구성 실기 과외 학원
+단국대학교 &lt;영화전공(이론‧연출‧스탭)&gt; 실기고사 기출문제
+기출문제1.
+◎ 이야기 구성
+출 제 문 제
+[문 제] 아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오. • 원고지 1,600자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요. (예 :‘안경’이 키워드일 경우, 안경) ※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+&lt;제시문&gt; 우체국은 문이 굳게 닫혀 있었다. 개천을 따라 한 20분쯤 걸어 나가면 시내로 들어가는 버스 정류장이 있었고, 거기에 우체통이 있었다. 우체통은 외로워 보였다. 우체통은 견고해 보였다. 견고한 외로움, 그것이 형태를 지닌다면 아마도 우체통일 것이다. 나는, 편지가 우체통의 밑바닥에 떨어지며 울릴 무심한 소리에 미리 긴장하며, 조심스럽게, 아주 천천히, 그것을 통 속으로 밀어 넣었다. 그리고 재빨리 돌아섰다.
+&lt;키워드&gt; 사진, 우체부, 두근거림
+기출문제 2.
+◎ 이야기 구성
+[문 제]
+아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오.
+• 원고지 1,800자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예 :‘안경’이 키워드일 경우, 안경)
+※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+&lt;제시문&gt;
+그는 학교를 나왔다. 찻길을 건너, 그는 이유 없이 두리번거리다가, 몸을 피하는 도망자 처럼 교문 맞은편 골목 속으로 접어들었다. 골목 안 왼쪽 이층 건물에 붙어 있는 &lt;Cafe 地下室&gt;이라는 조그만 아크릴 간판이 눈에 띄었다. 그는 지하실로 내려갔다.
+“어서오세요.” 젊은 주인이었다. “나요, 형!”
+“어, 너니?” “조용하네, 시험 때라 그런가?”
+그러나 젊은 주인은 다른 대답을 했다.
+“마침 잘 왔다. 누가 널 찾아왔어.”
+“날 찾아와?”
+“저쪽 테이블로 가 봐.”
+&lt;키워드&gt;
+운동화, 어머니, 소나기
+영화 연출 실기 이야기구성 면접 과외 학원
+1:1 개인 레슨으로 이뤄지는 수업은 오프라인과 같은 커리큘럼으로 진행되어</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223389115575" target="_blank" rel="noopener">365films · 2024. 3. 20.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 단국대학교 편입학 모집 실기고사 문제 &lt;영화전공(이론&amp;middot;연출&amp;middot;스탭)&gt; _ 이야기구성, 기출문제
+[ 영화과 편입 실기 준비 학원 과외 ]</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223436202632" target="_blank" rel="noopener">365films · 2024. 5. 4.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 단국대학교 &lt;영화전공(이론·연출·스탭)&gt; 편입학 모집 실기고사 기출문제를 준비했습니다.
+영화과 영화영상학과 편입 같은 경우는 어떤 학교가 어떻게 뽑을지 모르기에 모집했던 학교들을 중심으로 전체적으로 다 준비한 후 요강이 발표되면 지원하는 형식으로 지원해야 합니다.
+요강이 발표 나고 실기 준비를 하면 늦습니다.
+영화과 영상학과 편입 실기 학원 과외
+비전공자, 전공자 할 것 없이 개인에게 맞는 전략적인 편입 입시 준비를 통해 매해 90% 이상의 합격률을 자랑하고 있습니다.
+2024학년도 단국대 영화전공, 용인대 영화영상학과, 성결대 영화영상학과 편입 합격후기
+[ 영화과 편입실기 준비 학원 과외 ]</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223436202632" target="_blank" rel="noopener">365films · 2024. 5. 4.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 단국대학교 편입학 모집 실기고사 문제 &lt;영화전공(이론·연출·스탭)&gt; _ 이야기 구성
+실기 전형은 100% 실기만으로 인원을 선발하기에 실기 준비를 철저하게 한다면
+비전공자여도 영화과 영화영상학과에 합격할 수 있습니다.
+영화에 &amp;#x27;영&amp;#x27;자도 몰라도, 영화를 하고 싶은 마음과 열정이 있다면
+영화과 영화영상학과 편입 가능합니다.
+영화과 영화영상학과 편입 준비 학원 과외 추천</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223436202632" target="_blank" rel="noopener">365films · 2024. 5. 4.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 편입학 모집 공연영화학부 실기고사 문제
+&lt;영화전공(이론·연출·스태프)&gt;
+◎ 이야기구성
+출 제 문 제
+[문제 출처]
+아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로
+완성하시오.
+• 원고지 1,600자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예 :‘안경’이 키워드일 경우, 안경)
+※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+&lt;제시문&gt;
+평범한 백반집. 몇몇 사람들이 홀로 밥을 먹고 있다. 그 사이에서 밥을 다 먹은
+연수는 자리에서 일어나 계산대로 걸어가며 주머니를 뒤적거린다. 이내 당황한
+기색으로 가방을 이리저리 뒤져보더니 아예 계산대 옆에 쪼그려 앉아 바닥에 내
+용물들을 흩뜨려 놓는다. 가방 안에 소지품은 몇 없다. 그중 눈에 띄는 신분증.
+한숨을 푹 쉬며 떨어져 있는 신분증을 주워들고 일어선다.
+&lt;키워드&gt; 학교 동창, 신용카드, 빨래방
+단국대 영화전공 편입 실기 기출문제
+* 아래 파일을 꼭 다시 한번 확인하세요*
+1:1 실시간 개인 레슨으로 만 진행돼 수업은 오프라인과 같은 커리큘럼으로 진행되 오프라인으로 오지 못하는 불안감이 없도록 꼼꼼하고 전략적인 수업을 진행합니다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223436202632" target="_blank" rel="noopener">365films · 2024. 5. 4.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 수시 신입생 모집 단국대학교 실기고사 문제 공연영화학부 &lt;영화전공(이론‧연출‧스탭)&gt; _ 실기 위주 영화과, 이야기 구성
+[영화과 실기 학원 과외 ]</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 수시 신입생 모집 단국대학교 실기고사 문제 공연영화학부 &lt;영화전공(이론‧연출‧스탭)&gt; _ 실기위주 영화과, 이야기구성</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 수시모집 단국대학교 영화전공 (이론, 연출, 스태프) 기출문제를 준비했습니다.
+단국대학교 영화과는 수시모집에서 실기 위주 인원을 선발하며, 정시모집에선 수능 위주로 선발합니다.
+수시모집 실기 80% 높은 비중을 차지하고 있으며, 오랜 전통과 역사를 가진 학교로 매해 높은 경쟁률을 자랑하고 있습니다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 수시 신입생 모집 단국대학교 실기고사 문제 공연영화학부 &lt;영화전공(이론‧연출‧스탭)&gt; _ 실기위주 영화과, 이야기 구성</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 단국대학교 영화전공 실기 기출문제
+1:1 개인 레슨으로 진행되는 비대면 온라인 실기 수업은 오프라인 대면과 같은 커리큘럼으로 진행되는 수업으로
+영화과 영화영상학과 온라인 실기 과외 학원</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">365films · 2024. 4. 30.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2024학년도</span>
+  <div class="exam-content">2024학년도 입시에서 수시모집에서 실기80% 높은 비율을 차지하고 있고, 정시 모집에선 수능위주로 인원을 선발합니다.
+단국대 영화과를 희망하는 친구들은 기출문제를 참고하시어 실기준비를 잘 하시길 바랍니다~!!
+&lt;</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223069419587" target="_blank" rel="noopener">365films · 2023. 4. 9.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2023학년도</span>
+  <div class="exam-content">2023학년도 단국대학교 &lt;영화전공(이론‧연출‧스탭)&gt; 실기고사 기출문제 이야기구성
+2023학년도 단국대학교
+&lt;영화전공(이론‧연출‧스탭)&gt; 실기고사 기출문제​
+◎ 이야기구성
+출 제 문 제
+[문 제] 아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오. • 원고지 1,600자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요. (예 :‘안경’이 키워드일 경우, 안경) ※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+&lt;제시문&gt; 우체국은 문이 굳게 닫혀 있었다. 개천을 따라 한 20분쯤 걸어 나가면 시내로 들어가는 버스 정류장이 있었고, 거기에 우체통이 있었다. 우체통은 외로워 보였다. 우체통은 견고해 보였다. 견고한 외로움, 그것이 형태를 지닌다면 아마도 우체통일 것이다. 나는, 편지가 우체통의 밑바닥에 떨어지며 울릴 무심한 소리에 미리 긴장하며, 조심스럽게, 아주 천천히, 그것을 통 속으로 밀어 넣었다. 그리고 재빨리 돌아섰다.
+&lt;키워드&gt; 사진, 우체부, 두근거림</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/223069419587" target="_blank" rel="noopener">365films · 2023. 4. 9.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2023학년도</span>
+  <div class="exam-content">2023학년 수시모집에서 실기 위주 학생으로 10명을 선발합니다.
+단국대 영화전공을 희망하는 친구들을 아래 기출문제를 참고하여 실기 준비에 박차를 가하시길!
+서울 논현역 7호선 3번 출구 5분 거리 이내 전용 레슨실에서 오프라인 대면 수업이 이루어지고 있으며,
+매해 제주도, 강원도, 부산, 대구, 구미, 전주, 진주, 광주, 목포, 울산, 창원, 대전, 세종 등 전국 각지에서 365films
+▶▶▶2023학년도 영화과 영화영상학과 합격하는 법 ​
+영화과 실기 준비 및 진학상담
+카카오톡 365films
+영화과 기출문제 - 단국대학교</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">365films · 2022. 3. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2023학년도</span>
+  <div class="exam-content">2023학년도 단국대학교 공연영화학부 영화(이론‧연출‧스탭) 기본계획안
+단국대학교 2022학년도 수시 신입생 모집
+공연영화학부 실기고사 문제
+&lt;영화(이론‧연출‧스탭)&gt;  이야기구성
+[문 제]
+아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오.
+• 원고지 1,800자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예 :‘안경’이 키워드일 경우, 안경)
+※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학취소 처리함
+&lt;제시문&gt;
+그는 학교를 나왔다. 찻길을 건너, 그는 이유 없이 두리번거리다가, 몸을 피하는 도망자 처럼 교문 맞은편 골목 속으로 접어들었다. 골목 안 왼쪽 이층 건물에 붙어 있는 &lt;Cafe 地下室&gt;이라는 조그만 아크릴 간판이 눈에 띄었다. 그는 지하실로 내려갔다.
+“어서오세요.” 젊은 주인이었다. “나요, 형!”
+“어, 너니?” “조용하네, 시험 때라 그런가?”
+그러나 젊은 주인은 다른 대답을 했다.
+“마침 잘 왔다. 누가 널 찾아왔어.”
+“날 찾아와?”
+“저쪽 테이블로 가 봐.”
+&lt;키워드&gt;
+운동화, 어머니, 소나기
+*아래 파일을 꼭 다시 한번 확인하세요</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">365films · 2022. 3. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2022학년도</span>
+  <div class="exam-content">2022학년도 수시 신입생 모집 공연영화학부 실기고사 문제 &lt;영화(이론‧연출‧스탭)&gt; 이야기구성
+영화과 기출문제 - 단국대학교</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">365films · 2022. 3. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2022학년도</span>
+  <div class="exam-content">2022학년도 수시 신입생 모집 공연영화학부 실기고사 문제 &lt;영화(이론‧연출‧스탭)&gt; 이야기 구성
+영화과 기출문제 - 단국대학교</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">365films · 2022. 3. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2022학년도</span>
+  <div class="exam-content">2022학년도 수시 신입생 모집 공연영화학부 실기고사 문제 &lt;영화(이론‧연출‧스탭)&gt; 이야기 구성 문제입니다.
+단국대 영화과는</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">365films · 2022. 3. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2022학년도</span>
+  <div class="exam-content">2022학년도 단국대학교 공연영화학부 영화(이론∙연출∙스텝) 수시모집 요강
+1차 (3배수) 학생부 30% + 실기 70%
+2차 1단계 성적 70 + 면접 30
+영화 (이론ㆍ연출ㆍ스텝) 이야기 구성 100%
+• 지문에 제시된 시간과 공간의 범주 안에서 주어진 키워드를 이야기의 핵심소재로 활용하여 이후의 상황을 완성(분량 : 원고지 1,800자 내외) 3시간
+단국대학교 입학처
+&lt;2022학년도 단국대학교 공연영화학부 영화전공 기본 계획안&gt;
+소수 정예 실기 과외 수업을 희망하는 친구들은 연락 주세요.
+수업 문의 및 진학상담
+카카오톡 365films
+단국대 영화과 실기 과외
+[ 영화과 과외 ]</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222306005731" target="_blank" rel="noopener">365films · 2021. 4. 11.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 단국대학교 영화 (이론 연출 스태프) 전공 실기고사 기출문제
+안녕하세요 365필름지기입니다.
+오늘은</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222306005731" target="_blank" rel="noopener">365films · 2021. 4. 11.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 단국대학교 영화 (이론 연출 스태프) 전공 실기고사 기출문제를 준비했습니다.
+단국대학교 영화전공은 수시모집에서만 실기전형으로 인원을 선발하고 정시모집에선 100% 성적으로 인원을 선발합니다.
+단국대 영화과는 수시모집 1차 실기 비중 70% 높은 비중을 차지하고 있습니다.
+주 실기 내용은 아래 기출문제와 같이 당일 제시문과 단어를 사용하여 이야기 구성하기입니다.
+단국대학교 영화전공 진로</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222306005731" target="_blank" rel="noopener">365films · 2021. 4. 11.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2021학년도</span>
+  <div class="exam-content">2021학년도 단국대학교 영화 (이론 연출 스태프) 전공 실기고사 기출문제
+단국대학교 2021학년도 수시 신입생 모집
+공연영화학부 &lt;영화(이론, 연출, 스텝)&gt;
+실기고사 문제
+◎ 이야기 구성
+출 제 문 제
+[문 제] 아래 제시된 상황(시간, 공간, 인물 등)과 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오. • 원고지 2,000자 내외로 작성하고, 사용된 키워드에 밑줄을 그러세요. (예 :‘안경’이 키워드일 경우, 안경) ※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학 취소 처리함
+&lt;제시문&gt;
+오후 3시다. 이 시간은 무엇을 하려고 해도 항상 너무 늦거나 너무 이른 시간이다. 문 옆 식탁에 앉아 밥을 먹고 있는 남자를 이제야 알아보았다. 출장을 다니는지 매번 커다란 캐리 어 가방을 탁자 옆에 조심스레 놓아두고 있다. 그는 가끔 나에게 미소를 띤 시선을 돌린다. 하지만 나를 바라보는 것이 아니다. 윤곽이 고상하고 흰머리를 한 부인이 그에게 다가가, “걱정거리는 잘 해결됐나요?” 라 고 물었다. “무슨 걱정 말씀입니까?” 당황한 듯이 그가 물었다. “여러분, 실례합니다”라고, 윤곽이 고상하고 흰머리를 한 부인이 호텔 식당의 손님들을 돌아다보며 점잖게 말했다.
+&lt;키워드&gt;
+캐리어, 유리잔, 안경</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/222306005731" target="_blank" rel="noopener">365films · 2021. 4. 11.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 단국대학교 영화과 수시모집 실기고사 문제_영화(이론&amp;middot;연출&amp;middot;스탭) 기출문제</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 단국대학교 영화과 수시모집 실기고사 문제_영화(이론·연출·스탭) 기출문제
+안녕하세요. 365필름지기 입니다.
+오늘은</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 단국대학교 영화과 수시모집 기출문제를 준비했습니다.
+단국대 영화과는 수시모집에서만 실기를 치르며, 정시모집에선 수능100% 인원을 선발합니다.
+단국대 영화과 수시모집 실기준비를 원하는 친구들은 서둘러 준비하시길 바랍니다.
+단국대 영화과 전형방법
+1단계 실기 100% 3배수
+2단계 1단계 70% +면접 30%
+영화과 이야기구성 및 면접준비는 365films와 함께!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020학년도 단국대학교 영화과 수시모집 실기고사 문제_영화(이론·연출·스탭) 기출문제
+[문 제] 아래 제시문을 통해 제공된 상황(시간과 공간) 내에서 세 개의 키워드를 활용하여
+이후의 상황을 이야기로 완성하시오
+※ 원고지 2,000자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예 : ‘안경’이 키워드일 경우, 안경)
+※ 표절 등 기타 부정행위가 적발될 경우 합격 또는 입학하였더라도 추후 합격 및 입학을 취소함</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2020학년도</span>
+  <div class="exam-content">2020 단국대 영화과 수시모집 기출문제
+&lt;제시문&gt;
+전날까지도 푸근하던 날씨가 이사 당일이 되자 기온이 뚝 떨어지고 눈까지 내리기 시작했다.
+처음으로 하는 포장이사였다. 이번 이사만큼은 사모님 소리를 들으며 손 하나 까딱하지 않기로
+작정을 했다. 날씨 때문에 수정이 힘들 건 없었다. 오히려 궂은 날씨는 수정에게 환한 미래에
+대한 보증 같았다.
+날씨 때문에 고된 건 이삿짐센터 사람들이었다. 남자 세 명과 여자 한 명으로 이뤄진 팀이
+었다. 약속 시간보다 삼십 분이나 이른 일곱 시 반에 들이닥친 그들은 기계적으로 짐을 싸고,
+트럭에 싣고, 새 아파트에 부렸다. 점심도 그들이 알아서 먹었고, 쓸데없는 소리 하나 내뱉지
+않았으며, 쓰레기까지 자기네들이 알아서 말끔하게 처리했다.
+&lt;키워드&gt;
+이사, 이삿짐, 이삿짐센터 사람
+자세한 내용은 아래 첨부화일을 확인하세요!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">365films · 2020. 4. 18.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 수시 기출문제 _ 영화연출 과외 영화실기학원
+단국대학교 공연영화학부 영화(이론‧연출‧스탭)전공</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221507640749" target="_blank" rel="noopener">365films · 2019. 4. 7.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 수시 기출문제
+1차 이야기 구성 기출문제이구요, 2차 면접은 개개인에 따라 다르기에 기출문제가 따로 있지 않습니다.
+제시된 상황과 공간+제시 단어의 조합이 중요한 단국대 영화과 이야기 구성입니다.
+매해 단국대 공연영화학부 #영화전공 합격자를 배출하고 있는 365films 입니다.
+수업문의는 언제든지 환영입니다!
+단국대학교</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221507640749" target="_blank" rel="noopener">365films · 2019. 4. 7.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 수시 신입생 모집 공연영화학부 실기고사문제 &lt;영화(이론‧연출‧스탭)&gt;
+◎ 이야기구성
+[문 제]
+아래 제시문을 통해 제공된 상황(시간과 공간) 내에서 세 개의 키워드를 활용하여 이후의
+상황을 이야기로 완성하시오.
+• 원고지 2,000자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예: ‘안경’이 키워드일 경우, 안경)
+&lt;제시문&gt;
+이 식당은 마치 뚜껑이 닫힌 상자와도 같다. 여기서는 밤새도록 국밥이며 간단한
+찌개를 주문할 수 있다. 연극이 파한 후에 밤참을 먹으러 가곤 하는 곳이다. 순경들은
+밤에 도착한, 배가 고픈 여행자들에게 이곳에 가도록 일러준다. 나무 식탁이 여덟 개
+있다. 벽을 타고 걸상이 죽 놓여 있다. 두 창문과 문의 유리는 불투명하다. 카운터는
+구석 깊숙이 있다. 카운터 옆에 방이 하나 있지만, 나는 거기에 들어가 본 적이 없다. “국밥 하나 주세요.”
+식당 여주인이 고개를 끄덕한다. 볼이 불그스레하고 몸짓이 큰 중년부인인데, 남자
+에게 말을 할 때는 웃음을 참지 못한다.
+&lt;키워드&gt;
+카운터, 휴지통, 벽걸이 TV</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221507640749" target="_blank" rel="noopener">365films · 2019. 4. 7.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 기출문제는 365films으로 따로 연락주시길 바랍니다!
+2018학년도 단국대 공연영화학부 영화
+(이론ㆍ연출ㆍ스탭) 기출문제
+● 이야기구성
+아래 제시문을 통해 제공된 상황(시간과 공간) 내에서 세 개의 키워드를 활용하여 이후의 상황을 이야기로 완성하시오.
+• 원고지 2,500자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예: ‘안경’이 키워드일 경우, 안경)
+&lt;제시문&gt;
+나는 에스컬레이터에서 내려 주방용품들이 진열된 가판대를 지나 백화점 바자회장으로 들어섰다. 바로 그 순간 10여 미터 앞에 비스듬하게 숙인 머리를 발견했다. 내 몸은 번개를 맞은 듯 곧추섰고 하나의 이름이 내 입에서 튀어나왔다.
+“이주호!”
+몇몇 사람들이 고개를 돌려 나를 돌아보았다. 그러나 모발이 반쯤 거덜난 듯한 그 머리의 사나이는 오른손에 든 커다란 인형에 몸을 기대며 오른쪽 비상구 쪽으로 몸을 돌렸다. 내가 잘못 본 것일까. 가발을 쓰지도 않고 돌아다닐 리가 없다는 생각에 반신반의하면서도 나는 사람들을 밀치며 앞으로 나아갔다. 그자가 곧바로 오른쪽 모퉁이를 돌아서는 옆모습을 보는 순간 나는 아! 하는 비명을 삼켰다. 머리가 좀 더 벗겨지긴 했지만 그자는 분명 이주호였다. 하지만 곰인형이라니. 나는 걷잡을 수 없는 흥분으로 사람들을 거칠게 밀어붙이며 뛰기 시작했다.
+&lt;키워드&gt; 가발, 곰인형, 거울</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221456520343" target="_blank" rel="noopener">365films · 2019. 2. 1.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 단국대학교 편입생 모집 공연영화학부 실기고사 기출문제 &lt;영화(이론‧연출‧스탭)&gt; _영화과 편입과외 영화영상학과 편입</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221710500224" target="_blank" rel="noopener">365films · 2019. 11. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 #단국대영화과편입 실기고사 기출문제 입니다.
+이야기구성이 주 실기내용이며, 참고하여 2020학년도에도 좋은 결과 있길 바랍니다!
+단국대 영화과 편입 및 영화과 편입수업 문의는 언제나 환영!!</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221710500224" target="_blank" rel="noopener">365films · 2019. 11. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2019학년도</span>
+  <div class="exam-content">2019학년도 단국대학교 편입생 모집 공연영화학부 실기고사문제 &lt;영화(이론‧연출‧스탭)&gt;
+[문 제]
+아래 제시문을 통해 제공된 상황(시간과 공간) 내에서 세 개의 키워드를 활용하여 이후의
+상황을 이야기로 완성하시오.
+* 원고지 2,500자 내외로 작성하고, 사용된 키워드에 밑줄을 그세요.
+(예: ‘안경’이 키워드일 경우, 안경)
+&lt;제시문&gt;
+이곳은 대학가 근처의 주택단지이다. 이곳에는 모두 세 개의 편의점이 있다. 세 개의 편의점은
+주택단지를 중심으로 서로 삼십 미터가 안 되는 거리에 삼각형 모양으로 배치되어 있다.
+엘지25시는 주택단지 근처에, 바로 맞은편에 패밀리마트가, 그리고 패밀리마트에서 조금
+떨어진 곳에 세븐일레븐이 있다. 주택단지로부터 엘지25시는 일직선, 패밀리마트는 니은자
+모양, 세븐일레븐은 디귿자 모양을 그리고 있는 셈이다.
+세 편의점이 언제부터 이곳에 생겼는지는 기억나지 않는다. 이곳은 쉴새없이 무언가 생겼다
+사라졌고, 생긴 게 또다시 생기곤 했다. 모텔, 피씨방, 테이크아웃 커피점, 호프집, 분식집...
+편의점은 언제부턴가 그것들 틈에 말쑥한 차림의 전입생처럼 앉아 있었다.</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221710500224" target="_blank" rel="noopener">365films · 2019. 11. 17.</a></span>
+</div><div class="exam-block">
+  <span class="exam-year">2018학년도</span>
+  <div class="exam-content">2018학년도 수시 기출문제 입니다.
+각 학교마다 출제형식 및 원하는 글쓰기 스타일이 다르기 때문에 획일화 된 수업이 아닌 맞춤형 수업이 필요합니다.
+또 학생들이 선호하는 학교들은 작문(이야기구성, 스토리보드 구성, 영화분석 등) 이 필수이기에,
+포기하면 안되는 항목입니다.
+글쓰기 실기 항목이 들어가는 학교
+단국대 영화과, 동국대 영화영상학과, 중앙대 영화과, 세종대 영화예술학과, 국민대 영화과,
+경희대 영화과,  인하대 연극영화과,
+명지대 영화과, 서울예대 영화과  등등
+단국대 영화과에선</div>
+  <span class="source-link">출처: <a href="https://blog.naver.com/365films/221456520343" target="_blank" rel="noopener">365films · 2019. 2. 1.</a></span>
+</div>
+<h2>원본 글 (365films 블로그)</h2><ul style="font-size:.8125rem;color:var(--text-2);line-height:1.8"><li><a href="https://blog.naver.com/365films/223436202632" target="_blank" rel="noopener">[ 영화과 편입 실기 준비 학원 과외 ] 2024학년도 단국대학교 편입학 모집 실기고사 문제 &amp;lt;영화전공(이론·연출·스탭)&amp;gt; _ 이야기구성, 기출문제</a> (2024. 5. 4.)</li><li><a href="https://blog.naver.com/365films/223432208708" target="_blank" rel="noopener">[영화과 실기 학원 과외 ] 2024학년도 수시 신입생 모집 단국대학교 실기고사 문제 공연영화학부 &amp;lt;영화전공(이론‧연출‧스탭)&amp;gt; _ 실기 위주 영화과, 이야기 구성</a> (2024. 4. 30.)</li><li><a href="https://blog.naver.com/365films/223389115575" target="_blank" rel="noopener">[실기과외학원 영화과]  단국대학교 &amp;lt;영화전공(이론‧연출‧스탭)&amp;gt; 실기고사 기출문제 _ 이야기구성, 구술면접 실기위주</a> (2024. 3. 20.)</li><li><a href="https://blog.naver.com/365films/223069419587" target="_blank" rel="noopener">[ 영화과 기출문제 ] 2023학년도 단국대학교 &amp;lt;영화전공(이론‧연출‧스탭)&amp;gt; 실기고사 기출문제 이야기구성</a> (2023. 4. 9.)</li><li><a href="https://blog.naver.com/365films/222675300423" target="_blank" rel="noopener">영화과 기출문제 - 단국대학교 2022학년도 수시 신입생 모집 공연영화학부 실기고사 문제 &amp;lt;영화(이론‧연출‧스탭)&amp;gt; 이야기구성</a> (2022. 3. 17.)</li><li><a href="https://blog.naver.com/365films/222306005731" target="_blank" rel="noopener">[ 영화과 과외 ] 2021학년도 단국대학교 영화 (이론 연출 스태프) 전공 실기고사 기출문제</a> (2021. 4. 11.)</li><li><a href="https://blog.naver.com/365films/221915768890" target="_blank" rel="noopener">2020학년도 단국대학교 영화과 수시모집 실기고사 문제_영화(이론·연출·스탭) 기출문제</a> (2020. 4. 18.)</li><li><a href="https://blog.naver.com/365films/221507640749" target="_blank" rel="noopener">&amp;lt;영화과 기출문제&amp;gt; 단국대학교 공연영화학부 영화(이론‧연출‧스탭)전공 2019학년도 수시 기출문제 _ 영화연출 과외 영화실기학원</a> (2019. 4. 7.)</li><li><a href="https://blog.naver.com/365films/221456520343" target="_blank" rel="noopener">&amp;lt;영화과 기출문제&amp;gt;  단국대 공연영화학부 영화 (이론ㆍ연출ㆍ스탭) 2018학년도 수시 기출문제 영화연출학원 영화과실기과외</a> (2019. 2. 1.)</li><li><a href="https://blog.naver.com/365films/221710500224" target="_blank" rel="noopener">2019학년도 단국대학교 편입생 모집 공연영화학부 실기고사 기출문제 &amp;lt;영화(이론‧연출‧스탭)&amp;gt; _영화과 편입과외 영화영상학과 편입</a> (2019. 11. 17.)</li></ul>
+<div class="footer">© Period. · 영화입시 전문과외 · 수업 자료</div>
+</div></main>
+</div></body></html>
