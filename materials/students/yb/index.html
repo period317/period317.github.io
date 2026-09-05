@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>현유빈 · 피리어드 자료실</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4f4f6;--surface:#fff;--muted:#fafafa;
+  --border:rgba(0,0,0,0.09);--border-mid:rgba(0,0,0,0.15);
+  --text:#111;--text-2:#4a4a4a;--text-3:#888;
+  --blue:#3182F6;--blue-bg:#EBF3FE;
+  --green:#05c46b;--green-bg:#f0fdf8;
+  --orange:#ff9f43;--orange-bg:#fff8f0;
+  --radius:12px;
+  --sidebar:220px;--header:52px;
+}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+
+/* ── Header ── */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  height:var(--header);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;
+}
+.header-brand{font-size:0.9375rem;font-weight:800;letter-spacing:-0.3px}
+.header-brand em{font-style:normal;color:var(--blue)}
+.header-student{
+  font-size:0.8125rem;font-weight:700;
+  color:var(--blue);background:var(--blue-bg);
+  padding:0.3rem 0.75rem;border-radius:50px;
+}
+.header-back{font-size:0.8125rem;color:var(--text-3);font-weight:600}
+.header-back:hover{color:var(--text)}
+
+/* ── Sidebar ── */
+.sidebar{
+  position:fixed;top:var(--header);left:0;
+  width:var(--sidebar);height:calc(100vh - var(--header));
+  overflow-y:auto;
+  background:var(--surface);border-right:1px solid var(--border);
+  padding:1.75rem 1rem;
+}
+.sb-label{
+  font-size:0.6875rem;font-weight:700;letter-spacing:1.5px;
+  color:var(--text-3);text-transform:uppercase;
+  margin:0 0 0.625rem 0.5rem;
+}
+.sb-item{
+  display:flex;align-items:center;gap:0.625rem;
+  padding:0.625rem 0.75rem;border-radius:10px;
+  font-size:0.9rem;font-weight:600;color:var(--text-2);
+  cursor:pointer;transition:background 0.1s,color 0.1s;
+  margin-bottom:0.125rem;
+}
+.sb-item:hover{background:var(--muted);color:var(--text)}
+.sb-item.active{background:var(--blue-bg);color:var(--blue);font-weight:700}
+.sb-icon{font-size:1rem;flex-shrink:0}
+
+/* ── Main ── */
+.main{
+  margin-left:var(--sidebar);
+  padding-top:calc(var(--header) + 2rem);
+  padding-bottom:5rem;
+  padding-right:2rem;
+  padding-left:2rem;
+  max-width:calc(var(--sidebar) + 760px);
+}
+
+/* ── Tab panels ── */
+.tab{display:none}
+.tab.active{display:block}
+
+/* ── Section card ── */
+.card{
+  background:var(--surface);border-radius:16px;
+  border:1px solid var(--border);margin-bottom:1rem;overflow:hidden;
+}
+.card-header{
+  padding:1.125rem 1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:0.625rem;
+}
+.card-title{font-size:0.9375rem;font-weight:800}
+.card-body{padding:1.25rem 1.5rem}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--text-3);font-size:0.9375rem}
+
+/* ── Calendar ── */
+.calendars{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:640px){.calendars{grid-template-columns:1fr}}
+.cal{background:var(--surface);border-radius:16px;border:1px solid var(--border);overflow:hidden}
+.cal-header{
+  padding:1rem 1.25rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cal-month{font-size:0.9375rem;font-weight:800;letter-spacing:-0.3px}
+.cal-grid{padding:0.875rem 1rem 1rem}
+.cal-weekdays{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  margin-bottom:0.375rem;
+}
+.cal-weekday{
+  text-align:center;font-size:0.6875rem;font-weight:700;
+  color:var(--text-3);padding:0.25rem 0;
+}
+.cal-weekday:first-child{color:#e74c3c}
+.cal-weekday:last-child{color:var(--blue)}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-size:0.8125rem;border-radius:8px;
+  cursor:default;position:relative;
+}
+.cal-day.empty{color:transparent}
+.cal-day.sunday{color:#e74c3c}
+.cal-day.saturday{color:var(--blue)}
+.cal-day.lesson{
+  background:var(--blue);color:#fff !important;
+  font-weight:800;border-radius:50%;
+}
+.cal-day.today{
+  border:2px solid var(--blue);font-weight:700;
+}
+.cal-day.today.lesson{border-color:#1d6fdb}
+
+/* ── Assignment ── */
+.assign-item{
+  padding:1rem 1.125rem;border-radius:var(--radius);margin-bottom:0.75rem;
+}
+.assign-item:last-child{margin-bottom:0}
+.assign-item.pending{background:var(--orange-bg);border:1px solid #ffe0b2}
+.assign-item.done{background:var(--green-bg);border:1px solid #b2dfdb;opacity:0.8}
+.assign-badge{
+  display:inline-block;font-size:0.6875rem;font-weight:800;
+  letter-spacing:0.5px;text-transform:uppercase;
+  padding:0.2rem 0.5rem;border-radius:50px;margin-bottom:0.5rem;
+}
+.pending .assign-badge{background:#ffe0b2;color:#e65100}
+.done .assign-badge{background:#b2dfdb;color:#00695c}
+.assign-title{font-size:0.9375rem;font-weight:700;margin-bottom:0.25rem}
+.assign-desc{font-size:0.875rem;color:var(--text-2);line-height:1.65}
+.assign-due{font-size:0.8125rem;color:var(--text-3);margin-top:0.375rem;font-weight:600}
+
+/* ── Feedback ── */
+.feedback-item{
+  padding:1.25rem;background:var(--muted);
+  border-radius:var(--radius);border:1px solid var(--border);
+  margin-bottom:0.75rem;
+}
+.feedback-item:last-child{margin-bottom:0}
+.feedback-date{font-size:0.75rem;font-weight:700;color:var(--text-3);margin-bottom:0.5rem}
+.feedback-title{font-size:0.9375rem;font-weight:800;margin-bottom:0.625rem}
+.feedback-body{font-size:0.9375rem;color:var(--text-2);line-height:1.8}
+.feedback-body p{margin-bottom:0.625rem}
+.feedback-body p:last-child{margin-bottom:0}
+.feedback-body strong{color:var(--text);font-weight:700}
+
+/* ── 면접지 ── */
+.interview-item{
+  padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);
+}
+.interview-item:last-child{border-bottom:0}
+.interview-q{font-size:0.9375rem;font-weight:700;color:var(--text);margin-bottom:0.625rem}
+.interview-a{font-size:0.9375rem;color:var(--text-2);line-height:1.85;white-space:pre-wrap}
+
+/* ── 개인 자료실 ── */
+.file-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:0.875rem 0;border-bottom:1px solid var(--border);
+}
+.file-item:last-child{border-bottom:0}
+.file-icon{font-size:1.25rem;flex-shrink:0}
+.file-info{}
+.file-name{font-size:0.9375rem;font-weight:600;margin-bottom:0.125rem}
+.file-meta{font-size:0.8125rem;color:var(--text-3)}
+.file-link{margin-left:auto;font-size:0.8125rem;font-weight:700;color:var(--blue);flex-shrink:0}
+
+/* ── Mobile ── */
+@media(max-width:700px){
+  .sidebar{
+    position:fixed;top:var(--header);left:0;right:0;
+    width:100%;height:auto;
+    border-right:0;border-bottom:1px solid var(--border);
+    padding:0.75rem 1rem;
+    display:flex;gap:0.5rem;overflow-x:auto;
+    flex-direction:row;
+    scrollbar-width:none;
+  }
+  .sidebar::-webkit-scrollbar{display:none}
+  .sb-label{display:none}
+  .sb-item{flex-shrink:0;margin-bottom:0;padding:0.5rem 0.875rem;font-size:0.875rem}
+  .main{
+    margin-left:0;
+    padding-top:calc(var(--header) + 3.5rem);
+    padding-left:1rem;padding-right:1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="header-brand">Period<em>.</em></span>
+  <span class="header-student">현유빈</span>
+  <a class="header-back" href="../">← 나가기</a>
+</header>
+
+<nav class="sidebar">
+  <p class="sb-label">메뉴</p>
+  <div class="sb-item active" data-tab="schedule"><span class="sb-icon">📅</span>일정</div>
+  <div class="sb-item" data-tab="assignment"><span class="sb-icon">✏️</span>과제</div>
+  <div class="sb-item" data-tab="interview"><span class="sb-icon">🎙️</span>면접지</div>
+  <div class="sb-item" data-tab="files"><span class="sb-icon">📁</span>개인 자료실</div>
+</nav>
+
+<main class="main">
+
+  <!-- ── 일정 ── -->
+  <div class="tab active" id="tab-schedule">
+    <div class="calendars" id="calendars"></div>
+
+    <div class="card" style="margin-top:1rem">
+      <div class="card-header"><span class="sb-icon">📌</span><span class="card-title">수업 메모</span></div>
+      <div class="card-body">
+        <div class="empty">등록된 메모가 없습니다.</div>
+        <!-- 예시:
+        <div class="feedback-item">
+          <p class="feedback-date">9월 수업 안내</p>
+          <div class="feedback-body">
+            <p>수업은 매주 화요일 오후 7시에 진행합니다. 일정 변경이 생기면 미리 연락주세요.</p>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 과제 ── -->
+  <div class="tab" id="tab-assignment">
+    <div class="card">
+      <div class="card-header"><span class="sb-icon">✏️</span><span class="card-title">현재 과제</span></div>
+      <div class="card-body">
+        <div class="empty">등록된 과제가 없습니다.</div>
+        <!-- 예시:
+        <div class="assign-item pending">
+          <span class="assign-badge">진행중</span>
+          <p class="assign-title">이야기 글쓰기 1회</p>
+          <p class="assign-desc">제시 이미지를 보고 시놉시스 형식으로 400자 이내 작성</p>
+          <p class="assign-due">마감 : 9/13 (금)</p>
+        </div>
+        -->
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="sb-icon">✅</span><span class="card-title">완료된 과제</span></div>
+      <div class="card-body">
+        <div class="empty">완료된 과제가 없습니다.</div>
+        <!-- 예시:
+        <div class="assign-item done">
+          <span class="assign-badge">완료</span>
+          <p class="assign-title">면접지 초안</p>
+          <p class="assign-desc">자기소개 + 지원동기 초안 작성</p>
+        </div>
+        -->
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="sb-icon">💬</span><span class="card-title">피드백</span></div>
+      <div class="card-body">
+        <div class="empty">등록된 피드백이 없습니다.</div>
+        <!-- 예시:
+        <div class="feedback-item">
+          <p class="feedback-date">2026. 9. 5</p>
+          <p class="feedback-title">글쓰기 1회차 피드백</p>
+          <div class="feedback-body">
+            <p><strong>좋았던 점:</strong> 도입부에서 인물의 감정이 잘 드러났습니다.</p>
+            <p><strong>개선할 점:</strong> 결말이 너무 급하게 마무리됩니다. 마지막 씬을 한 장면 더 추가해보세요.</p>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 면접지 ── -->
+  <div class="tab" id="tab-interview">
+    <div class="card">
+      <div class="card-header"><span class="sb-icon">🎙️</span><span class="card-title">면접지</span></div>
+      <div class="card-body">
+        <div class="empty">등록된 면접지가 없습니다.</div>
+        <!-- 예시:
+        <div class="interview-item">
+          <p class="interview-q">Q. 영화감독이 되고 싶은 이유를 말해주세요.</p>
+          <p class="interview-a">...</p>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 개인 자료실 ── -->
+  <div class="tab" id="tab-files">
+    <div class="card">
+      <div class="card-header"><span class="sb-icon">📁</span><span class="card-title">개인 자료실</span></div>
+      <div class="card-body">
+        <div class="empty">등록된 자료가 없습니다.</div>
+        <!-- 예시:
+        <div class="file-item">
+          <span class="file-icon">📄</span>
+          <div class="file-info">
+            <p class="file-name">글쓰기 기초 자료.pdf</p>
+            <p class="file-meta">2026.09.05 업로드</p>
+          </div>
+          <a class="file-link" href="#">다운로드</a>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ── 로그인 검증 ──
+if (sessionStorage.getItem('period_student') !== '현유빈') {
+  location.href = '../';
+}
+
+// ── 탭 전환 ──
+const tabs = document.querySelectorAll('.tab');
+const sbItems = document.querySelectorAll('.sb-item');
+sbItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const target = item.dataset.tab;
+    sbItems.forEach(i => i.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    item.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+  });
+});
+
+// ── 캘린더 생성 ──
+// 이 학생의 수업 날짜를 여기에 추가하세요 (형식: "YYYY-M-D")
+const LESSON_DATES = [
+  // "2026-9-10",
+  // "2026-9-17",
+];
+
+function renderCalendar(year, month) {
+  const DAYS = ['일','월','화','수','목','금','토'];
+  const monthNames = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const today = new Date();
+  const firstDay = new Date(year, month - 1, 1).getDay();
+  const lastDate = new Date(year, month, 0).getDate();
+  const lessonSet = new Set(LESSON_DATES);
+
+  let html = `<div class="cal">
+    <div class="cal-header"><span class="cal-month">${year}년 ${monthNames[month-1]}</span></div>
+    <div class="cal-grid">
+      <div class="cal-weekdays">${DAYS.map(d=>`<div class="cal-weekday">${d}</div>`).join('')}</div>
+      <div class="cal-days">`;
+
+  for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty"></div>`;
+  for (let d = 1; d <= lastDate; d++) {
+    const dow = (firstDay + d - 1) % 7;
+    const isToday = today.getFullYear()===year && today.getMonth()===month-1 && today.getDate()===d;
+    const isLesson = lessonSet.has(`${year}-${month}-${d}`);
+    let cls = 'cal-day';
+    if (dow === 0) cls += ' sunday';
+    if (dow === 6) cls += ' saturday';
+    if (isToday) cls += ' today';
+    if (isLesson) cls += ' lesson';
+    html += `<div class="${cls}">${d}</div>`;
+  }
+  html += `</div></div></div>`;
+  return html;
+}
+
+const now = new Date();
+const y = now.getFullYear(), m = now.getMonth() + 1;
+const next = m === 12 ? {y: y+1, m: 1} : {y, m: m+1};
+document.getElementById('calendars').innerHTML =
+  renderCalendar(y, m) + renderCalendar(next.y, next.m);
+</script>
+</body>
+</html>

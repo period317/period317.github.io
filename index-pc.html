@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영화과외 1:1 전문 피리어드 | 11명 전원 합격</title>
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#ffffff;
+  --muted:#faf8fa;
+  --border:rgba(0,0,0,0.09);
+  --border-mid:rgba(0,0,0,0.15);
+  --text:#111111;
+  --text-2:#4a4a4a;
+  --text-3:#888888;
+  --blue:#3182F6;
+  --radius:10px;
+  --max:1180px;
+  --header-h:60px;
+  --nav-h:52px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#f0f0f2;
+  color:var(--text);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ── Header ── */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;height:var(--header-h);
+  padding:0 2.5rem;
+}
+.brand{
+  display:flex;align-items:center;gap:0.625rem;
+  padding-right:2rem;border-right:1px solid var(--border);
+  flex-shrink:0;cursor:pointer;
+}
+.brand-tag{font-size:0.875rem;font-weight:700;color:var(--text-2);letter-spacing:-0.2px}
+.brand-name{font-weight:800;font-size:1.3rem;letter-spacing:-0.5px;text-transform:lowercase}
+.brand-name em{font-style:normal;color:var(--blue);font-size:1.55rem;line-height:0;vertical-align:-0.1em}
+.nav-strip{
+  display:flex;flex:1;gap:0;
+  padding-left:0.5rem;
+}
+.nav-btn{
+  height:var(--header-h);padding:0 1.25rem;
+  background:none;border:0;
+  font-size:0.9rem;font-weight:600;color:var(--text-3);
+  position:relative;white-space:nowrap;
+  transition:color 0.15s;
+}
+.nav-btn.active{color:var(--text);font-weight:800}
+.nav-btn.active::after{
+  content:"";position:absolute;left:1rem;right:1rem;bottom:0;
+  height:2px;background:var(--blue);border-radius:2px;
+}
+.header-cta{
+  margin-left:auto;
+  background:var(--blue);color:#fff;border:0;
+  padding:0.625rem 1.25rem;border-radius:8px;
+  font-size:0.875rem;font-weight:700;
+  flex-shrink:0;
+}
+.header-cta:hover{background:#1d6fdb}
+
+/* ── Page switching ── */
+.page{display:none}
+.page.active{display:block;background:#fff;min-height:80vh}
+
+/* ── Common layout ── */
+.inner{max-width:var(--max);margin:0 auto;padding:0 2.5rem}
+
+/* ── Buttons ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:0.875rem 1.75rem;border:0;border-radius:var(--radius);
+  font-size:1rem;font-weight:700;transition:background 0.15s,transform 0.1s;
+}
+.btn:active{transform:scale(0.98)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1d6fdb}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-mid)}
+.btn-ghost:hover{border-color:var(--text)}
+.btn-lg{padding:1rem 2rem;font-size:1.0625rem;font-weight:800}
+
+/* ── Eyebrow / Title ── */
+.eyebrow{font-size:0.8125rem;font-weight:700;letter-spacing:2px;color:var(--text-3);text-transform:uppercase;margin-bottom:0.75rem}
+.sec-title{font-size:2.25rem;font-weight:800;letter-spacing:-1px;line-height:1.25;margin-bottom:1.25rem}
+
+/* ════════════════════════════
+   HOME
+════════════════════════════ */
+
+/* Hero */
+.hero{
+  border-bottom:1px solid var(--border);
+  padding:7rem 2.5rem 6rem;
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;
+  gap:6rem;align-items:center;
+}
+.hero-eyebrow{font-size:0.8125rem;font-weight:700;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-size:3.75rem;font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--text);margin-bottom:2rem}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-right{
+  padding:2.5rem;
+  background:var(--muted);border:1px solid var(--border);border-radius:16px;
+}
+.hero-stat{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid var(--border)}
+.hero-stat:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+.hero-stat-num{font-size:2.5rem;font-weight:800;color:var(--blue);letter-spacing:-1px;line-height:1}
+.hero-stat-label{font-size:0.875rem;color:var(--text-2);margin-top:0.375rem;line-height:1.5}
+
+/* Intro */
+.intro{
+  border-bottom:1px solid var(--border);
+  padding:5.5rem 2.5rem;
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:380px 1fr;
+  gap:7rem;align-items:start;
+}
+.intro-left{}
+.intro-left .sec-title{font-size:1.875rem}
+.intro-body p{font-size:1rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem}
+.intro-body p:last-child{margin-bottom:0}
+.teacher-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:2rem}
+.teacher-mini{padding:1rem 1.125rem;border:1px solid var(--border);border-radius:10px;background:#fafafa}
+.teacher-mini h4{font-size:0.9375rem;font-weight:800;margin-bottom:0.375rem}
+.teacher-mini p{font-size:0.8125rem;line-height:1.6;color:var(--text-2);margin-bottom:0.125rem}
+.teacher-mini .mini-link{display:inline-block;margin-top:0.5rem;font-size:0.8125rem;color:var(--blue);font-weight:700}
+
+/* Core blocks */
+.core-list{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.core-block{
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:7rem;align-items:start;
+  padding:5.5rem 2.5rem;
+  border-bottom:1px solid var(--border);
+}
+.core-block:last-child{border-bottom:0}
+.core-head{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.5rem}
+.core-index{font-size:1.5rem;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
+.core-tag{font-size:1rem;font-weight:700;color:var(--text)}
+.core-block h3{font-size:2rem;font-weight:800;line-height:1.25;letter-spacing:-1px;margin-bottom:1.5rem}
+.core-block h3 em{font-style:normal;color:var(--blue)}
+.core-body p{font-size:1rem;line-height:1.9;color:var(--text-2);margin-bottom:1rem}
+.core-body p:last-child{margin-bottom:0}
+.core-body p strong{color:var(--text);font-weight:700}
+.core-lines p{margin-bottom:0.5rem}
+.core-body blockquote{margin:1.75rem 0;font-size:1.125rem;color:var(--text);font-weight:700;letter-spacing:-0.3px;padding-left:1.25rem;border-left:3px solid var(--blue)}
+.core-cta{margin-top:2rem;padding:1.375rem;background:var(--muted);border-radius:var(--radius);border:1px solid var(--border)}
+.core-cta p{font-size:0.9375rem;color:var(--text);margin-bottom:0.875rem;line-height:1.6}
+.core-cta button{background:var(--blue);color:#fff;border:0;padding:0.625rem 1.125rem;border-radius:8px;font-size:0.875rem;font-weight:700}
+.feedback-principles{margin-top:2rem;padding-top:1.75rem;border-top:1px solid var(--border)}
+.feedback-principles .fp-title{font-size:1.0625rem;font-weight:800;color:var(--text);margin-bottom:1rem;letter-spacing:-0.3px}
+.feedback-principles .fp-sub{font-size:0.9375rem;font-weight:700;color:var(--text);margin-top:1.125rem;margin-bottom:0.5rem}
+.feedback-principles .fp-list{margin:0 0 0.5rem;padding-left:1.25rem}
+.feedback-principles .fp-list li{font-size:0.9375rem;color:var(--text-2);line-height:1.75;margin:0.25rem 0}
+.feedback-principles .fp-note{margin-top:1.25rem;font-size:0.875rem;color:var(--text-3);line-height:1.75;font-style:italic}
+
+/* Right column placeholder */
+.core-right{
+  position:sticky;top:calc(var(--header-h) + 2rem);
+  padding:2.5rem;
+  background:var(--muted);border:1px solid var(--border);border-radius:16px;
+}
+.core-right-label{font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);margin-bottom:1.25rem}
+.core-right-text{font-size:0.9375rem;color:var(--text-2);line-height:1.85}
+
+/* Final CTA */
+.final-cta{
+  padding:9rem 2.5rem;text-align:center;
+  border-top:1px solid var(--border);
+}
+.final-cta .cta-eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:2px;color:var(--text-3);text-transform:uppercase;margin-bottom:1rem}
+.final-cta h2{font-size:3rem;font-weight:800;letter-spacing:-1.5px;line-height:1.2;margin-bottom:0.75rem}
+.final-cta .cta-sub{font-size:1.125rem;color:var(--text-2);margin-bottom:2.5rem}
+
+/* ════════════════════════════
+   CLASS
+════════════════════════════ */
+.class-wrap{
+  display:grid;grid-template-columns:220px 1fr;
+  gap:0;max-width:var(--max);margin:0 auto;
+  min-height:80vh;
+}
+.class-sidenav{
+  position:sticky;top:var(--header-h);
+  height:calc(100vh - var(--header-h));
+  overflow-y:auto;border-right:1px solid var(--border);
+  padding:2.5rem 1.5rem;
+}
+.class-sidenav-title{font-size:0.6875rem;font-weight:700;letter-spacing:1.5px;color:var(--text-3);text-transform:uppercase;margin-bottom:1rem}
+.class-sidenav a{
+  display:block;padding:0.5rem 0.75rem;
+  font-size:0.875rem;font-weight:600;color:var(--text-2);
+  border-radius:6px;text-decoration:none;margin-bottom:0.125rem;
+  transition:background 0.1s,color 0.1s;
+}
+.class-sidenav a:hover{background:var(--muted);color:var(--text)}
+.class-sidenav a.active{background:#EBF3FE;color:var(--blue)}
+.class-sidenav .sn-group{font-size:0.6875rem;font-weight:700;color:var(--text-3);letter-spacing:1px;text-transform:uppercase;margin:1.5rem 0 0.5rem 0.75rem}
+.class-content{padding:4.5rem 4rem}
+
+.personal-note p{font-size:1rem;line-height:1.9;color:var(--text);margin-bottom:1.125rem;letter-spacing:-0.2px}
+.personal-note p:last-child{margin-bottom:0}
+.personal-note p em{font-style:normal;font-weight:700;border-bottom:2px solid var(--blue);padding-bottom:1px}
+.personal-note{margin-bottom:3rem}
+
+.lesson-group-title{font-size:0.9375rem;font-weight:800;letter-spacing:-0.3px;color:var(--text);margin:4rem 0 1.75rem}
+.lesson-item{padding:2.5rem 0;border-bottom:1px solid var(--border);scroll-margin-top:calc(var(--header-h) + 2rem)}
+.lesson-item:last-child{border-bottom:0}
+.lesson-num{display:block;font-size:1.375rem;font-weight:800;color:var(--blue);letter-spacing:-0.5px;margin-bottom:0.5rem;font-variant-numeric:tabular-nums}
+.lesson-item>h3{font-size:1.375rem;font-weight:800;line-height:1.35;letter-spacing:-0.6px;margin:0 0 1.25rem;color:var(--text)}
+.lesson-body p{font-size:1rem;line-height:1.9;color:var(--text-2);margin-bottom:1rem}
+.lesson-body p:last-child{margin-bottom:0}
+.lesson-body p em{font-style:normal;color:var(--blue);font-weight:700}
+.lesson-body p.lesson-lines{line-height:2.1;padding:0.375rem 0}
+.lesson-body h4{font-size:0.9375rem;font-weight:800;color:var(--text);margin:1.5rem 0 0.5rem}
+
+/* ════════════════════════════
+   REVIEWS
+════════════════════════════ */
+.reviews-header{padding:5rem 2.5rem 0;max-width:var(--max);margin:0 auto}
+.reviews-grid-wrap{padding:2.5rem 2.5rem 6rem;max-width:var(--max);margin:0 auto}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+.student-card{padding:2rem;border:1px solid var(--border);border-radius:var(--radius);background:#fff}
+.student-head{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:0.75rem}
+.student-head .s-school{font-size:0.8125rem;font-weight:700;color:var(--text-3);letter-spacing:1px;text-transform:uppercase}
+.student-head .s-year{font-size:0.8125rem;color:var(--text-3);font-weight:600}
+.review-row{margin-bottom:1rem}
+.review-row:last-child{margin-bottom:0}
+.review-row .r-title{font-size:1.0625rem;font-weight:800;color:var(--text);line-height:1.45;margin-bottom:1rem;letter-spacing:-0.4px}
+.review-row ul{list-style:none;padding:0;margin-bottom:1rem}
+.review-row li{font-size:0.9375rem;color:var(--text-2);line-height:1.75;padding-left:1rem;position:relative;margin-bottom:0.375rem}
+.review-row li::before{content:"·";position:absolute;left:0;color:var(--text-3);font-weight:700}
+.review-row .r-link{font-size:0.875rem;font-weight:700;color:var(--blue)}
+
+/* ════════════════════════════
+   CONSULTATION
+════════════════════════════ */
+.consult-wrap{
+  display:grid;grid-template-columns:1fr 380px;
+  gap:6rem;align-items:start;
+  max-width:var(--max);margin:0 auto;
+  padding:5rem 2.5rem;
+}
+.simple-form .form-group{margin-bottom:1.5rem}
+.simple-form label{display:block;font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.simple-form .req{color:var(--blue)}
+.simple-form .desc{font-size:0.8125rem;color:var(--text-3);margin-bottom:0.5rem;line-height:1.6}
+.simple-form input[type=text],
+.simple-form textarea{
+  width:100%;padding:0.9375rem 1.125rem;
+  border:1px solid var(--border-mid);border-radius:var(--radius);
+  font-size:1rem;font-family:inherit;background:#fff;color:var(--text);
+  transition:border-color 0.15s;
+}
+.simple-form input[type=text]:focus,
+.simple-form textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,130,246,0.12)}
+.simple-form textarea{resize:vertical;min-height:120px;line-height:1.65}
+.form-success{display:none;padding:2.5rem;text-align:center;background:#f0fdf8;border:1px solid #8fdcc3;border-radius:var(--radius);margin-bottom:1.5rem}
+.form-success h3{font-size:1.25rem;font-weight:800;margin-bottom:0.5rem}
+.form-success p{color:var(--text-2)}
+.direct-contact{padding:2rem;background:var(--muted);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:1.25rem}
+.direct-contact h3{font-size:1rem;font-weight:800;margin-bottom:1rem;color:var(--text)}
+.direct-contact a{display:flex;align-items:center;gap:0.5rem;padding:0.625rem 0;font-size:0.9375rem;color:var(--text);font-weight:600}
+.direct-contact a:hover{color:var(--blue)}
+
+/* ── Footer ── */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:3rem 2.5rem;text-align:center;
+  font-size:0.75rem;color:var(--text-3);line-height:1.8;background:#fff;
+  max-width:100%;
+}
+.site-footer-inner{max-width:var(--max);margin:0 auto}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand" onclick="showPage('home')">
+      <span class="brand-tag">영화과외 1:1 전문</span>
+      <span class="brand-name">Period<em>.</em></span>
+    </div>
+    <nav class="nav-strip">
+      <button class="nav-btn active" data-page="home">피리어드</button>
+      <button class="nav-btn" data-page="class">수업</button>
+      <button class="nav-btn" data-page="reviews">후기</button>
+      <button class="nav-btn" data-page="consultation">상담</button>
+    </nav>
+    <button class="header-cta" onclick="showPage('consultation')">무료 상담 신청</button>
+  </div>
+</header>
+
+<!-- ══════════ HOME ══════════ -->
+<main class="page active" id="home">
+
+  <!-- Hero -->
+  <div class="inner" style="padding-top:0;padding-bottom:0">
+  <section class="hero">
+    <div>
+      <p class="hero-eyebrow">영화입시 전문 1:1 과외</p>
+      <h1>11명 전원 합격.<br><em>피리어드</em>입니다.</h1>
+      <button class="btn btn-blue btn-lg" onclick="showPage('consultation')">무료 상담 신청</button>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hero-stat-num">11명</div>
+        <div class="hero-stat-label">2019–2025 과외 학생 전원 합격</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">150명+</div>
+        <div class="hero-stat-label">영화입시학원 6년 · 예술고 7년 지도</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1:1</div>
+        <div class="hero-stat-label">실기·글쓰기·면접·자소서 한 세트</div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Intro -->
+  <div class="inner" style="padding-top:0;padding-bottom:0">
+  <section class="intro">
+    <div class="intro-left">
+      <p class="eyebrow">Intro</p>
+      <h2 class="sec-title" style="font-size:1.875rem">영화입시 전문과외<br>피리어드입니다.</h2>
+
+      <div class="teacher-mini-grid">
+        <div class="teacher-mini">
+          <h4>어드쌤</h4>
+          <p>중앙대 연극영화과 연출 수석졸업 · 대학원</p>
+          <p>영화입시 학원 6년 · 약 150명 지도</p>
+          <p>학생들 요청으로 1:1 과외 시작</p>
+          <a href="https://blog.naver.com/songtorytelling/224217327581" target="_blank" class="mini-link">상세 소개 →</a>
+        </div>
+        <div class="teacher-mini">
+          <h4>피리쌤</h4>
+          <p>연세대 신문방송학과</p>
+          <p>국내 탑티어 금융회사 · 핀테크 기획자</p>
+          <p>세상의 변화, 자소서·면접 전략 담당</p>
+          <a href="https://blog.naver.com/songtorytelling/224217581391" target="_blank" class="mini-link">상세 소개 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="intro-body">
+        <p>영화입시학원에서 6년, 서울 소재 예술고등학교에서 7년의<br>강사 경험을 통해 200명 정도 학생을 가르쳤고<br>그 기간 동안 개별 요청이나 추천에 의해 11명의 과외를 했습니다.</p>
+        <p>그 기간 동안 느낀 것은 시간 낭비를 많이 하고 있다는 것,<br>조금만 더 빨리 만났으면 더 잘 준비할 수 있었다는 것이었습니다.</p>
+        <p>인생을 건 학생들의 선택에 대해,<br>시간낭비 하지 않고 의미있고 재미있게 배울 수 있게<br>본격적으로 과외를 시작하며 학생들을 찾게 되었습니다.</p>
+        <p>학부모든 학생이든<br>저희의 이야기를 읽어보시고, 상담해 보길 추천합니다.</p>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Core blocks -->
+  <section class="core-list">
+
+    <div class="core-block">
+      <div>
+        <div class="core-head"><span class="core-index">01</span><span class="core-tag">피드백</span></div>
+        <h3>추상적인 피드백, 누구나 할 수 있는 피드백?<br><em>잘못된 겁니다.</em></h3>
+        <div class="core-body">
+          <p>"개연성이 약하다", "더 구체적으로 써라" — 나도 할 수 있는 말입니다. 그건 피드백이 아닙니다.</p>
+          <div class="core-lines">
+            <p>실제로 이 글을 어떻게 썼어야 했는지.</p>
+            <p>아니면 이 글은 아예 폐기해야 하는지.</p>
+            <p>왜 반복해서 나쁜 글이 나오는지.</p>
+            <p>이 학생의 글쓰기 방식을 어떻게 바꿔야 하는지.</p>
+          </div>
+          <p>해줘야 할 말이 많기 때문에, 학생이 써온 것보다 피드백이 길어지는 경우가 많습니다.</p>
+          <p>숙제처럼 글 하나를 내주고 피드백만 하는 게 아닙니다. 잘 할 수 있게 — 기본기든, 반복 훈련이든, 그 학생에게 필요한 수업을 합니다.</p>
+
+          <div class="feedback-principles">
+            <p class="fp-title">실제로 어떻게 하는지.</p>
+            <p class="fp-sub">이런 피드백은 하지 않습니다.</p>
+            <ul class="fp-list">
+              <li>글이나 면접지가 어떻다는 평가만 하는 피드백.</li>
+              <li>학생이 써온 글보다 짧게 끝나는 피드백.</li>
+              <li>단순 첨삭 위주의 피드백.</li>
+            </ul>
+            <p class="fp-sub">이렇게 합니다.</p>
+            <ul class="fp-list">
+              <li>피드백을 받고도 어떻게 고쳐야 할지 막막한 경우가 많습니다. 그래서 구체적으로 어떻게 써야 했는지, 예시까지 같이 드립니다.</li>
+              <li>이야기 구조만 보지 않습니다. 어떻게 해야 — 보이고 들리는 — 영화적 글쓰기가 되는지까지 짚습니다.</li>
+              <li>기초가 안 잡혀 있다면 무작정 글부터 쓰지 않습니다. 기초 강의부터 시작합니다.</li>
+            </ul>
+            <p class="fp-note">예전엔 학생이 미리 써서 가져오는 글들이 많아서, 피드백이 실제 글보다 더 길게 나오는 때도 있었습니다. 그 정도가 정상이라고 생각합니다.</p>
+          </div>
+
+          <div class="core-cta">
+            <p>써놓은 글이나 면접지가 있다면, 가져오세요. 무료로 한 번 봐드립니다.</p>
+            <button onclick="showPage('consultation')">무료 상담 신청</button>
+          </div>
+        </div>
+      </div>
+      <div class="core-right">
+        <p class="core-right-label">피드백</p>
+        <p class="core-right-text">써놓은 글이나 면접지가 있다면, 가져오세요. 무료로 한 번 봐드립니다.</p>
+        <button class="btn btn-blue" style="margin-top:1.5rem;width:100%" onclick="showPage('consultation')">무료 상담 신청</button>
+      </div>
+    </div>
+
+    <div class="core-block">
+      <div>
+        <div class="core-head"><span class="core-index">02</span><span class="core-tag">면접·구술</span></div>
+        <h3>면접 준비가 재미없으면,<br><em>잘못된 겁니다.</em></h3>
+        <div class="core-body">
+          <p>채워야 할 칸을 채우고 있다는 느낌이 들거나, 뭘 써야 할지 모른 채 일단 쓰기 시작했다면 — 멈춰야 합니다.</p>
+          <p>조금 걸리더라도 인생 전체를 먼저 파악합니다. 왜 그렇게 살았는지, 그 순간마다 감정은 어땠는지, 왜 영화인지. 하나씩 캐내다 보면 면접지가 아니라 인생이 하나의 스토리로 정리됩니다.</p>
+          <p>이 과정을 겪은 사람들은 말합니다.</p>
+          <blockquote>"면접 준비는 따로 안 해도 될 것 같아요."</blockquote>
+        </div>
+      </div>
+      <div class="core-right">
+        <p class="core-right-label">면접·구술</p>
+        <p class="core-right-text">인생 전체를 파악하고, 나만의 스토리를 찾아갑니다. 면접지 작성부터 구술까지.</p>
+        <button class="btn btn-ghost" style="margin-top:1.5rem;width:100%" onclick="showPage('consultation')">상담 신청</button>
+      </div>
+    </div>
+
+    <div class="core-block">
+      <div>
+        <div class="core-head"><span class="core-index">03</span><span class="core-tag">시야</span></div>
+        <h3>입시 전략보다<br><em>나를 제대로 아는 게 이깁니다.</em></h3>
+        <div class="core-body">
+          <p>내가 뭘 좋아하는지, 왜 영화인지, 어떤 사람인지 — 이게 정리되면 전략은 따라옵니다.</p>
+          <p>영화만이 아닙니다. 세상이 어떻게 돌아가는지, 사람은 어떻게 살아가는지, 예술이 사회에서 어떤 의미인지. 이런 것들을 같이 생각하고 싶은 학생이 맞습니다.</p>
+          <p>그래서 과외가 끝나도 후배를 데려오고, 7년이 지나 취업할 때 다시 찾아옵니다. 단순 수업이었다면 불가능한 일입니다.</p>
+        </div>
+      </div>
+      <div class="core-right">
+        <p class="core-right-label">시야</p>
+        <p class="core-right-text">영화 너머의 시각. 과외가 끝나도 이어지는 관계.</p>
+        <button class="btn btn-ghost" style="margin-top:1.5rem;width:100%" onclick="showPage('consultation')">상담 신청</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <p class="cta-eyebrow">Free Consultation</p>
+    <h2>무료 상담</h2>
+    <p class="cta-sub">편하게 연락주세요. 늦은 새벽도 괜찮습니다.</p>
+    <button class="btn btn-blue btn-lg" onclick="showPage('consultation')">상담 신청</button>
+  </section>
+
+</main>
+
+<!-- ══════════ CLASS ══════════ -->
+<main class="page" id="class">
+  <div class="class-wrap">
+    <nav class="class-sidenav">
+      <p class="class-sidenav-title">수업</p>
+      <p class="sn-group">필수</p>
+      <a href="#lesson-r1" class="sn-link">01 기본기 정리</a>
+      <a href="#lesson-r2" class="sn-link">02 면접지·인생</a>
+      <a href="#lesson-r3" class="sn-link">03 이야기 글쓰기</a>
+      <p class="sn-group">선택</p>
+      <a href="#lesson-o1" class="sn-link">01 시나리오</a>
+      <a href="#lesson-o2" class="sn-link">02 영화 비평</a>
+      <a href="#lesson-o3" class="sn-link">03 단편 제작</a>
+    </nav>
+
+    <div class="class-content">
+      <p class="eyebrow">Class</p>
+      <h2 class="sec-title">수업</h2>
+
+      <div class="personal-note">
+        <p>피리어드 영화과외에서는 <em>영화과 입시를 위한, 또 영화감독으로서 성장하기 위한 모든 수업</em>을 합니다.</p>
+        <p>학생의 배경, 실력, 목표, 성격, 남은 시간에 따라 수업 구성과 진도는 달라집니다.</p>
+        <p>수시전형 실기를 기본으로 한 필수 수업 위주로 말씀드리지만, 필요하면 논술 글쓰기, 콘텐츠 및 미디어에 대한 토론과 상식도 수업합니다. 영화과가 아닌 방송영상이나 다큐 전공이 필요하면 그에 맞게 진행합니다.</p>
+      </div>
+
+      <p class="lesson-group-title">필수 수업</p>
+
+      <article class="lesson-item" id="lesson-r1">
+        <span class="lesson-num">01</span>
+        <h3>영화, 영화전공, 영화감독에 대한 기본기 정리</h3>
+        <div class="lesson-body">
+          <p>가장 중요한데 정리되지 않고 넘어가기 쉬운 수업입니다.</p>
+          <p class="lesson-lines">
+            영화관은 망해가고, 한국 영화도 망해가는데 영화를 배운다는 게 뭔지.<br>
+            대학을 가서 영화를 전공한다는 것이 어떤 의미인지.<br>
+            영화 소비자가 아닌 만드는 영역에서, 감독이 되겠다는 것은 어떤 것인지.<br>
+            방송이나 유튜브와 다른 예술로서의 영화는 무엇인지.<br>
+            그런 관점에서 학교는 어떤 학생들을 필요로 하는지.
+          </p>
+          <p>이런 부분에 대한 기초적인 이해를 바탕으로 학생과 선생 간의 이해도를 맞춥니다. 납득이 되지 않는 부분들은 함께 맞춰가면서, 스스로 영화를 배우고 전공하고 감독이 되고 싶다는 동기가 만들어져야 합니다.</p>
+          <p>보통은 하지 않는, 남들과는 달라지는 삶을 — 예술 영역을 선택하는 것이기 때문에 <em>가장 먼저 다루는 수업</em>입니다.</p>
+        </div>
+      </article>
+
+      <article class="lesson-item" id="lesson-r2">
+        <span class="lesson-num">02</span>
+        <h3>면접지 · 인생 정리</h3>
+        <div class="lesson-body">
+          <p>면접지는 마지막 실기 때 필요하지만, 마지막에 몰아서 할 수 있는 게 아닙니다.</p>
+          <p>1번에서 맞춰진 이해도를 바탕으로, 이제 <em>"나"에 대해 정리하는 시간</em>입니다.</p>
+          <p>영화를 통해 나는 도대체 뭘 하고 싶은 건지. 소설도, 웹툰도, 유튜브도 아닌 왜 영화여야 하는지.</p>
+          <p>영화를 처음 특별하게 느꼈던 순간부터 — 남들과 다르게 반응했던 순간들, 내가 한 선택의 이유들, 그 이후의 감정들. 무엇에 분노하고 행복해하는지, 무슨 말을 듣기 위해 살아가는지.</p>
+          <p>이게 결국 내가 하고 싶은 이야기, 표현하고 싶은 방식, 관심을 가지는 사람과 세상으로 이어집니다. 그리고 나의 취향, 특장점, 좋아하는 영화와 감독, 부족한 것, 배우고 싶은 것으로 연결됩니다.</p>
+          <p>잘 모르겠다는 얘기가 나오면 같이 찾아갑니다. 다양한 영화를 보고 토론하고 비평하면서 방향을 찾을 수 있습니다.</p>
+          <p>마지막에는 내가 지원하는 학교와 나의 어떤 면이 맞는지 찾아냅니다. 누구나 하는 이유로는 안 됩니다. 이 학교가 나의 최선이 아니더라도, 나와 맞는 점은 반드시 찾아낼 수 있습니다.</p>
+        </div>
+      </article>
+
+      <article class="lesson-item" id="lesson-r3">
+        <span class="lesson-num">03</span>
+        <h3>이야기 글쓰기 · 말하기</h3>
+        <div class="lesson-body">
+          <p>점점 <em>이야기 말하기 쪽 비중이 높아지고 있습니다.</em> 배워서 잘 쓰는 학생들을 걸러내려는 것이 아닐까 합니다. 시놉시스나 로그라인, 이야기를 말로 전달하는 것이 이제 쓰는 것만큼 중요합니다. 똑같은 이야기라도, 심지어 재미없는 이야기라도 잘 전달하는 학생에게서 연출자로서의 역량을 보는 것일 수 있습니다.</p>
+          <p>기본적인 이야기의 원칙들을 배우되, 먼저 학생의 실력을 진단하는 과정을 거칩니다. 다른 학생들의 글을 직접 피드백해보는 세션을 통해 스스로 문제를 파악하고 개선하는 과정도 거칩니다.</p>
+          <p>대부분 학생들의 고질적인 문제부터 체크합니다. 소설처럼 쓰기, 배경 설명부터 시작하기, 씬 나누는 개념 없음, 대사 활용 안 하기, 인물 간 말투가 다 비슷한 것 등 구조적인 것부터 지엽적인 것까지 다양합니다.</p>
+          <p>이야기를 잘 쓰는 건 크게 두 가지입니다. <em>이야기 구성을 잘 하는 것(플롯팅)과 같은 장면을 잘 표현하는 것(장면화).</em> 둘 다 있으면 95점을 돌파하고, 하나만 잘 해도 80점은 넘습니다. 시간이 있으면 둘 다 잡고, 부족하면 강점을 극대화합니다.</p>
+          <p>글 하나를 쓰더라도 95점 가까이 나아지도록 써볼 필요가 있습니다. 매주 새로운 과제로 피드백 한 번 받고 또 새 글을 쓰는 건 제자리걸음일 수 있습니다.</p>
+          <p>이야기 쓰기의 또 다른 어려움은 제시되는 이미지, 단어, 문장, 글을 보고 쓰는 것입니다. 여기서 필요한 건 <em>상상력 훈련</em>입니다. 상상력이 부족한 학생도 논리적인 방법으로 훈련할 수 있습니다.</p>
+          <p>원리는 처음 떠오르는 것들을 뒤집는 것입니다. 세세하게 쪼개서 속성들을 하나씩 뒤집어야 합니다. 상상력이란 게 원래 그렇기도 하지만, 전략적으로 남들과 다른 방향의 글을 써야 기억에 남을 수 있기 때문입니다.</p>
+          <p>아이와 할아버지가 서 있는 이미지라면 — 아이가 아이가 아니다. 할아버지가 할아버지가 아니다. 두 사람이 있지만 같이 있는 게 아니다. 이런 방향으로 접근하는 것부터가 시작입니다.</p>
+          <p>글쓰기와 함께, 이야기를 말로 전달하는 구술 준비도 별도로 필요합니다. 어느 정도 집중시킬 수 있는 전달력을 갖춰야 합니다.</p>
+        </div>
+      </article>
+
+      <p class="lesson-group-title">선택 수업</p>
+
+      <article class="lesson-item" id="lesson-o1">
+        <span class="lesson-num">01</span>
+        <h3>시나리오 분석</h3>
+        <div class="lesson-body">
+          <p><em>배우면 바로 터득할 수 있는 영역</em>입니다.</p>
+          <p>출제자가 이 시험에서 무엇을 평가하려는지 이해해야 합니다. 세부 전공도 있지만 크게는 영화 연출자, 감독을 뽑는 시험입니다.</p>
+          <p>영화 감독이 시나리오를 읽고 어떻게 찍을지 스탭들에게 설명하는 순간이 대답이 됩니다. 시나리오 이전을 분석할지, 이후를 예측할지, 그게 중요한 시나리오라면 그것을 대답합니다.</p>
+          <p>기본적으로는 이 씬의 단서들을 보고 어떤 느낌이 전달되어야 하는지, 그래서 어떻게 연출하겠다는 — 감독의 해석이 필요합니다.</p>
+        </div>
+      </article>
+
+      <article class="lesson-item" id="lesson-o2">
+        <span class="lesson-num">02</span>
+        <h3>영화 비평</h3>
+        <div class="lesson-body">
+          <p>비평을 가르치는 곳은 잘 없지만, <em>비평을 통해 영화 보는 눈이 키워지고 내 영화에 대한 수준도 높아집니다.</em></p>
+          <p>비평은 주제를 다루는 영역이 아닙니다. 영화에 대한 느낌을 먼저 정리하고, 왜를 찾아가는 과정입니다.</p>
+          <p>그 왜에 설득력을 더하기 위해 시대나 감독에 대한 이해가 필요할 수도 있고, 촬영·편집·음향·색보정 등 기술적인 근거를 찾을 수도 있습니다. 더 크게는 몽타주나 미장센 같은 일관된 스타일을 찾아내거나, 주제를 상징하는 물건이나 설정을 발견하기도 합니다.</p>
+          <p>비평을 잘 하려면 결국 모든 영화적 요소들을 배워야 합니다. 피리어드가 직접 심층 분석한 자료로 먼저 어떻게 하는지 배울 수 있습니다.</p>
+        </div>
+      </article>
+
+      <article class="lesson-item" id="lesson-o3">
+        <span class="lesson-num">03</span>
+        <h3>단편 영화 제작</h3>
+        <div class="lesson-body">
+          <p>일반고 고3 학생들이 경험이 없을 땐 준비가 어렵습니다. 한 번도 만들어보지 않고 만드는 사람이 되고 싶다고 설득하려면, 보는 것을 어마어마하게 좋아해야 합니다.</p>
+          <p>하지만 <em>생각보다 쉽게 만들어볼 수 있습니다.</em> 잘 만드는 게 중요한 게 아닙니다. 그 과정을 겪어보면서 — 감독이 얼마나 챙길 게 많은지, 내 생각을 표현해내는 게 얼마나 어려운지 — 직접 느껴봐야 합니다. 그래야 제대로 배우기 위해 영화과에 진학하려는 에너지가 생깁니다.</p>
+          <p>그동안 거쳐간 후배들과 학교 선후배를 통해 영화 촬영 환경을 쉽게 제공할 수 있습니다.</p>
+        </div>
+      </article>
+
+      <div style="margin-top:3rem;text-align:center">
+        <button class="btn btn-blue btn-lg" onclick="showPage('consultation')">무료 상담 신청</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ REVIEWS ══════════ -->
+<main class="page" id="reviews">
+  <div class="reviews-header">
+    <p class="eyebrow">Reviews</p>
+    <h2 class="sec-title">후기</h2>
+    <div class="personal-note" style="max-width:720px">
+      <p>후기를 보는 이유는 학원이나 과외 선생님 말만 믿기 힘들기 때문임을 잘 알고 있습니다. 하지만 후기조차 어느 정도 좋아 해준 사람만 쓰기도 하니, <em>사실 한 번 대화 나눠보는 게 더 좋다고 생각합니다.</em></p>
+      <p>하지만 또 열심히 저에게 고마움을 표현해준 학생들이 있기에 후기를 공유합니다. 대신 피리어드의 수업 후기도 업로드 예정입니다.</p>
+    </div>
+  </div>
+  <div class="reviews-grid-wrap">
+    <div class="reviews-grid">
+      <div class="student-card">
+        <div class="student-head">
+          <span class="s-school">서경대 · 수원대 · 청주대</span>
+        </div>
+        <div class="review-row">
+          <p class="r-title">내신 4~6등급, 인서울은 꿈도 못 꿨습니다</p>
+          <ul>
+            <li>낮은 내신을 전략으로 뒤집어 수도권 대학 2곳 합격</li>
+            <li>학교별 전형 유형 분석으로 "갈 수 있는 학교"를 정확히 겨냥</li>
+            <li>면접지 한 줄도 못 쓰던 상태에서 나만의 면접지를 완성</li>
+          </ul>
+          <a href="https://blog.naver.com/songtorytelling/224232899616" target="_blank" class="r-link">자세히 보기 →</a>
+        </div>
+      </div>
+
+      <div class="student-card">
+        <div class="student-head">
+          <span class="s-school">한국예술종합학교</span>
+          <span class="s-year">2023</span>
+        </div>
+        <div class="review-row">
+          <p class="r-title">어디에도 없는, 미친 듯이 상세한 피드백이었습니다</p>
+          <ul>
+            <li>주입식이 아닌 '생각하는 힘' — 매주 상세한 피드백으로 나만의 스타일을 찾아냄</li>
+            <li>카페 인물 노트, 버스 종점 가보기 등 책상 밖 관찰 과제로 시선을 단련</li>
+            <li>어드쌤(실기·글쓰기) + 피리쌤(논술·미디어) 2인 코칭으로 한예종까지 대비</li>
+          </ul>
+          <a href="https://blog.naver.com/songtorytelling/224243318803" target="_blank" class="r-link">자세히 보기 →</a>
+        </div>
+      </div>
+
+      <div class="student-card">
+        <div class="student-head">
+          <span class="s-school">서경대</span>
+        </div>
+        <div class="review-row">
+          <p class="r-title">추천 부탁 받으면 고민도 없이 0.1초 만에 추천합니다</p>
+          <ul>
+            <li>한 달 만에 성격·사고방식을 파악해 나만의 언어와 시선을 끌어냄</li>
+            <li>기술이 아니라 나라는 사람을 먼저 이해하는 수업</li>
+            <li>입시 이후에도 이어지는 관계 — 추천한 후배도 서울예대·서경대 합격</li>
+          </ul>
+          <a href="https://blog.naver.com/songtorytelling/224243310175" target="_blank" class="r-link">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ CONSULTATION ══════════ -->
+<main class="page" id="consultation">
+  <div class="consult-wrap">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 class="sec-title">상담 신청</h2>
+
+      <div class="personal-note">
+        <p>학생이든 학부모든, 아무것도 준비 안 했든 학원을 다니고 있든 — 어떤 상황에서든 편하게 상담하시면 됩니다. <em>돈도 안 드는데 망설일 필요 없습니다.</em></p>
+        <p>과외를 하라고 강요하지 않습니다. 저의 생계이니 같이 수업하면 더 좋지만, 사실 어떻게든 안타까운 학생들이 나아지길 바라는 마음이 더 큽니다. 해주고 싶은 말이 너무 많기에, 한 명이라도 더 대화해보고 싶습니다.</p>
+        <p>연락처를 남겨주셔도 좋고, 아래 제 연락처로 직접 연락주셔도 좋습니다. <em>늦은 새벽도 상관없습니다.</em></p>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <h3>신청해 주셔서 감사합니다.</h3>
+        <p>빠른 시간 내에 연락드리겠습니다.</p>
+      </div>
+
+      <form class="simple-form" id="consultForm">
+        <input type="hidden" name="type" value="상담 신청">
+        <input type="hidden" name="email" value="film317@naver.com">
+        <input type="hidden" name="_subject" value="[피리어드] 홈페이지 상담 신청">
+
+        <div class="form-group">
+          <label>연락처 <span class="req">*</span></label>
+          <p class="desc">휴대폰 번호</p>
+          <input type="text" name="phone" placeholder="010-0000-0000" required>
+        </div>
+
+        <div class="form-group">
+          <label>더 남기고 싶은 말 (선택)</label>
+          <p class="desc">지금 상황, 연락하기 좋은 시간대 등 — 편하게 적어주세요.</p>
+          <textarea name="message" rows="6" placeholder="자유롭게 작성해 주세요."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-blue btn-lg" style="width:100%" id="consultSubmit">상담 신청</button>
+      </form>
+    </div>
+
+    <div>
+      <div class="direct-contact">
+        <h3>직접 연락</h3>
+        <a href="tel:010-2781-8621">📞 010-2781-8621</a>
+        <a href="mailto:film317@naver.com">✉️ film317@naver.com</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    © 2025 피리어드 영화입시 과외<br>
+    사업자등록번호 245-94-02309<br>
+    film317@naver.com · 010-2781-8621
+  </div>
+</footer>
+
+<script>
+const pages = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('.nav-btn');
+const validPages = ['home','class','reviews','consultation'];
+
+function showPage(name) {
+  if (!validPages.includes(name)) name = 'home';
+  pages.forEach(p => p.classList.remove('active'));
+  navBtns.forEach(b => b.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  const btn = document.querySelector(`.nav-btn[data-page="${name}"]`);
+  if (btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  history.pushState({page:name}, '', '#' + name);
+}
+
+navBtns.forEach(b => b.addEventListener('click', () => showPage(b.dataset.page)));
+
+const initHash = location.hash.replace('#','');
+if (initHash && validPages.includes(initHash)) showPage(initHash);
+
+window.addEventListener('popstate', () => {
+  const hash = location.hash.replace('#','');
+  showPage(hash && validPages.includes(hash) ? hash : 'home');
+});
+
+// 수업 사이드 내비 스크롤스파이
+(function(){
+  const sideLinks = document.querySelectorAll('.class-sidenav a');
+  const items = document.querySelectorAll('.lesson-item');
+  if (!sideLinks.length) return;
+
+  function setActive(id) {
+    sideLinks.forEach(a => a.classList.remove('active'));
+    const target = document.querySelector(`.class-sidenav a[href="#${id}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  sideLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.getElementById(a.getAttribute('href').slice(1));
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length) {
+      visible.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      setActive(visible[0].target.id);
+    }
+  }, {rootMargin:'-120px 0px -55% 0px', threshold:0});
+
+  items.forEach(it => observer.observe(it));
+  if (items.length) setActive(items[0].id);
+})();
+
+// 상담 폼
+document.getElementById('consultForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('consultSubmit');
+  const orig = btn.textContent;
+  btn.textContent = '제출 중...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/xgopvzoe', {
+      method:'POST',
+      body:new FormData(this),
+      headers:{'Accept':'application/json'}
+    });
+    if (res.ok) {
+      this.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      btn.textContent = orig;
+      btn.disabled = false;
+      alert('오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+    }
+  } catch(err) {
+    btn.textContent = orig;
+    btn.disabled = false;
+    alert('오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+  }
+});
+</script>
+
+</body>
+</html>
