@@ -291,6 +291,10 @@ period317.github.io/
 | 2026-04-21 | Google Search Console / 네이버 서치어드바이저 재제출 | 사이트맵 + 메인 URL 수집 요청 완료 (수동) |
 | 2026-04-21 | 상담 폼 Formspree 장애 해결 | 원인: 한글 필드명(`연락처`, `상세내용`) + `email` 필드 부재 → 400 Bad Request. 영어 필드명(`phone`, `message`, `type`) + hidden email 추가로 해결. Telegram 정상 수신 확인, commit: e38c45b |
 | 2026-04-21 | 푸터 이메일 통일 | `film317@naver.com` → `hhp621@naver.com`, commit: abf3e95 |
+| 2026-09-14 (맥북) | h1 태그 추가 + og:image 정식 제작(1200x630) | GitHub push (commit: a56e912, 1eeeacd) |
+| 2026-09-14 (맥북) | posts.json에 Notion 발행완료 글 6개 반영 (10→16개) | GitHub push (commit: 1eeeacd) |
+| 2026-09-14 (맥북) | 상담 폼(Formspree→Telegram) 실제 제출 테스트 | 정상 수신 확인 |
+| 2026-09-14 (맥북) | Google Search Console 색인 생성 요청 + sitemap.xml 제출 | 결과는 며칠~2주 후 재확인 필요 |
 
 ---
 
