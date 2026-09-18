@@ -1,0 +1,10 @@
+﻿{
+  "school_id": "cau",
+  "school_name": "중앙대학교",
+  "dept": "영화학과",
+  "exam_structure": {
+    "note": "추가 예정"
+  },
+  "exams": [],
+  "past_keywords": []
+}

@@ -1,0 +1,66 @@
+{
+  "title": "영화과 입시 연계 시나리오 대회",
+  "note": "수상 실적이 해당 대학 입시에 유리하게 작용. 고2 학생은 고3 진입 전(보통 7~8월)에 준비 필요.",
+  "competitions": [
+    {
+      "id": "sejong-youth-scenario",
+      "name": "세종 청소년 시나리오 창작대회",
+      "organizer": "세종대학교 영화예술학과",
+      "related_school": "sejong",
+      "official_site": "https://dept.sejong.ac.kr/moviedpt/board/youth-scenario-creation-contest.do",
+      "history": [
+        { "no": 27, "year": 2026, "date": "2026-08-07", "apply_period": "2026-06-30 ~ 2026-07-13" },
+        { "no": 26, "year": 2025, "date": "2025-08" },
+        { "no": 24, "year": "2023" }
+      ],
+      "exam_format": {
+        "type": "단편영화 시나리오 작성",
+        "keywords": "5개 주제어 중 1개 당일 추첨",
+        "duration": "4시간",
+        "answer_format": ["작품의도", "인물설정", "줄거리"]
+      },
+      "eligibility": "청소년(고교생 중심)",
+      "fee": "유료 (유웨이어플라이 접수)",
+      "admission_benefit": "세종대 영화예술학과 수시 입시 연계 대회. 수상 시 실적 기재 가능.",
+      "schedule_pattern": "매년 6월 말~7월 접수, 8월 초 대회 (28회는 2027년 7~8월 예상)",
+      "next_deadline_watch": {
+        "apply_opens": "2027년 6월 말 예상",
+        "apply_closes": "2027년 7월 중순 예상 (2026년 기준: 7월 13일 마감)",
+        "exam_date": "2027년 8월 초 예상 (2026년 기준: 8월 7일)",
+        "action": "⚠️ 6월 초에 세종대 영화예술학과 홈페이지 확인 필수",
+        "url": "https://dept.sejong.ac.kr/moviedpt/board/youth-scenario-creation-contest.do"
+      },
+      "notes": "세종대 수시 기출과 동일한 형식(주제어+스토리구성). 실전 연습 + 수상 기회 동시에."
+    },
+    {
+      "id": "sungkyul-1622-scenario",
+      "name": "성결대학교 1622 시나리오 창작 콩쿠르",
+      "organizer": "성결대학교 영화영상학과",
+      "related_school": "sungkyul",
+      "official_site": "https://www.skucon.kr",
+      "history": [
+        { "no": 3, "year": 2026, "date": "2026-08-17", "apply_period": "2026-06-08 ~" },
+        { "no": 2, "year": 2025, "date": "2025-08-23", "apply_period": "2025-06-23 ~ 2025-08-01" },
+        { "no": 1, "year": 2024 }
+      ],
+      "exam_format": {
+        "type": "시나리오/수필/소설/희곡 자유 형식",
+        "keywords": "당일 5개 주제어 중 1개 추첨",
+        "length": "5~20분 분량 단편",
+        "note": "성결대 수시 구술피칭과 동일한 제시어 방식"
+      },
+      "eligibility": "만 16세 이상 만 22세 이하 (학력 무관)",
+      "fee": "60,000원 (온라인 결제)",
+      "admission_benefit": "성결대 영화영상학과 연계 대회. 수상 시 입시 실적 활용 가능.",
+      "schedule_pattern": "매년 6월 접수, 8월 중순 대회 (4회는 2027년 6~8월 예상)",
+      "next_deadline_watch": {
+        "apply_opens": "2027년 6월 초 예상 (2026년 기준: 6월 8일 오픈)",
+        "apply_closes": "2027년 7월 말~8월 초 예상 (2025년 기준: 8월 1일 마감)",
+        "exam_date": "2027년 8월 중순 예상 (2026년 기준: 8월 17일)",
+        "action": "⚠️ 5월 말에 skucon.kr 확인 필수 — 접수 오픈 놓치면 참가 불가",
+        "url": "https://www.skucon.kr"
+      },
+      "notes": "1622는 성결대 설립연도 1916과 영화영상학과 전화번호 끝자리 22 합성. 당일 추첨 방식이 실제 수시와 동일 — 모의고사 효과."
+    }
+  ]
+}

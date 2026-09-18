@@ -117,20 +117,36 @@ button{font-family:inherit}
   position:relative;
   padding:0 0.5rem;
   white-space:nowrap;
-  transition:color 0.15s;
+  transition:color 0.2s ease;
 }
+.nav-btn:hover{color:var(--text-2)}
 .nav-btn.active{color:var(--text);font-weight:800}
-.nav-btn.active::after{
+.nav-btn::after{
   content:"";position:absolute;left:1.25rem;right:1.25rem;bottom:0;
   height:2px;background:var(--pink);border-radius:2px;
+  transform:scaleX(0);
+  transition:transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+  transform-origin:center;
+}
+.nav-btn.active::after{
+  transform:scaleX(1);
 }
 
 /* ===== Page switching ===== */
-.page{display:none}
+.page{
+  display:none;
+  opacity:0;
+  transform:translateY(10px);
+}
 .page.active{
   display:block;background:#ffffff;
   max-width:var(--max);margin:0 auto;
   box-shadow:0 0 0 1px var(--border);
+}
+.page.visible{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity 0.28s ease, transform 0.28s ease;
 }
 
 /* ===== Shared ===== */
@@ -157,10 +173,11 @@ button{font-family:inherit}
   border:0;border-radius:var(--radius);
   font-size:0.9375rem;font-weight:700;
   cursor:pointer;
-  transition:transform 0.1s,background 0.15s,border-color 0.15s;
+  transition:transform 0.16s cubic-bezier(0.34,1.56,0.64,1), background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
   font-family:inherit;
 }
-.btn:active{transform:scale(0.98)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.1)}
+.btn:active{transform:scale(0.97) translateY(0);box-shadow:none;transition-duration:0.08s}
 .btn-primary{background:var(--text);color:#fff}
 .btn-primary:hover{background:#000}
 .btn-pink{background:var(--pink);color:#fff}
@@ -601,6 +618,80 @@ button{font-family:inherit}
   line-height:1.7;background:#fff;
   box-shadow:0 0 0 1px var(--border);
 }
+#admin-trigger{cursor:default;user-select:none}
+
+/* ===== Exams DB (hidden admin) ===== */
+.nav-btn[data-page="exams-db"]{display:none}
+.nav-btn[data-page="exams-db"].unlocked{display:flex;color:#b35c00}
+.nav-btn[data-page="exams-db"].unlocked.active{color:#b35c00;font-weight:800}
+.nav-btn[data-page="exams-db"].unlocked.active::after{background:#b35c00}
+
+.exdb-wrap{padding:2rem 1.25rem 5rem}
+.exdb-banner{background:#fff8e1;border:1px solid #f0d674;border-radius:8px;padding:.75rem 1rem;margin-bottom:1.5rem;font-size:.8125rem;color:#7a5700;line-height:1.6}
+.exdb-schools{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.exdb-chip{padding:.375rem .875rem;border:1px solid var(--border-mid);border-radius:20px;font-size:.8125rem;font-weight:600;cursor:pointer;background:#fff;color:var(--text-2);transition:all .15s}
+.exdb-chip:hover{border-color:var(--text);color:var(--text)}
+.exdb-chip.sel{background:var(--text);color:#fff;border-color:var(--text)}
+.exdb-detail{display:none}
+.exdb-detail.on{display:block}
+.exdb-school-name{font-size:1.25rem;font-weight:800;letter-spacing:-.3px;margin-bottom:.25rem}
+.exdb-school-dept{font-size:.875rem;color:var(--text-3);margin-bottom:.25rem}
+.exdb-structure{font-size:.8125rem;color:var(--text-2);background:var(--muted);padding:.625rem .875rem;border-radius:6px;margin-bottom:1.25rem;line-height:1.6}
+.exdb-exam-card{border:1px solid var(--border);border-radius:10px;padding:1.125rem;margin-bottom:.875rem;background:#fff}
+.exdb-exam-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;flex-wrap:wrap}
+.exdb-year-tag{font-size:.8125rem;font-weight:800;color:var(--pink)}
+.exdb-sem{font-size:.6875rem;font-weight:700;background:#e8f2fe;color:var(--pink);padding:.15rem .5rem;border-radius:4px}
+.exdb-type{font-size:.6875rem;font-weight:600;color:var(--text-3);background:#f4f4f6;padding:.15rem .5rem;border-radius:4px}
+.exdb-kws{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.75rem}
+.exdb-kw{padding:.2rem .6rem;background:#f4f4f6;border-radius:4px;font-size:.8125rem;font-weight:600;color:var(--text)}
+.exdb-prompt{font-size:.875rem;line-height:1.85;color:var(--text-2);white-space:pre-wrap;background:#fafafa;padding:.875rem 1rem;border-radius:8px;border:1px solid var(--border)}
+.exdb-summary{font-size:.8125rem;color:var(--text-3);font-style:italic;margin-top:.5rem;line-height:1.6}
+.exdb-poem{font-size:.875rem;line-height:2;color:var(--text);white-space:pre-wrap;background:#fafafa;padding:.875rem 1rem;border-radius:8px;border:1px solid var(--border);font-family:'Noto Serif KR',Georgia,serif}
+.exdb-poem-title{font-size:.75rem;font-weight:700;color:var(--text-3);margin-bottom:.375rem}
+.exdb-q{margin-bottom:.875rem;padding-bottom:.875rem;border-bottom:1px solid var(--border)}
+.exdb-q:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.exdb-q-no{font-size:.75rem;font-weight:800;color:var(--pink);margin-bottom:.375rem}
+.exdb-loading{text-align:center;padding:3rem;color:var(--text-3);font-size:.9375rem}
+.exdb-stat-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.exdb-stat{font-size:.75rem;color:var(--text-3);background:#f4f4f6;padding:.3rem .75rem;border-radius:20px}
+.exdb-stat strong{color:var(--text);font-weight:700}
+
+/* ===== Scroll fade-in ===== */
+.fade-up{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.4s ease, transform 0.4s ease;
+}
+.fade-up.in{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== Header transitions ===== */
+.site-header{
+  transition:box-shadow 0.25s ease;
+}
+.site-header.scrolled{
+  box-shadow:0 2px 16px rgba(0,0,0,0.07);
+}
+
+/* ===== Brand hover ===== */
+.brand{transition:opacity 0.15s ease}
+.brand:hover{opacity:0.75}
+
+/* ===== Card / block hover ===== */
+.review-item{
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.review-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.07);
+}
+.lesson-item{
+  transition:background 0.15s ease;
+  border-radius:var(--radius);
+}
+.lesson-item:hover{background:rgba(0,0,0,0.016)}
 
 /* ===== Preview banner ===== */
 .preview-banner{
@@ -639,6 +730,7 @@ button{font-family:inherit}
       <button class="nav-btn" data-page="class">수업</button>
       <button class="nav-btn" data-page="reviews">후기</button>
       <button class="nav-btn" data-page="consultation">상담</button>
+      <button class="nav-btn" data-page="exams-db">기출 DB</button>
     </nav>
   </div>
 </header>
@@ -999,8 +1091,21 @@ button{font-family:inherit}
 
 </main>
 
+<!-- ========== EXAMS DB (hidden admin) ========== -->
+<main class="page" id="exams-db">
+  <div class="exdb-wrap">
+    <p class="section-eyebrow">Admin · 기출 DB</p>
+    <h2 class="section-title" style="margin-bottom:.5rem">영화과 기출 데이터베이스</h2>
+    <div class="exdb-banner">⚠️ 작업 중 페이지입니다. 외부 공개 전 데이터 보완 중. — 학교 칩 클릭 시 해당 기출 데이터 표시</div>
+
+    <div class="exdb-stat-row" id="exdb-meta"></div>
+    <div class="exdb-schools" id="exdb-schools"><span class="exdb-loading">데이터 로딩 중…</span></div>
+    <div id="exdb-detail" class="exdb-detail"></div>
+  </div>
+</main>
+
 <footer class="site-footer">
-  © 2025 피리어드 영화입시 과외<br>
+  © <span id="admin-trigger">2025</span> 피리어드 영화입시 과외<br>
   사업자등록번호 245-94-02309<br>
   film317@naver.com · 010-2781-8621<br>
   <a href="#" onclick="openMaterials(event)" style="color:var(--text-3);text-decoration:underline;text-underline-offset:3px;font-size:0.6875rem;letter-spacing:.5px;margin-top:.5rem;display:inline-block">수강생 자료실</a>
@@ -1017,6 +1122,162 @@ function openMaterials(e){
 </script>
 
 <script>
+  // ===== Admin unlock (footer 연도 5회 클릭) =====
+  (function(){
+    const trigger = document.getElementById('admin-trigger');
+    let clicks = 0, timer = null;
+    const NEEDED = 5, WINDOW = 3000;
+    trigger.addEventListener('click', () => {
+      clicks++;
+      clearTimeout(timer);
+      if (clicks >= NEEDED) {
+        clicks = 0;
+        unlockExamsDB();
+      } else {
+        timer = setTimeout(() => { clicks = 0; }, WINDOW);
+      }
+    });
+  })();
+
+  function unlockExamsDB() {
+    const btn = document.querySelector('.nav-btn[data-page="exams-db"]');
+    if (btn.classList.contains('unlocked')) {
+      showPage('exams-db');
+      return;
+    }
+    btn.classList.add('unlocked');
+    validPages.push('exams-db');
+    loadExamsDB();
+    showPage('exams-db');
+  }
+
+  // ===== Exams DB loader =====
+  let examsDBLoaded = false;
+  async function loadExamsDB() {
+    if (examsDBLoaded) return;
+    examsDBLoaded = true;
+    try {
+      const idx = await fetch('./materials/exams-db/index.json').then(r => r.json());
+      renderSchoolChips(idx.schools || idx);
+    } catch(e) {
+      document.getElementById('exdb-schools').innerHTML = '<p style="color:#c00;font-size:.875rem">index.json 로드 실패: ' + e.message + '</p>';
+    }
+  }
+
+  function renderSchoolChips(schools) {
+    const container = document.getElementById('exdb-schools');
+    const meta = document.getElementById('exdb-meta');
+    meta.innerHTML = '<span class="exdb-stat"><strong>' + schools.length + '</strong>개 학교</span>';
+    container.innerHTML = schools.map(s => {
+      const suffix = s.dept && s.dept.match(/\([^)]+\)/) ? ' ' + s.dept.match(/\([^)]+\)/)[0] : '';
+      return '<button class="exdb-chip" data-id="' + s.id + '" title="' + (s.dept||'') + '">' + s.no + '. ' + s.name + suffix + '</button>';
+    }).join('');
+    container.querySelectorAll('.exdb-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        container.querySelectorAll('.exdb-chip').forEach(c => c.classList.remove('sel'));
+        chip.classList.add('sel');
+        loadSchoolDetail(chip.dataset.id);
+      });
+    });
+  }
+
+  async function loadSchoolDetail(schoolId) {
+    const detail = document.getElementById('exdb-detail');
+    detail.className = 'exdb-detail on';
+    detail.innerHTML = '<div class="exdb-loading">로딩 중…</div>';
+    try {
+      const data = await fetch('./materials/exams-db/' + schoolId + '.json').then(r => r.json());
+      detail.innerHTML = renderSchoolDetail(data);
+    } catch(e) {
+      detail.innerHTML = '<p style="color:#c00;font-size:.875rem;padding:1rem 0">' + schoolId + '.json 없음 또는 로드 실패</p>';
+    }
+  }
+
+  function renderSchoolDetail(d) {
+    const exams = d.exams || [];
+    let html = '<div class="exdb-school-name">' + d.school_name + '</div>';
+    html += '<div class="exdb-school-dept">' + (d.dept || '') + '</div>';
+    if (d.exam_structure) {
+      const s = d.exam_structure;
+      const parts = Object.entries(s).filter(([k]) => k !== 'answer_format').map(([k,v]) => '<b>' + k + ':</b> ' + v).join(' &nbsp;·&nbsp; ');
+      html += '<div class="exdb-structure">' + parts + '</div>';
+    }
+    html += '<div style="font-size:.75rem;font-weight:800;color:var(--text-3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.75rem">' + exams.length + '개 기출</div>';
+
+    exams.forEach(ex => {
+      html += '<div class="exdb-exam-card">';
+      html += '<div class="exdb-exam-head">';
+      html += '<span class="exdb-year-tag">' + (ex.year || '?') + '</span>';
+      if (ex.semester) html += '<span class="exdb-sem">' + ex.semester + '</span>';
+      if (ex.stage) html += '<span class="exdb-type">' + ex.stage + '</span>';
+      if (ex.type) html += '<span class="exdb-type">' + ex.type + '</span>';
+      html += '</div>';
+
+      // keywords
+      const kws = ex.keywords || [];
+      if (kws.length) {
+        html += '<div class="exdb-kws">' + kws.map(k => '<span class="exdb-kw">' + k + '</span>').join('') + '</div>';
+      }
+      // keyword sets (성결대 등)
+      if (ex.keywords_sets) {
+        ex.keywords_sets.forEach((set, i) => {
+          html += '<div style="margin-bottom:.5rem"><span style="font-size:.75rem;color:var(--text-3);margin-right:.5rem">세트 ' + (i+1) + '</span>';
+          html += '<span class="exdb-kws" style="display:inline-flex">' + (set.keywords||[]).map(k=>'<span class="exdb-kw">'+k+'</span>').join('') + '</span>';
+          if (set.emotion) html += ' <span style="font-size:.75rem;color:var(--pink)">감정: ' + set.emotion + '</span>';
+          html += '</div>';
+        });
+      }
+
+      // prompt
+      if (ex.prompt) {
+        html += '<div class="exdb-prompt">' + ex.prompt.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>';
+      } else if (ex.prompt_summary) {
+        html += '<div class="exdb-summary">요약: ' + ex.prompt_summary + '</div>';
+      }
+
+      // 시 기반 (국민대 등)
+      if (ex.source_poem) {
+        const p = ex.source_poem;
+        html += '<div class="exdb-poem-title">📜 ' + (p.poet||'') + '「' + (p.title||'') + '」</div>';
+        html += '<div class="exdb-poem">' + (p.text||'').replace(/</g,'&lt;') + '</div>';
+      }
+
+      // conditions
+      const conds = ex.conditions || [];
+      if (conds.length) {
+        html += '<ul style="margin:.625rem 0 0;padding-left:1.1rem">' + conds.map(c=>'<li style="font-size:.8125rem;color:var(--text-2);margin:.25rem 0">'+c+'</li>').join('') + '</ul>';
+      }
+
+      // questions (한예종 등)
+      if (ex.questions) {
+        ex.questions.forEach(q => {
+          html += '<div class="exdb-q">';
+          html += '<div class="exdb-q-no">문' + q.no + (q.score ? ' (' + q.score + '점)' : '') + '</div>';
+          html += '<p style="font-size:.875rem;color:var(--text-2);margin-bottom:.375rem">' + (q.desc||'') + '</p>';
+          if (q.conditions) html += '<ul style="margin:.375rem 0;padding-left:1.1rem">' + q.conditions.map(c=>'<li style="font-size:.8125rem;color:var(--text-2);margin:.2rem 0">'+c+'</li>').join('') + '</ul>';
+          if (q.length) html += '<span style="font-size:.75rem;color:var(--text-3)">✦ ' + q.length + '</span>';
+          html += '</div>';
+        });
+      }
+
+      // characters (한예종 등)
+      if (ex.characters) {
+        html += '<div style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap">' +
+          ex.characters.map(c=>'<span style="font-size:.8125rem;background:#f0f6fe;color:var(--pink);padding:.2rem .6rem;border-radius:4px"><b>'+c.id+'</b> '+c.desc+'</span>').join('') +
+          '</div>';
+      }
+
+      // notes
+      if (ex.notes) html += '<p style="margin-top:.625rem;font-size:.8125rem;color:var(--text-3);font-style:italic;line-height:1.6">' + ex.notes + '</p>';
+      if (ex.period_note) html += '<p style="margin-top:.5rem;font-size:.75rem;color:#b35c00;font-weight:700">★ ' + ex.period_note + '</p>';
+
+      html += '</div>'; // exam-card
+    });
+
+    // competitions / rates 등 추가 섹션은 나중에
+    return html;
+  }
+
   // ===== 페이지 전환 =====
   const pages = document.querySelectorAll('.page');
   const navBtns = document.querySelectorAll('.nav-btn');
@@ -1024,9 +1285,21 @@ function openMaterials(e){
 
   function showPage(name, updateHash = true) {
     if (!validPages.includes(name)) name = 'home';
-    pages.forEach(p => p.classList.remove('active'));
+    pages.forEach(p => { p.classList.remove('active'); p.classList.remove('visible'); });
     navBtns.forEach(b => b.classList.remove('active'));
-    document.getElementById(name).classList.add('active');
+    const target = document.getElementById(name);
+    target.classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      target.classList.add('visible');
+      // 페이지 전환 후 뷰포트 내 fade-up 요소 즉시 표시
+      setTimeout(() => {
+        target.querySelectorAll('.fade-up:not(.in)').forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight + 20) el.classList.add('in');
+        });
+      }, 80);
+    }));
     const btn = document.querySelector(`.nav-btn[data-page="${name}"]`);
     if (btn) btn.classList.add('active');
     window.scrollTo({top:0,behavior:'instant'});
@@ -1037,6 +1310,7 @@ function openMaterials(e){
 
   const initHash = location.hash.replace('#','');
   if (initHash) showPage(initHash, false);
+  else requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById('home').classList.add('visible')));
 
   window.addEventListener('popstate', () => {
     const hash = location.hash.replace('#','');
@@ -1090,6 +1364,35 @@ function openMaterials(e){
     items.forEach(it => observer.observe(it));
 
     setActive('lesson-r1');
+  })();
+
+  // ===== 헤더 스크롤 shadow =====
+  const hdr = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 4);
+  }, {passive:true});
+
+  // ===== 스크롤 fade-up =====
+  (function(){
+    const targets = [
+      '.intro-body p', '.core-block', '.review-item',
+      '.student-card', '.lesson-item', '.final-cta'
+    ];
+    const els = document.querySelectorAll(targets.join(','));
+    els.forEach(el => el.classList.add('fade-up'));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(el => obs.observe(el));
+    // 초기 뷰포트 안 요소 즉시 표시
+    requestAnimationFrame(() => {
+      els.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) el.classList.add('in');
+      });
+    });
   })();
 
   // ===== 상담 폼 제출 (Formspree → Telegram) =====

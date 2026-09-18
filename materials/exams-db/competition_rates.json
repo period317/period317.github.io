@@ -1,0 +1,20 @@
+{
+  "title": "영화과 실기 경쟁률",
+  "source": "2027학년도 기준 (수시 실기 경쟁률 높은 순)",
+  "years": [
+    {
+      "year": 2027,
+      "data": [
+        { "rank": 1, "school": "단국대",  "dept": "공연영화학부 영화전공(이론·연출·스텝)", "quota": 7,  "applicants": 766,  "rate": 109.43 },
+        { "rank": 2, "school": "중앙대",  "dept": "영화학과",                                 "quota": 8,  "applicants": 626,  "rate": 78.25  },
+        { "rank": 3, "school": "수원대",  "dept": "아트앤엔터테인먼트학부 영화예술",         "quota": 18, "applicants": 1079, "rate": 59.94  },
+        { "rank": 4, "school": "숭실대",  "dept": "예술창작학부(영화예술전공)",               "quota": 22, "applicants": 1269, "rate": 57.68  },
+        { "rank": 5, "school": "서경대",  "dept": "영화영상학과",                             "quota": 30, "applicants": 1682, "rate": 56.07  },
+        { "rank": 6, "school": "성결대",  "dept": "영화영상학과",                             "quota": 21, "applicants": 1176, "rate": 56.00  },
+        { "rank": 7, "school": "세종대",  "dept": "영화예술학과-연출제작",                   "quota": 23, "applicants": 1141, "rate": 49.61  },
+        { "rank": 8, "school": "용인대",  "dept": "영화영상학과",                             "quota": 18, "applicants": 875,  "rate": 48.61  },
+        { "rank": 9, "school": "국민대",  "dept": "공연예술학부 영화전공",                   "quota": 13, "applicants": 552,  "rate": 42.46  }
+      ]
+    }
+  ]
+}

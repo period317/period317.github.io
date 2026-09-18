@@ -1,0 +1,10 @@
+﻿{
+  "school_id": "skku",
+  "school_name": "성균관대학교",
+  "dept": "영상학과",
+  "exam_structure": {
+    "note": "추가 예정"
+  },
+  "exams": [],
+  "past_keywords": []
+}

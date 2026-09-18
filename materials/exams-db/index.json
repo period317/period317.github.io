@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "updated": "2026-09-18",
+  "schools": [
+    { "id": "hanarts-film",    "no": 1,  "name": "한국예술종합학교", "dept": "영화과",                    "admissions_page": "../admissions/01/", "exam_types": ["포트폴리오", "면접"] },
+    { "id": "hanarts-media",   "no": 2,  "name": "한국예술종합학교", "dept": "방송영상과",                "admissions_page": "../admissions/02/", "exam_types": ["포트폴리오", "면접"] },
+    { "id": "cau",             "no": 3,  "name": "중앙대학교",       "dept": "영화학과",                  "admissions_page": "../admissions/03/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "sejong",          "no": 4,  "name": "세종대학교",       "dept": "영화예술학과",              "admissions_page": "../admissions/04/", "exam_types": ["스토리구성", "발표면접"] },
+    { "id": "hanyang",         "no": 5,  "name": "한양대학교",       "dept": "연극영화학과 영화전공",     "admissions_page": "../admissions/05/", "exam_types": ["면접"] },
+    { "id": "konkuk",          "no": 6,  "name": "건국대학교",       "dept": "영화학과",                  "admissions_page": "../admissions/06/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "dankook-jukjeon", "no": 7,  "name": "단국대학교",       "dept": "영화콘텐츠전공 (죽전)",     "admissions_page": "../admissions/07/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "dankook-cheonan", "no": 8,  "name": "단국대학교",       "dept": "공연영화학부 영화전공 (천안)","admissions_page": "../admissions/08/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "seoularts",       "no": 9,  "name": "서울예술대학교",   "dept": "영화과",                    "admissions_page": "../admissions/09/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "chugye",          "no": 10, "name": "추계예술대학교",   "dept": "영화학과",                  "admissions_page": "../admissions/10/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "baekseok",        "no": 11, "name": "백석예술대학교",   "dept": "영화콘텐츠전공",            "admissions_page": "../admissions/11/", "exam_types": ["구술피칭", "면접"] },
+    { "id": "daejin",          "no": 12, "name": "대진대학교",       "dept": "영화방송학과",              "admissions_page": "../admissions/12/", "exam_types": ["면접"] },
+    { "id": "cheongju",        "no": 13, "name": "청주대학교",       "dept": "영화학과",                  "admissions_page": "../admissions/13/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "suwon",           "no": 14, "name": "수원대학교",       "dept": "영화영상학과",              "admissions_page": "../admissions/14/", "exam_types": ["면접"] },
+    { "id": "sangmyung",       "no": 15, "name": "상명대학교",       "dept": "영화전공",                  "admissions_page": "../admissions/15/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "seokyeong",       "no": 16, "name": "서경대학교",       "dept": "영화영상학과",              "admissions_page": "../admissions/16/", "exam_types": ["구술피칭", "면접"] },
+    { "id": "dongguk",         "no": 17, "name": "동국대학교",       "dept": "영화영상학과",              "admissions_page": "../admissions/17/", "exam_types": ["스토리구성", "면접"] },
+    { "id": "myongji",         "no": 18, "name": "명지대학교",       "dept": "영화학과",                  "admissions_page": "../admissions/18/", "exam_types": ["면접"] },
+    { "id": "skku",            "no": 19, "name": "성균관대학교",     "dept": "영상학과",                  "admissions_page": "../admissions/19/", "exam_types": ["면접"] },
+    { "id": "sungkyul",        "no": 20, "name": "성결대학교",       "dept": "연극영화학부 영화전공",     "admissions_page": null,               "exam_types": ["구술피칭"] },
+    { "id": "kaywon-highschool", "no": 21, "name": "계원예술고등학교", "dept": "연극영화과 (영화·연출 및 이론 스텝 전공)", "admissions_page": null, "school_type": "예고", "exam_types": ["창의적글쓰기"] },
+    { "id": "inha",              "no": 22, "name": "인하대학교",       "dept": "연극영화학과 영화전공",               "admissions_page": null,               "exam_types": ["시놉시스"] },
+    { "id": "kookmin",          "no": 23, "name": "국민대학교",       "dept": "공연예술학부 영화전공",               "admissions_page": null,               "exam_types": ["이야기재구성"] }
+  ],
+  "exam_types": {
+    "스토리구성": "제시문/제시어 기반 서술형 이야기 작성",
+    "구술피칭": "제시어 기반 이야기 구성 후 구술 발표",
+    "포트폴리오": "단편영화 등 작품 제출",
+    "발표면접": "작성한 내용을 면접관 앞에서 발표",
+    "면접": "인성·전공적합성 면접"
+  }
+}
